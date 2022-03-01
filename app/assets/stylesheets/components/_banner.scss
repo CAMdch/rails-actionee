@@ -1,0 +1,29 @@
+.banner-image {
+  height: 70vh;
+  background-size: cover;
+  h1 {
+    color: white;
+    font-weight: bolder;
+    width: 58%;
+  }
+}
+
+.main-title {
+  width: 100%;
+  letter-spacing: $letter-spacing;
+  padding-top: 15%;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+
+  a {
+    padding: 12px 48px;
+    background-color: #65C18C;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 2px;
+    width: 25%;
+    text-align: center;
+  }
+}

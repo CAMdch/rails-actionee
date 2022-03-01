@@ -1,0 +1,19 @@
+.card_reason {
+  background-color: #D8D2CB;
+  display: flex;
+  align-items: center;
+  padding: 80px 33px;
+  justify-content: center;
+  margin: 14px 20px;
+  text-align: center;
+  font-size: 20px;
+  width: 28%;
+  border-radius: 2px;
+
+  p {
+    margin: 0;
+    color: $dark-blue;
+    font-weight: bold;
+  }
+
+}

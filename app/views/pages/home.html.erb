@@ -46,9 +46,27 @@
               <p class="stock-value">3450 <span id="currency">USD</span></p>
             </div>
 
-            <div class="add">
-              <i class="fas fa-plus"></i>
-            </div>
+
+              <div class="add">
+                <% if user_signed_in? %>
+                  <%if @favorite_user.where('company_id = ?', company.id)[0].nil? %>
+
+                    <a href="#" id="company-<%= company.id %>" class="anchor"></a>
+                    <%= link_to company_favorites_path(company), method: :post, remote: true do%>
+                      <i class="fas fa-plus"></i>
+                    <%end%>
+
+                  <%else%>
+
+                    <a href="#" id="company-<%= company.id %>" class="anchor"></a>
+                    <%= link_to favorite_path(@favorite_user.where('company_id = ?', company.id)[0]), method: :delete, remote: true do%>
+                      <i class="fas fa-minus"></i>
+                    <%end%>
+
+                  <%end%>
+                <%end%>
+              </div>
+
 
           </div>
         <%end%>

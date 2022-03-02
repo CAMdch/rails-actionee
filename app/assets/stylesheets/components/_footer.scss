@@ -1,0 +1,15 @@
+.footer {
+  background-color: $dark-blue;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100px;
+  padding: 0px 50px;
+  color: white;
+}
+
+
+
+.fix-footer {
+  min-height: calc(100vh - 100px);
+}

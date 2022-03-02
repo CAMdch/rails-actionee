@@ -1,0 +1,102 @@
+.card-profile {
+  border: 1px solid $light-green;
+  margin: 35px 45px;
+  position: relative;
+}
+
+
+.company-profile-info{
+  display: flex;
+
+  img {
+    position: absolute;
+    top: -35px;
+    left: -35px;
+    border-radius: 50%;
+    border: 0.1px solid rgba($color: black, $alpha: 0.1);
+    background-color: white;
+    height: 70px;
+    width: 70px;
+    object-fit: cover;
+    margin: 10px;
+  }
+
+  h3 {
+    font-family: $headers-font;
+    font-style: normal;
+    margin-left: 70px;
+    font-weight: 600;
+    font-size: 23px;
+    line-height: 40px;
+
+    color: #000000;
+  }
+
+}
+
+.card-profile {
+  .stock-info {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 35px;
+    margin-right: 35px;
+    margin-bottom: 30px;
+    margin-top: 15px;
+
+    p {
+      font-size: 23px;
+      font-weight: bolder;
+      margin: 0;
+      padding-left: 3px;
+      padding-right: 3px;
+      padding-top: 0px;
+      padding-bottom: 0px;
+    }
+
+    #pourcentage, span{
+      font-weight: 100;
+      font-size: 14px;
+    }
+
+    .stock-number {
+      padding-bottom: 5px;
+      letter-spacing: 0.2em;
+    }
+    .stock-text {
+      color: grey;
+      letter-spacing: 5px;
+      font-weight: 100;
+      font-size: 12px;
+    }
+  }
+
+  .stock-status {
+    color: $light-green;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+  }
+
+  #buy, #sell {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 40px;
+    letter-spacing: 0.2em;
+    text-decoration: none;
+  }
+
+
+  #buy {
+    color: $light-green;
+    position: absolute;
+    bottom: 0px;
+    right: 95px;
+  }
+
+  #sell {
+    color: $light-red;
+    position: absolute;
+    bottom: 0px;
+    right: 15px;
+  }
+}

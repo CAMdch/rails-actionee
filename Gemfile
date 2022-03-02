@@ -70,3 +70,8 @@ gem 'pundit'
 
 #geocoder
 gem "geocoder"
+
+gem 'dotenv-rails', groups: [:development, :test]
+
+gem 'cloudinary', '~> 1.16.0'
+

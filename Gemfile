@@ -67,3 +67,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 #user
 gem 'devise'
 gem 'pundit'
+
+#geocoder
+gem "geocoder"

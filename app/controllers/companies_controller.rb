@@ -4,4 +4,11 @@ class CompaniesController < ApplicationController
     @favorite_user = Favorite.where('user_id = ?', current_user)
     authorize @companies
   end
+
+  def show
+    @company = Company.find(params[:id])
+    @favorite_user = Favorite.where('user_id = ?', current_user)
+    authorize @company
+    @marker = [{ lat: @company.latitude, lng: @company.longitude }]
+  end
 end

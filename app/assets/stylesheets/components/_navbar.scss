@@ -1,16 +1,38 @@
+.below-navbar{
+  padding-top: 85px;
+}
+
 .navbar-lewagon {
   justify-content: space-between;
   background: transparent;
+  padding: 0px;
 }
 .navbar-lewagon-blue {
   justify-content: space-between;
   background: $dark-blue;
 }
 
+.navbar-blue{
+  background: $dark-blue;
+}
+.navbar-brand {
+  h1 {
+    color: white;
+    font-family: $body-font;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 42px;
+    strong {
+      color: $light-blue;
+    }
+  }
+}
+
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
-}
+// .navbar-lewagon .navbar-brand img {
+//   // width: 40px;
+// }

@@ -36,8 +36,21 @@
         <h2>Top 3 of the day</h2>
         <% @top_3_companies.each do |company|%>
           <div class="card-company">
-            <%= company.name %>
-            <img src='<%= company.photo_url%>'>
+
+            <div class="company-info">
+              <img src='<%= company.photo_url%>'>
+              <h3><%= company.name %></h3>
+            </div>
+
+            <div class="stock-info">
+              <p class="stock-status">+ 1,36 <span id="pourcentage">%</span></p>
+              <p class="stock-value">3450 <span id="currency">USD</span></p>
+            </div>
+
+            <div class="add">
+              <i class="fas fa-plus"></i>
+            </div>
+
           </div>
         <%end%>
       </div>

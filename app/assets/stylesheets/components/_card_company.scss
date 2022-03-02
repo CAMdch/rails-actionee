@@ -21,14 +21,25 @@
 
 }
 
-
-.stock-info {
+.card-company .stock-info {
   display: flex;
   justify-content: space-between;
   margin-left: 105px;
   margin-right: 105px;
   margin-bottom: 25px;
   margin-top:15px;
+}
+
+.card-company-little .stock-info {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 105px;
+  margin-right: 47px;
+  margin-bottom: 4px;
+  margin-top:15px;
+}
+
+.card-company .stock-info, .card-company-little .stock-info {
 
   p {
     font-size: 23px;
@@ -45,8 +56,26 @@
   }
 }
 
+
+
 .add {
   position: absolute;
   top: 10px;
   right: 15px;
+}
+
+
+.card-company-little {
+  border: 1px solid $light-green;
+  position: relative;
+
+}
+
+
+.graph-company img {
+  width: 100%;
+}
+
+.companies {
+  margin: 40px 0;
 }

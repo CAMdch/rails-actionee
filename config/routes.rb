@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
+  resources :companies
+  get "/profiles", to: "profiles#dashboard", as: :porfile
 
   resources :companies do
     resources :favorites, only: %i[new create]

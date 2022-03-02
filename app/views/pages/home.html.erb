@@ -34,17 +34,18 @@
       <div class="body-part">
         <h2>Top 3 of the day</h2>
         <% @top_3_companies.each do |company|%>
-          <div class="card-company">
+          <div class="card-company companies-huge">
+            <%= link_to company_path(company) do%>
 
-            <div class="company-info">
-              <img src='<%= company.photo_url%>'>
-              <h3><%= company.name %></h3>
-            </div>
+              <div class="company-info">
+                <img src='<%= company.photo_url%>'>
+                <h3><%= company.name %></h3>
+              </div>
 
-            <div class="stock-info">
-              <p class="stock-status">+ 1,36 <span id="pourcentage">%</span></p>
-              <p class="stock-value">3450 <span id="currency">USD</span></p>
-            </div>
+              <div class="stock-info">
+                <p class="stock-status">+ 1,36 <span id="pourcentage">%</span></p>
+                <p class="stock-value">3450 <span id="currency">USD</span></p>
+              </div>
 
 
               <div class="add">
@@ -67,7 +68,7 @@
                 <%end%>
               </div>
 
-
+            <%end%>
           </div>
         <%end%>
       </div>

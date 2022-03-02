@@ -20,7 +20,7 @@
           <%# </li> %>
           <li class="nav-item dropdown">
               <i class="fas fa-bars"></i>
-              <%= image_tag "https://tse4.mm.bing.net/th?id=OIP.vAJEPP27RrrXc8H9WguukgHaHa&pid=Api&P=0&w=178&h=178", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false, :width => "40px"%>
+              <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false, :width => "40px"%>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Action", "#", class: "dropdown-item" %>
               <%= link_to "Another action", "#", class: "dropdown-item" %>

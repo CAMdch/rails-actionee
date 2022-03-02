@@ -59,4 +59,78 @@ broadcoam = Company.create!(name: 'Broadcoam', description: "Broadcom Inc. is an
 eli_lilly = Company.create!(name: 'Eli Lilly', description: "Eli Lilly and Company is an American pharmaceutical company headquartered in Indianapolis, Indiana, with offices in 18 countries. Its products are sold in approximately 125 countries. The company was founded in 1876 by, and named after, Colonel Eli Lilly, a pharmaceutical chemist and veteran of the American Civil War. Lilly's notable achievements include being the first company to mass-produce the polio vaccine developed by Jonas Salk, and insulin. It was one of the first pharmaceutical companies to produce human insulin using recombinant DNA including Humulin (insulin medication), Humalog (insulin lispro), and the first approved biosimilar insulin product in the US, Basaglar (insulin glargine). Lilly is currently the largest manufacturer of psychiatric medications and produces Prozac (fluoxetine), Dolophine (methadone), Cymbalta (duloxetine), and Zyprexa (olanzapine).", photo_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Eli_Lilly_and_Company.svg/1200px-Eli_Lilly_and_Company.svg.png', headquarter_city: 'Indianapolis, Indiana', web_site_url: 'https://www.lilly.com/', symbol: 'LLY')
 
 
+eco_friendly = Tag.create!(name: 'Eco Friendly')
+gender_equality = Tag.create!(name: 'Gender Equality')
+diversity_and_inclusion = Tag.create!(name: 'Diversity and Inclusion')
+handicap_support = Tag.create!(name: 'Handicap Support')
+fair_compensation = Tag.create!(name: 'Fair Compensation')
+no_animal_cruelty = Tag.create!(name: 'No Animal Cruelty')
+
+
+CompanyTag.create!(company: amazon, tag: fair_compensation)
+CompanyTag.create!(company: amazon, tag: gender_equality)
+
+CompanyTag.create!(company: apple, tag: eco_friendly)
+CompanyTag.create!(company: apple, tag: handicap_support)
+CompanyTag.create!(company: apple, tag: gender_equality)
+CompanyTag.create!(company: apple, tag: diversity_and_inclusion)
+
+CompanyTag.create!(company: tesla, tag: eco_friendly)
+CompanyTag.create!(company: tesla, tag: no_animal_cruelty)
+CompanyTag.create!(company: tesla, tag: handicap_support)
+
+CompanyTag.create!(company: walmart, tag: diversity_and_inclusion)
+
+CompanyTag.create!(company: microsoft, tag: diversity_and_inclusion)
+CompanyTag.create!(company: microsoft, tag: no_animal_cruelty)
+CompanyTag.create!(company: microsoft, tag: handicap_support)
+
+CompanyTag.create!(company: google, tag: fair_compensation)
+CompanyTag.create!(company: google, tag: no_animal_cruelty)
+CompanyTag.create!(company: google, tag: diversity_and_inclusion)
+CompanyTag.create!(company: google, tag: gender_equality)
+
+CompanyTag.create!(company: berkshire_hathaway, tag: no_animal_cruelty)
+CompanyTag.create!(company: berkshire_hathaway, tag: fair_compensation)
+
+CompanyTag.create!(company: nvdia, tag: diversity_and_inclusion)
+
+CompanyTag.create!(company: meta, tag: no_animal_cruelty)
+CompanyTag.create!(company: meta, tag: diversity_and_inclusion)
+CompanyTag.create!(company: meta, tag: gender_equality)
+
+CompanyTag.create!(company: visa, tag: no_animal_cruelty)
+
+CompanyTag.create!(company: united_health, tag: no_animal_cruelty)
+CompanyTag.create!(company: united_health, tag: handicap_support)
+
+CompanyTag.create!(company: jpmorgan_chase, tag: fair_compensation)
+
+CompanyTag.create!(company: johnson_johnson, tag: diversity_and_inclusion)
+
+CompanyTag.create!(company: procter_gamble, tag: diversity_and_inclusion)
+
+CompanyTag.create!(company: mastercard, tag: no_animal_cruelty)
+CompanyTag.create!(company: mastercard, tag: eco_friendly)
+
+CompanyTag.create!(company: bank_of_america, tag: handicap_support)
+
+CompanyTag.create!(company: home_depot, tag: no_animal_cruelty)
+CompanyTag.create!(company: home_depot, tag: fair_compensation)
+
+CompanyTag.create!(company: coca_cola, tag: no_animal_cruelty)
+CompanyTag.create!(company: coca_cola, tag: diversity_and_inclusion)
+
+CompanyTag.create!(company: walt_disney, tag: diversity_and_inclusion)
+CompanyTag.create!(company: walt_disney, tag: gender_equality)
+
+CompanyTag.create!(company: pfizer, tag: fair_compensation)
+
+CompanyTag.create!(company: abbvie, tag: fair_compensation)
+CompanyTag.create!(company: abbvie, tag: handicap_support)
+
+CompanyTag.create!(company: broadcoam, tag: no_animal_cruelty)
+
+CompanyTag.create!(company: eli_lilly, tag: gender_equality)
+
 puts 'Finished !'

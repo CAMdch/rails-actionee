@@ -47,7 +47,7 @@
                     </div>
                     <div class='stock-detail-row row p-1'>
                       <p class="col-6 stock-number ">-1000</p>
-                      <p class="col-6 stock-text " >USD stop-loss</p>
+                      <p class="col-6 stock-text " >USD stop-loss<i class="fas fa-pen-nib"></i></p>
                     </div>
                   </div>
                     <a data-buy-btn-target="buy" data-action="click->buy-btn#appearBuy" id='buy-far'>Buy</a>
@@ -144,6 +144,7 @@
             </div>
           </div>
         <%end%>
+
         <h3>untracked company cards with from to start tracking </h3>
         <% current_user.companies.each do |company|%>
           <div class="card-profile">
@@ -216,6 +217,7 @@
         <h1>Overview</h1>
       </div>
 
+=
     </div>
   </div>
 </div>

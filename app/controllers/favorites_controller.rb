@@ -13,6 +13,9 @@ class FavoritesController < ApplicationController
   def destroy
     @favorite = Favorite.find(params[:id])
     @company = @favorite.company
+    if TrackItem.tracked?(@favorite)
+      TrackItem.track(@favorite).map { |item| item.destroy }
+    end
     @favorite.destroy
     redirect_to request.referer + "#company-#{@company.id}"
     authorize @favorite

@@ -1,0 +1,49 @@
+.advice {
+  border: 1px solid $light-green;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 40px;
+  width: 40%;
+  margin: 45px auto;
+}
+
+
+.advice-status {
+  color: $light-green;
+  font-weight: bolder;
+  font-size: 25px;
+  margin: 0;
+}
+
+.price {
+  p {
+    margin: 0;
+  }
+
+  .currency-value, .pourcentage-value {
+    font-weight: bolder;
+    font-size: 20px;
+  }
+
+  .currency, .pourcentage{
+    font-weight: lighter;
+    font-size: 15px;
+  }
+
+  .pourcentage-value{
+    color: $light-green;
+  }
+}
+
+.graphique img {
+  width: 100%;
+}
+
+.community-advice h2{
+  font-size: 30px;
+  border-top: 1px solid $sand;
+  margin-top: 30px;
+  padding-top: 20px;
+  font-weight: bolder;
+}

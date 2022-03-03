@@ -1,104 +1,165 @@
 <div class="below-navbar">
-  <div class="body-part">
-    <div class="container containerPerso">
-        <h2>Favorites</h2>
-        <h3>tracked company cards</h3>
-        <% @top_3_companies.first(3).each do |company|%>
-          <div class="card-profile">
+  <div class="container containerPerso" data-controller="switch-active-dashboard">
 
-            <div class="company-profile-info">
-              <img src='<%= company.photo_url%>'>
-              <h3><%= company.name %></h3>
+      <div class="header-profile">
+        <div class="profile-main-information">
+          <h1><%#= @user.email %></h1>
+          <img src="<%#= @user_signed_in.photo_url%>" class="photo-use_signed_in_header">
+          <div class="d-flex justify-content-between btn-header">
+            <div class="choice-info d-flex">
+              <h4 class="btn-active" data-action = "click->switch-active-dashboard#display" data-choice="myactionee" data-view-active-target="btnmyactionee">My Actionee</h4>
+              <h4 class="btn-unactive" data-action = "click->switch-active-dashboard#display" data-choice="overview" data-view-active-target="btnoverview">Overview</h4>
             </div>
 
-            <div class="stock-info">
-              <p class="stock-status">+ 1,36 <span id="pourcentage">%</span></p>
-                <div class="col p-1">
-                  <div class='row align-items-center p-1'>
-                    <p class="col-6 stock-number text-end">8</p>
-                    <p class="col-6 stock-text text-start" >Stocks</p>
-                  </div>
-                  <div class='row align-items-center p-1'>
-                    <p class="col-6 stock-number text-end ">+7000</p>
-                    <p class="col-6 stock-text text-start" >USD gains</p>
-                  </div>
-                </div>
-                <div class="col p-1">
-                  <div class='row align-items-center p-1'>
-                    <p class="col-6 stock-number text-end ">27600</p>
-                    <p class="col-6 stock-text text-start" >USD total</p>
-                  </div>
-                  <div class='row align-items-center p-1'>
-                    <p class="col-6 stock-number text-end ">-1000</p>
-                    <p class="col-6 stock-text text-start" >USD stop-loss</p>
-                  </div>
-                </div>
-                  <a href="#" id='buy'>Buy</a>
-                  <a href="#" id='sell'>Sell</a>
-            </div>
           </div>
-        <%end%>
-        <h3>tracked company cards with alert for stop-loss</h3>
-        <% @top_3_companies.first(3).each do |company|%>
-          <div class="card-profile">
+        </div>
+      </div>
 
-            <div class="company-profile-info">
-              <img src='<%= company.photo_url%>'>
-              <h3><%= company.name %></h3>
-            </div>
+      <div class="container containerPerso">
+          <h2>Favorites</h2>
+          <h3>tracked company cards</h3>
+          <% @top_3_companies.first(3).each do |company|%>
+            <div class="card-profile">
 
-            <div class="stock-info">
-              <p class="stock-status">+ 1,36 <span id="pourcentage">%</span></p>
-                <div class="col p-1">
-                  <div class='row align-items-center p-1'>
-                    <p class="col-6 stock-number text-end ">8</p>
-                    <p class="col-6 stock-text text-start" >Stocks</p>
+              <div class="company-profile-info">
+                <img src='<%= company.photo_url%>'>
+                <h3><%= company.name %></h3>
+              </div>
+
+              <div class="stock-info">
+                <p class="stock-status">+ 1,36 <span id="pourcentage">%</span></p>
+                  <div class="col p-1">
+                    <div class='row align-items-center p-1'>
+                      <p class="col-6 stock-number text-end">8</p>
+                      <p class="col-6 stock-text text-start" >Stocks</p>
+                    </div>
+                    <div class='row align-items-center p-1'>
+                      <p class="col-6 stock-number text-end ">+7000</p>
+                      <p class="col-6 stock-text text-start" >USD gains</p>
+                    </div>
                   </div>
-                  <div class='row align-items-center p-1'>
-                    <p class="col-6 stock-number text-end ">+7000</p>
-                    <p class="col-6 stock-text text-start" >USD gains</p>
+                  <div class="col p-1">
+                    <div class='row align-items-center p-1'>
+                      <p class="col-6 stock-number text-end ">27600</p>
+                      <p class="col-6 stock-text text-start" >USD total</p>
+                    </div>
+                    <div class='row align-items-center p-1'>
+                      <p class="col-6 stock-number text-end ">-1000</p>
+                      <p class="col-6 stock-text text-start" >USD stop-loss</p>
+                    </div>
                   </div>
-                </div>
-                <div class="col p-1">
-                  <div class='row align-items-center p-1'>
-                    <p class="col-6 stock-number text-end ">27600</p>
-                    <p class="col-6 stock-text text-start" >USD total</p>
-                  </div>
-                  <div class='row align-items-center p-1'>
-                    <p class="col-6 stock-number text-end ">-1000</p>
-                    <p class="col-6 stock-text text-start" >USD stop-loss</p>
-                  </div>
-                </div>
-                  <a href="#" id='buy'>Buy</a>
-                  <a href="#" id='sell'>Sell</a>
-            </div>
-            <div class="alert-stop-loss">
-              <div class="d-flex flex-row">
-                <i class="fas fa-exclamation-triangle"></i>
-                <p>Limit reached</p>
-                <i class="fas fa-times"></i>
+                    <a href="#" id='buy'>Buy</a>
+                    <a href="#" id='sell'>Sell</a>
               </div>
             </div>
-          </div>
-        <%end%>
-        <h3>untracked company cards</h3>
-        <% @top_3_companies.first(3).each do |company|%>
-          <div class="card-profile">
+          <%end%>
+          <h3>tracked company cards with alert for stop-loss</h3>
+          <% @top_3_companies.first(3).each do |company|%>
+            <div class="card-profile">
 
-            <div class="company-profile-info">
-              <img src='<%= company.photo_url%>'>
-              <h3><%= company.name %></h3>
-            </div>
+              <div class="company-profile-info">
+                <img src='<%= company.photo_url%>'>
+                <h3><%= company.name %></h3>
+              </div>
 
-            <div class="stock-info d-flex flex-row-reverse">
-              <p class="stock-status">+ 1,36 <span id="pourcentage">%</span></p>
-              <div class="btn btn-bold"><a href="#">Track</a></div>
+              <div class="stock-info">
+                <p class="stock-status">+ 1,36 <span id="pourcentage">%</span></p>
+                  <div class="col p-1">
+                    <div class='row align-items-center p-1'>
+                      <p class="col-6 stock-number text-end ">8</p>
+                      <p class="col-6 stock-text text-start" >Stocks</p>
+                    </div>
+                    <div class='row align-items-center p-1'>
+                      <p class="col-6 stock-number text-end ">+7000</p>
+                      <p class="col-6 stock-text text-start" >USD gains</p>
+                    </div>
+                  </div>
+                  <div class="col p-1">
+                    <div class='row align-items-center p-1'>
+                      <p class="col-6 stock-number text-end ">27600</p>
+                      <p class="col-6 stock-text text-start" >USD total</p>
+                    </div>
+                    <div class='row align-items-center p-1'>
+                      <p class="col-6 stock-number text-end ">-1000</p>
+                      <p class="col-6 stock-text text-start" >USD stop-loss</p>
+                    </div>
+                  </div>
+                    <a href="#" id='buy'>Buy</a>
+                    <a href="#" id='sell'>Sell</a>
+              </div>
+              <div class="alert-stop-loss">
+                <div class="d-flex flex-row">
+                  <i class="fas fa-exclamation-triangle"></i>
+                  <p>Limit reached</p>
+                  <i class="fas fa-times"></i>
+                </div>
+              </div>
             </div>
+          <%end%>
+          <h3>untracked company cards</h3>
+          <% @top_3_companies.first(3).each do |company|%>
+            <div class="card-profile">
+
+              <div class="company-profile-info">
+                <img src='<%= company.photo_url%>'>
+                <h3><%= company.name %></h3>
+              </div>
+
+              <div class="stock-info d-flex flex-row-reverse">
+                <p class="stock-status">+ 1,36 <span id="pourcentage">%</span></p>
+                <div class="btn btn-bold"><a href="#">Track</a></div>
+              </div>
+            </div>
+          <%end%>
+      </div>
+
+
+      <div class="Overview">
+            <h2>Since October 2021</h2>
+            <h3>+ 10.000 USD</h3>
+
+          <div class="body-part">
+            <h2>Top 3 Investments</h2>
+            <% @top_3_companies.each do |company|%>
+              <div class="card-company companies-huge">
+                <%= link_to company_path(company) do%>
+
+                  <div class="company-info">
+                    <h3><%= company.name %></h3>
+                  </div>
+
+                  <div class="stock-info">
+                    <p class="stocks-owned">8</p>
+                    <p class="stocks-owned text">Stocks</p>
+                    <p class="stock-value">3450 <span id="currency">USD</span></p>
+                    <p class="stock-status">+ 1,36 <span id="pourcentage">%</span></p>
+                  </div>
+
+                <%end%>
+              </div>
+            <%end%>
+            <h2>Top 3 Losses</h2>
+            <% @top_3_companies.each do |company|%>
+              <div class="card-company companies-huge">
+                <%= link_to company_path(company) do%>
+
+                  <div class="company-info">
+                    <h3><%= company.name %></h3>
+                  </div>
+
+                  <div class="stock-info">
+                    <p class="stocks-owned">8</p>
+                    <p class="stocks-owned text">Stocks</p>
+                    <p class="stock-value">3450 <span id="currency">USD</span></p>
+                    <p class="stock-status">+ 1,36 <span id="pourcentage">%</span></p>
+                  </div>
+
+                <%end%>
+              </div>
+            <%end%>
           </div>
-        <%end%>
-        <h3>tracked company cards with dropdown form to buy</h3>
-        <h3>tracked company cards with dropdown form to sell</h3>
-        <h3>untracked company cards with from to start tracking </h3>
-    </div>
+        </div>
+      </div>
   </div>
+
 </div>

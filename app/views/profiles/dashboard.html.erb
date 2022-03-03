@@ -2,6 +2,7 @@
   <div class="body-part">
     <div class="container containerPerso">
         <h2>Favorites</h2>
+        <h3>tracked company cards</h3>
         <% @top_3_companies.first(3).each do |company|%>
           <div class="card-profile">
 
@@ -14,7 +15,7 @@
               <p class="stock-status">+ 1,36 <span id="pourcentage">%</span></p>
                 <div class="col p-1">
                   <div class='row align-items-center p-1'>
-                    <p class="col-6 stock-number text-end ">8</p>
+                    <p class="col-6 stock-number text-end">8</p>
                     <p class="col-6 stock-text text-start" >Stocks</p>
                   </div>
                   <div class='row align-items-center p-1'>
@@ -37,6 +38,7 @@
             </div>
           </div>
         <%end%>
+        <h3>tracked company cards with alert for stop-loss</h3>
         <% @top_3_companies.first(3).each do |company|%>
           <div class="card-profile">
 
@@ -74,12 +76,12 @@
               <div class="d-flex flex-row">
                 <i class="fas fa-exclamation-triangle"></i>
                 <p>Limit reached</p>
-                <%# <i class="far fa-times"></i> %>
                 <i class="fas fa-times"></i>
               </div>
             </div>
           </div>
         <%end%>
+        <h3>untracked company cards</h3>
         <% @top_3_companies.first(3).each do |company|%>
           <div class="card-profile">
 
@@ -94,6 +96,9 @@
             </div>
           </div>
         <%end%>
+        <h3>tracked company cards with dropdown form to buy</h3>
+        <h3>tracked company cards with dropdown form to sell</h3>
+        <h3>untracked company cards with from to start tracking </h3>
     </div>
   </div>
 </div>

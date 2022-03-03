@@ -2,14 +2,43 @@
   background-color: $dark-blue;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   height: 100px;
   padding: 0px 50px;
   color: white;
 }
 
+.footer-copyright {
+  opacity: 0.8;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+
+}
+
+.footer-copyright a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-copyright a:hover {
+  opacity: 1;
+}
+
+.member  {
+  opacity: 0.8;
+}
+
+.member:hover  {
+  opacity: 1;
+  text-decoration-line: underline;
+}
 
 
 .fix-footer {
   min-height: calc(100vh - 100px);
+}
+
+.footer .fa-heart {
+  color: white;
 }

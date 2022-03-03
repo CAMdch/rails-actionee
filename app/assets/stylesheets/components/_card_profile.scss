@@ -102,25 +102,33 @@
 
   .alert-stop-loss {
     border: 1px solid $light-red;
-    width: 50%;
+    padding: 15px;
+    justify-content: center;
     background-color: white;
     position: absolute;
     bottom: -10px;
     left: 15px;
     .fa-exclamation-triangle {
       color: $light-red;
+      text-align: start;
+      padding-right: 5px;
+      font-size: 15px;
     }
     .fa-times {
-      color: black;
-      font-size: 10px;
+      color: #a7a7a7;
+      font-size: 15px;
+      padding-left: 12px;
       text-align: end;
     }
+    // this comment is highly uncessary just a problem with ghit hub I am trying to fix
 
     p {
       color: $light-red;
+      align-self: flex-end;
       letter-spacing: 5px;
       font-weight: 100;
       font-size: 12px;
+      margin: 0px;
     }
 
   }

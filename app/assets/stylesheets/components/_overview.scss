@@ -1,0 +1,154 @@
+.total-gain {
+  margin: 50px auto;
+  display: flex;
+  justify-content: center;
+  p {
+    color: $light-green;
+    font-size: 50px;
+    font-weight: bolder;
+    font-family: $body-font;
+  }
+
+  span {
+    color: $light-green;
+    font-size: 40px;
+    font-weight: lighter;
+    font-family: $body-font;
+  }
+}
+
+.best-invest, .worth-invest {
+  border-top: 1px solid $sand;
+  h3 {
+    font-weight: bolder;
+    font-size: 30px;
+    padding: 25px 0;
+    color: $dark-blue;
+  }
+}
+
+.card-best-invest {
+  border: 1px solid $light-green;
+  .evolution {
+    font-family: $headers-font;
+    font-size: 23px;
+    font-weight: bolder;
+    margin-bottom: 0;
+    position: absolute;
+    top: 10px;
+    left: 720px;
+    color: $light-green;
+  }
+
+  .pourcentage {
+    font-family: $headers-font;
+    font-size: 13px;
+    font-weight: lighter;
+    margin-bottom: 0;
+    position: absolute;
+    top: 19px;
+    left: 800px;
+    color: $light-green;
+  }
+}
+
+.card-worth-invest {
+  border: 1px solid $light-red;
+  .evolution {
+    font-family: $headers-font;
+    font-size: 23px;
+    font-weight: bolder;
+    margin-bottom: 0;
+    position: absolute;
+    top: 10px;
+    left: 720px;
+    color: $light-red;
+  }
+
+  .pourcentage {
+    font-family: $headers-font;
+    font-size: 13px;
+    font-weight: lighter;
+    margin-bottom: 0;
+    position: absolute;
+    top: 19px;
+    left: 800px;
+    color: $light-red;
+  }
+}
+
+.card-best-invest, .card-worth-invest {
+  padding: 26px 0;
+  display: flex;
+  align-items: center;
+  margin-bottom: 17px;
+  position: relative;
+  .nivel {
+    font-family: $headers-font;
+    font-size: 30px;
+    font-weight: bolder;
+    margin-left: 20px;
+    margin-bottom: 0;
+    position: absolute;
+    top: 8px;
+  }
+
+  .company {
+    font-family: $headers-font;
+    font-size: 22px;
+    font-weight: lighter;
+    position: absolute;
+    top: 8px;
+    left: 130px;
+    margin-bottom: 0;
+  }
+
+  .quantity-stocks {
+    font-family: $headers-font;
+    font-size: 23px;
+    font-weight: bolder;
+    margin-bottom: 0;
+    position: absolute;
+    top: 10px;
+    left: 303px;
+
+  }
+
+  .stocks {
+    font-family: $headers-font;
+    font-size: 13px;
+    font-weight: lighter;
+    margin-bottom: 0;
+    position: absolute;
+    top: 19px;
+    left: 339px;
+
+  }
+
+  .value-stock {
+    font-family: $headers-font;
+    font-size: 23px;
+    font-weight: bolder;
+    margin-bottom: 0;
+    position: absolute;
+    top: 10px;
+    left: 480px;
+
+  }
+
+  .currency {
+    font-family: $headers-font;
+    font-size: 13px;
+    font-weight: lighter;
+    margin-bottom: 0;
+    position: absolute;
+    top: 19px;
+    left: 556px;
+  }
+
+}
+
+.worth-invest {
+  margin-top: 54px;
+  margin-bottom: 55px;
+}

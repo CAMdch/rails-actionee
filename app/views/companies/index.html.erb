@@ -2,14 +2,16 @@
 
   <div class="search-bar">
     <%= form_with url: companies_path, method: :get, html: { class:
-    'mb-4', data: { search_target: 'form' } } do |f| %>
+    'form-input', data: { search_target: 'form' } } do |f| %>
       <%= f.text_field :query,
-                     class: "form-control",
+                     class: "input-search",
                      placeholder: 'Search a company ...',
                      value: params[:query],
                      data: { search_target: 'input',
                              action: 'keyup->search#update'} %>
-      <%= f.submit%>
+      <%= button_tag type: 'submit', id:"btn-search" do %>
+        <i class="fas fa-search"></i>
+      <% end %>
     <%end%>
   </div>
 

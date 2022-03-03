@@ -1,0 +1,28 @@
+.header-profil {
+  background-color: $sand;
+  width: 100%;
+  position: relative;
+  margin-bottom: 95px;
+  h1 {
+    font-size: 25px;
+    margin-bottom: 45px;
+    font-weight: bolder;
+  }
+
+}
+
+.avatar-profil {
+  position: absolute;
+  bottom: -53px;
+  left: 19px;
+  height: 140px;
+  width: 140px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.profil-main-information {
+  width: 70%;
+  margin-left: 215px;
+  padding: 15px 0;
+}

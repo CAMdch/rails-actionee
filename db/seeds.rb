@@ -10,6 +10,15 @@ Company.destroy_all
 Publication.destroy_all
 Review.destroy_all
 
+require "json"
+require "open-uri"
+
+amazon_url = "https://company.bigpicture.io/v1/companies/find/stream?domain=amazon.com"
+amazon_user_serialized = URI.open(amazon_url, 'Authorization' => '7JjxkIwoknXJ5iqc529c0o:383ivUPS7WL3ebjQ1tUd6r').read
+amazon = JSON.parse(amazon_user_serialized)
+
+puts"#{amazon}"
+
 
 amazon = Company.create!(name: 'Amazon', description: 'Amazon is an American e-commerce company based in Seattle. It is one of the giants of the Web, grouped under the acronym GAFAM, alongside Google, Apple, Meta (formerly Facebook) and Microsoft. Created by Jeff Bezos in July 1994, the company was sold on the NASDAQ stock exchange in May 1997.', photo_url: 'https://startupecommerce.fr/wp-content/uploads/2018/08/devenir-vendeur-amazon-logo-scaled.jpg', headquarter_city: 'Seattle, Washington', web_site_url: 'https://www.amazon.fr/', symbol: 'AMZN')
 

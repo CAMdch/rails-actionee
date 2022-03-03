@@ -6,7 +6,17 @@
   height: 100px;
   padding: 0px 50px;
   color: white;
+  width:100%;
 }
+
+body {
+	margin: 0
+}
+
+.main-body {
+	min-height: calc(100vh - 40px)
+}
+
 
 .footer-copyright {
   opacity: 0.8;

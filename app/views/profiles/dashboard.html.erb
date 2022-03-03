@@ -1,7 +1,25 @@
-<div class="below-navbar">
+<div class="below-navbar" data-controller="profil">
   <div class="body-part">
     <div class="container containerPerso">
-        <h2>Favorites</h2>
+
+      <div class="header-profil">
+        <div class="profil-main-information">
+          <h1><%= current_user.name%></h1>
+          <% if current_user.photo.key? %>
+            <%= cl_image_tag current_user.photo.key, class: "avatar-profil"%>
+          <% else %>
+            <%= image_tag "https://tse4.mm.bing.net/th?id=OIP.vAJEPP27RrrXc8H9WguukgHaHa&pid=Api&P=0&w=178&h=178", class: "avatar-profil" %>
+          <% end %>
+          <div class="d-flex justify-content-between btn-header">
+            <div class="choice-info d-flex">
+              <h4 class="btn-active" data-action = "click->profil#display" data-choice="actionee" data-profil-target="btnactionee">My actionee</h4>
+              <h4 class="btn-unactive" data-action = "click->profil#display" data-choice="overview" data-profil-target="btnoverview">Overview</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="actionee" data-profil-target="actionee">
         <% current_user.companies.each do |company|%>
           <% if current_user.track_items.to_a.any? {|tracked_company| tracked_company.company == company } %>
 
@@ -192,6 +210,12 @@
                 </div>
           </div>
         <%end %>
+      </div>
+
+      <div class="overview d-none" data-profil-target="overview">
+        <h1>Overview</h1>
+      </div>
+
     </div>
   </div>
 </div>

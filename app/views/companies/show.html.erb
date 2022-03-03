@@ -1,4 +1,4 @@
-<div class="container containerPerso" data-controller="view-active">
+<div class="container containerPerso" data-controller="view-active" >
 
     <div class="header-company">
       <div class="company-main-information">
@@ -7,8 +7,8 @@
         <a href="<%= @company.web_site_url%>" target="_blank" class="link-web-site">Go on <%= @company.name%>'s web site</a>
         <div class="d-flex justify-content-between btn-header">
           <div class="choice-info d-flex">
-            <h4 class="btn-active" data-action = "click->view-active#display" data-choice="information" data-view-active-target="btninformation">Information</h4>
-            <h4 class="btn-unactive" data-action = "click->view-active#display" data-choice="finance" data-view-active-target="btnfinance">Finance</h4>
+            <h4 class="btn-unactive" data-action = "click->view-active#display" data-choice="information" data-view-active-target="btninformation">Information</h4>
+            <h4 class="btn-active" data-action = "click->view-active#display" data-choice="finance" data-view-active-target="btnfinance">Finance</h4>
           </div>
           <div class="follow-unfollow">
             <% if user_signed_in? %>
@@ -34,7 +34,7 @@
       </div>
     </div>
 
-    <div class="company-information" data-view-active-target="information">
+    <div class="company-information d-none" data-view-active-target="information">
       <div class="description-company">
         <h2>Description</h2>
         <p><%= @company.description%></p>
@@ -61,7 +61,7 @@
 
     </div>
 
-  <div class="company-finance d-none" data-view-active-target="finance">
+  <div class="company-finance" data-view-active-target="finance">
     <div class="advice">
       <p class="advice-status">Buy</p>
       <div class="price">
@@ -77,16 +77,64 @@
     <div class="community-advice">
       <h2>Advice from the community</h2>
       <%@reviews.each do |review|%>
-        <div class="card-news">
-            <div class="full-grey-gard"></div>
-              <div class="text-news">
-                <h4><%= review.user%></h4>
+        <div class="card-user">
+            <div class="full-grey-gard">
+            </div>
+              <div class="text-user">
+                <h4><%= review.user.name%></h4>
                 <p><%= review.content%></p>
+
+                <% if review.user.photo.key? %>
+                  <%= cl_image_tag review.user.photo.key%>
+                <% else %>
+                  <%= image_tag "https://tse4.mm.bing.net/th?id=OIP.vAJEPP27RrrXc8H9WguukgHaHa&pid=Api&P=0&w=178&h=178" %>
+                <% end %>
+
               </div>
-          </div>
+
+              <% if policy(review).create?  %>
+                <%= link_to review_path(review), method: :delete do %>
+                  <a href="#" id="review-<%= review.id %>" class="anchor"></a>
+                  <i class="fas fa-trash-alt trash-review"></i>
+                <%end%>
+              <%else%>
+                <%if review.like?(current_user)%>
+                  <div class="like-thumbs">
+                    <p><%= Like.where('review_id = ? AND enjoyed = true', review.id).count%></p>
+                    <a href="#" id="review-<%= review.id %>" class="anchor"></a>
+                    <%= link_to review_like_path(review, name: "like"),
+                                                method: :patch, remote: true, class: review.like_status(current_user) ? "thumb-active" : "thumb-unactive" do%>
+                      <i class="fas fa-thumbs-up" ></i>
+                    <%end%>
+
+                    <a href="#" id="review-<%= review.id %>" class="anchor"></a>
+                    <%= link_to review_like_path(review, name: "dislike"),
+                                                method: :patch, remote: true, class: review.like_status(current_user) ? "thumb-unactive" : "thumb-active" do%>
+                      <i class="fas fa-thumbs-down" ></i>
+                    <%end%>
+                    <p><%= Like.where('review_id = ? AND enjoyed = false', review.id).count%></p>
+                  </div>
+                <%else%>
+                  <div class="like-thumbs">
+                    <p><%= Like.where('review_id = ? AND enjoyed = true', review.id).count%></p>
+                    <a href="#" id="review-<%= review.id %>" class="anchor"></a>
+                    <%= link_to review_likes_path(review, name: "like"), method: :post, remote: true do%>
+                      <i class="fas fa-thumbs-up"></i>
+                    <%end%>
+
+                    <a href="#" id="review-<%= review.id %>" class="anchor"></a>
+                    <%= link_to review_likes_path(review, name: "dislike"), method: :post, remote: true do%>
+                      <i class="fas fa-thumbs-down"></i>
+                    <%end%>
+                    <p><%= Like.where('review_id = ? AND enjoyed = false', review.id).count%></p>
+                  </div>
+                <%end%>
+              <% end %>
+
+        </div>
       <%end%>
       <h2>Leave advice</h2>
-      <%=simple_form_for [@company, @review],  class:"review-input"  do |f|%>
+      <%=simple_form_for [@company, @review],  class:"review-input", remote: true  do |f|%>
         <%=f.input :content%>
         <%= f.submit class: "submit-review" %>
       <%end%>

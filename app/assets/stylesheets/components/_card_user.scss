@@ -1,0 +1,77 @@
+.card-user {
+  border: 1px solid $sand;
+  margin-bottom: 25px;
+  margin-top: 40px;
+  position: relative;
+  .full-grey-gard {
+    background-color: $sand;
+    height: 35px;
+    width: 200px;
+    position: absolute;
+  }
+
+  img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+    position: absolute;
+    top: -33px;
+    left: -40px;
+  }
+
+  .trash-review {
+    position: absolute;
+    top: 15px;
+    right: 16px;
+    color: $dark-blue;
+    opacity: 0.5;
+    transition: 1s;
+    &:hover {
+      transition: 1s;
+      opacity: 1;
+    }
+  }
+}
+
+.text-user {
+  margin-left: 70px;
+  margin-right: 40px;
+  margin-bottom: 45px;
+
+  h4 {
+    position: relative;
+    top: 23px;
+    color: $dark-blue;
+    font-weight: bolder;
+  }
+
+  p {
+    margin-top: 40px;
+    font-family: $body-font;
+    font-weight: lighter;
+    font-size: 15px;
+  }
+}
+
+.like-thumbs {
+  display: flex;
+  color: $dark-blue;
+  position: absolute;
+  top: 15px;
+  right: 16px;
+  i {
+    padding: 0 7px;
+    color: $dark-blue;
+  }
+}
+
+.thumb-active {
+  font-weight: 20px;
+  color: red;
+}
+
+.thumb-unactive {
+  font-weight: 15px;
+  opacity: 0.5;
+}

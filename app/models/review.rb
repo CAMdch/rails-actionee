@@ -1,6 +1,7 @@
 class Review < ApplicationRecord
   belongs_to :user
   belongs_to :company
+  has_many :likes, dependent: :destroy
   validates :content, presence: true
 
   def like?(user)

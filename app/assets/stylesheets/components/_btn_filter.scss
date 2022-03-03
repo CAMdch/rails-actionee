@@ -1,4 +1,16 @@
 .btn-filter{
   background-color: $dark-blue;
   color:white;
+  transition: 1s;
+
+  &:hover {
+    transition: 1s;
+    background-color: transparent;
+    border: 1px solid $dark-blue;
+    color: $dark-blue;
+    i {
+      color: $dark-blue;
+      transition: 1s;
+    }
+  }
 }

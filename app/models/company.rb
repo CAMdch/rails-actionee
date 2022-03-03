@@ -8,6 +8,6 @@ class Company < ApplicationRecord
   has_many :recommendations
   has_many :favorites, dependent: :destroy
   has_many :reviews, dependent: :destroy
-  has_many :track_items
+  has_many :track_items, dependent: :destroy
   has_many :tags, through: :company_tags
 end

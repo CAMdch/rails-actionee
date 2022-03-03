@@ -77,3 +77,7 @@ gem 'cloudinary', '~> 1.16.0'
 
 #API
 gem 'finnhub_ruby', '~> 1.1.13'
+
+
+gem 'json'
+gem 'open-uri'

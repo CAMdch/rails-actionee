@@ -4,6 +4,7 @@
   font-weight: bolder;
   color: $dark-blue;
   border-bottom: 1px solid $dark-blue;
+  cursor: pointer;
 }
 
 
@@ -12,6 +13,7 @@
   margin-right: 30px;
   color: $dark-blue;
   transition: 300ms;
+  cursor: pointer;
 
   &:hover {
     font-weight: bolder;

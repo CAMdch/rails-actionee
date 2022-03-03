@@ -1,0 +1,28 @@
+.review_content {
+  label {
+    font-family: $body-font;
+    font-size: 20px;
+    margin-top: 15px;
+  }
+}
+
+#review_content {
+  border: none;
+}
+
+.submit-review {
+  background-color: $dark-blue;
+  width: 100%;
+  border: none;
+  margin-bottom: 25px;
+  color: white;
+  font-family: $body-font;
+  height: 30px;
+  transition: 1s;
+  &:hover {
+    transition:1s;
+    border: 1px solid $dark-blue;
+    background-color: transparent;
+    color: $dark-blue;
+  }
+}

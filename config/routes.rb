@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   resources :companies do
     resources :favorites, only: %i[new create]
+    resources :reviews, only: %i[new create]
   end
 
   resources :favorites, only: %i[destroy]

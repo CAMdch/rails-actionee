@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 puts "Cleaning data base"
 Company.destroy_all
+Publication.destroy_all
 
 amazon = Company.create!(name: 'Amazon', description: 'Amazon is an American e-commerce company based in Seattle. It is one of the giants of the Web, grouped under the acronym GAFAM, alongside Google, Apple, Meta (formerly Facebook) and Microsoft. Created by Jeff Bezos in July 1994, the company was sold on the NASDAQ stock exchange in May 1997.', photo_url: 'https://startupecommerce.fr/wp-content/uploads/2018/08/devenir-vendeur-amazon-logo-scaled.jpg', headquarter_city: 'Seattle, Washington', web_site_url: 'https://www.amazon.fr/', symbol: 'AMZN')
 

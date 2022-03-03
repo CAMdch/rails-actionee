@@ -1,16 +1,12 @@
-class CompanyPolicy < ApplicationPolicy
+class ReviewPolicy < ApplicationPolicy
   class Scope < Scope
     # NOTE: Be explicit about which records you allow access to!
     def resolve
-      scope.all
+       scope.all
     end
   end
 
-  def index?
-    return true
-  end
-
-  def show?
-    return true
+  def create?
+    record.user == user
   end
 end

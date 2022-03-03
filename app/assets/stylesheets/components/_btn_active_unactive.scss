@@ -1,0 +1,36 @@
+.btn-active {
+  font-size: 20px;
+  margin-right: 30px;
+  font-weight: bolder;
+  color: $dark-blue;
+  border-bottom: 1px solid $dark-blue;
+  cursor: pointer;
+}
+
+
+.btn-unactive {
+  font-size: 20px;
+  margin-right: 30px;
+  color: $dark-blue;
+  transition: 300ms;
+  cursor: pointer;
+
+  &:hover {
+    font-weight: bolder;
+    transition: 300ms;
+  }
+
+  &::after {
+    content: '';
+    width: 0px;
+    height: 1px;
+    display: block;
+    background: $dark-blue;
+    transition: 300ms;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+
+}

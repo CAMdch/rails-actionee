@@ -9,4 +9,5 @@ class User < ApplicationRecord
   has_many :likes
   has_many :reviews
   has_many :companies, through: :favorites
+  has_one_attached :photo
 end

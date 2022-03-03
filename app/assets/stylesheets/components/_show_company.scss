@@ -1,0 +1,60 @@
+.header-company {
+  margin-top : 100px;
+  background-color: $sand;
+  width: 100%;
+  position: relative;
+  h1 {
+    font-weight: bolder;
+  }
+
+  .link-web-site {
+    color: grey;
+    text-decoration: none;
+  }
+}
+
+.photo-company_header {
+  position: absolute;
+  bottom: -74px;
+  left: 19px;
+  height: 170px;
+  width: 170px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.company-main-information {
+  width: 70%;
+  margin-left: 215px;
+  padding: 15px 0;
+}
+
+
+.btn-header {
+  margin-top: 25px;
+}
+
+.company-information {
+  margin-top: 84px;
+}
+
+
+.description-company {
+  h2 {
+    font-weight: bolder;
+    margin-bottom: 25px;
+  }
+
+  p {
+    margin-bottom: 31px;
+  }
+}
+
+
+.news {
+  margin-top: 40px;
+  h2 {
+    font-weight: bolder;
+    margin-bottom: 25px;
+  }
+}

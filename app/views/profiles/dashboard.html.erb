@@ -4,13 +4,12 @@
         <h2>Favorites</h2>
         <% current_user.companies.each do |company|%>
           <% if current_user.track_items.to_a.any? {|tracked_company| tracked_company.company == company } %>
-            <div class="card-profile">
 
+            <div class="card-profile" data-controller="buy-btn">
               <div class="company-profile-info">
                 <img src='<%= company.photo_url%>'>
                 <h3><%= company.name %></h3>
               </div>
-
               <div class="stock-info">
                 <p class="stock-status">+ 1,36 <span id="pourcentage">%</span></p>
                   <div class="col p-1">
@@ -33,24 +32,44 @@
                       <p class="col-6 stock-text " >USD stop-loss</p>
                     </div>
                   </div>
-                    <a href="#" id='buy-far'>Buy</a>
-                    <a href="#" id='sell'>Sell</a>
+                    <a data-buy-btn-target="buy" data-action="click->buy-btn#appearBuy" id='buy-far'>Buy</a>
+                    <a data-buy-btn-target="sell" data-action="click->buy-btn#appearSell" id='sell'>Sell</a>
               </div>
+                <div class='track_form d-none' data-buy-btn-target="form">
+                  <div class="d-flex flex-row-reverse" data-buy-btn-target="cross" data-action="click->buy-btn#cancelbuy"><i class="fas fa-times"></i></div>
+                  <%= simple_form_for(@track_items) do |f| %>
+                    <%= f.input :stock_quantity, :label => 'Number of stocks:' %>
+                    <%= f.input :stop_loss,  :label => 'Change stop-loss: ' %>
+                    <%= f.input :value_stock, :label => 'Price of stocks:' %>
+                    <div class="d-flex flex-row-reverse"><%= f.button :submit, 'Submit', class: 'btn-end btn-bold' %></div>
+                  <% end %>
+                </div>
+                <div class='track_form d-none' data-buy-btn-target="formsell">
+                  <div class="d-flex flex-row-reverse" data-buy-btn-target="cross" data-action="click->buy-btn#cancelsell"><i class="fas fa-times"></i></div>
+                  <%= simple_form_for(@track_items) do |f| %>
+                    <%= f.input :stock_quantity, :label => 'Number of stocks:' %>
+                    <%= f.input :stop_loss,  :label => 'Change stop-loss: ' %>
+                    <%= f.input :value_stock, :label => 'Price of stocks:' %>
+                    <div class="d-flex flex-row-reverse"><%= f.button :submit, 'Submit', class: 'btn-end btn-bold' %></div>
+                  <% end %>
+                </div>
             </div>
-          <% else %>
-            <div class="card-profile">
 
+          <% else %>
+
+
+            <div class="card-profile" data-controller="start-tracking-button">
               <div class="company-profile-info">
                 <img src='<%= company.photo_url%>'>
                 <h3><%= company.name %></h3>
               </div>
-
               <div class="stock-info d-flex flex-row-reverse">
                 <p class="stock-status">+ 1,36 <span id="pourcentage">%</span></p>
-                <div class="untracked-start-btn btn btn-bold"><a href="#">Track</a></div>
+                <div class="btn btn-bold" data-start-tracking-button-target="button" data-action="click->start-tracking-button#appear">Track</div>
               </div>
-              <div class='untracked-start-track track_form'>
+              <div class='d-none track_form' data-start-tracking-button-target="form">
                 <%= simple_form_for(@track_items) do |f| %>
+                  <div class="d-flex flex-row-reverse" data-start-tracking-button-target="cross" data-action="click->start-tracking-button#canceltrack"><i class="fas fa-times"></i></div>
                   <%= f.input :company_id, :as => "hidden", :input_html => { :value => company.id } %>
                   <%= f.input :stock_quantity, :label => 'Number of stocks:' %>
                   <%= f.input :stop_loss,  :label => 'Alert if losses go beyond: ' %>
@@ -59,6 +78,8 @@
                 <% end %>
               </div>
             </div>
+
+
           <% end %>
         <% end %>
 
@@ -171,8 +192,6 @@
                 </div>
           </div>
         <%end %>
-        <h3>tracked company cards with dropdown form to sell</h3>
-        <%= console %>
     </div>
   </div>
 </div>

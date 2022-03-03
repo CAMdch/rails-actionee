@@ -45,6 +45,49 @@
               <h3><%= company.name %></h3>
             </div>
 
+            <div class="stock-info">
+              <p class="stock-status">+ 1,36 <span id="pourcentage">%</span></p>
+                <div class="col p-1">
+                  <div class='row align-items-center p-1'>
+                    <p class="col-6 stock-number text-end ">8</p>
+                    <p class="col-6 stock-text text-start" >Stocks</p>
+                  </div>
+                  <div class='row align-items-center p-1'>
+                    <p class="col-6 stock-number text-end ">+7000</p>
+                    <p class="col-6 stock-text text-start" >USD gains</p>
+                  </div>
+                </div>
+                <div class="col p-1">
+                  <div class='row align-items-center p-1'>
+                    <p class="col-6 stock-number text-end ">27600</p>
+                    <p class="col-6 stock-text text-start" >USD total</p>
+                  </div>
+                  <div class='row align-items-center p-1'>
+                    <p class="col-6 stock-number text-end ">-1000</p>
+                    <p class="col-6 stock-text text-start" >USD stop-loss</p>
+                  </div>
+                </div>
+                  <a href="#" id='buy'>Buy</a>
+                  <a href="#" id='sell'>Sell</a>
+            </div>
+            <div class="alert-stop-loss">
+              <div class="d-flex flex-row">
+                <i class="fas fa-exclamation-triangle"></i>
+                <p>Limit reached</p>
+                <%# <i class="far fa-times"></i> %>
+                <i class="fas fa-times"></i>
+              </div>
+            </div>
+          </div>
+        <%end%>
+        <% @top_3_companies.first(3).each do |company|%>
+          <div class="card-profile">
+
+            <div class="company-profile-info">
+              <img src='<%= company.photo_url%>'>
+              <h3><%= company.name %></h3>
+            </div>
+
             <div class="stock-info d-flex flex-row-reverse">
               <p class="stock-status">+ 1,36 <span id="pourcentage">%</span></p>
               <div class="btn btn-bold"><a href="#">Track</a></div>

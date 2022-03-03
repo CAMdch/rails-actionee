@@ -99,4 +99,35 @@
     bottom: 0px;
     right: 15px;
   }
+
+  .alert-stop-loss {
+    border: 1px solid $light-red;
+    width: 50%;
+    background-color: white;
+    position: absolute;
+    bottom: -10px;
+    left: 15px;
+    .fa-exclamation-triangle {
+      color: $light-red;
+    }
+    .fa-times {
+      color: black;
+      font-size: 10px;
+      text-align: end;
+    }
+
+    p {
+      color: $light-red;
+      letter-spacing: 5px;
+      font-weight: 100;
+      font-size: 12px;
+    }
+
+  }
+
+
+
+
+
+
 }

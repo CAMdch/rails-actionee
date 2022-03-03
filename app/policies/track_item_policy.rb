@@ -1,4 +1,4 @@
-class ProfilePolicy < ApplicationPolicy
+class TrackItemPolicy < ApplicationPolicy
   class Scope < Scope
     # NOTE: Be explicit about which records you allow access to!
     # def resolve
@@ -6,7 +6,7 @@ class ProfilePolicy < ApplicationPolicy
     # end
   end
 
-  def dashboard?
-    record.user == user
+  def create?
+    true
   end
 end

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :favorites, only: %i[new create]
     resources :reviews, only: %i[new create]
   end
+  resources :track_items
 
   resources :review do
     resources :likes, only: %i[new create update]

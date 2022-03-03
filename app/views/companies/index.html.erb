@@ -1,12 +1,16 @@
-<div class="container containerPerso" style="margin-top: 80px;">
+<div class="container containerPerso" style="margin-top: 80px;" data-controller="search">
 
   <div class="search-bar">
-    <div class="form-input">
-      <input id="search-input" type="search" class="form-control" placeholder="Search a company..." />
-    </div>
-    <button id="search-button" type="button" class="btn btn-search">
-      <i class="fas fa-search"></i>
-    </button>
+    <%= form_with url: companies_path, method: :get, html: { class:
+    'mb-4', data: { search_target: 'form' } } do |f| %>
+      <%= f.text_field :query,
+                     class: "form-control",
+                     placeholder: 'Search a company ...',
+                     value: params[:query],
+                     data: { search_target: 'input',
+                             action: 'keyup->search#update'} %>
+      <%= f.submit%>
+    <%end%>
   </div>
 
   <div class="filter-choice">
@@ -16,52 +20,6 @@
     <p>Eco-friendly</p>
   </div>
 
-
-    <% @companies.each do |company|%>
-      <div class="companies row">
-        <div class="col-lg-6 col-sm-12">
-          <%= link_to company_path(company) do%>
-            <div class="card-company-little">
-              <div class="company-info">
-                <img src='<%= company.photo_url%>'>
-                <h3><%= company.name %></h3>
-              </div>
-
-              <div class="stock-info">
-                <p class="stock-status">+ 1,36 <span id="pourcentage">%</span></p>
-                <p class="stock-value">3450 <span id="currency">USD</span></p>
-              </div>
-
-              <div class="add">
-                <% if user_signed_in? %>
-                  <%if @favorite_user.where('company_id = ?', company.id)[0].nil? %>
-
-                    <a href="#" id="company-<%= company.id %>" class="anchor"></a>
-                    <%= link_to company_favorites_path(company), method: :post, remote: true do%>
-                      <i class="fas fa-plus"></i>
-                    <%end%>
-
-                  <%else%>
-
-                    <a href="#" id="company-<%= company.id %>" class="anchor"></a>
-                    <%= link_to favorite_path(@favorite_user.where('company_id = ?', company.id)[0]), method: :delete, remote: true do%>
-                      <i class="fas fa-minus"></i>
-                    <%end%>
-
-                  <%end%>
-                <%end%>
-              </div>
-            </div>
-          <%end%>
-        </div>
-
-        <div class="col-lg-6 col-sm-12 graph-company">
-          <%= image_tag('graph_exemple.png')%>
-        </div>
-
-      </div>
-    <%end%>
-
-
+    <%= render 'companies_list', companies: @companies%>
 
 </div>

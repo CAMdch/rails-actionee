@@ -5,9 +5,15 @@ class ReviewsController < ApplicationController
     @review.company = @company
     @review.user = current_user
     if @review.save
-      redirect_to request.referer
+      redirect_to request.referer + "#review-#{@review.id}"
     end
     authorize @review
+  end
+
+  def destroy
+    @review = Review.find(params[:id])
+    @review.destroy
+    redirect_to request.referer
   end
 
   private

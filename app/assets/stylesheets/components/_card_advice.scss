@@ -36,10 +36,23 @@
 }
 
 
+.advice-expert {
+  display: flex;
+  flex-direction: column;
+  .our-advice {
+    margin-bottom: 0;
+  }
+
+  p {
+    text-align: center;
+  }
+}
+
 
 .price {
   p {
     margin: 0;
+    font-size: 20px;
   }
 
   .currency-value, .pourcentage-value {

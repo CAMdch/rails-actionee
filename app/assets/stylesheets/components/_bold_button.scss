@@ -12,7 +12,7 @@
     padding: 11px 19px;
     border-radius: 0px;
     background: $dark-blue;
-    :hover {
+    &:hover {
       color: white;
       text-decoration: none;
       border: 100px, solid, white;
@@ -29,10 +29,11 @@
   padding: 11px 19px;
   border-radius: 0px;
   background: $dark-blue;
-  :hover {
-    color: white !important;
+  &:hover {
+    color: $dark-blue;
+    border: 1px solid $dark-blue;
+    background-color: transparent;
     text-decoration: none;
-    border: 100px, solid, white;
   }
 
 }

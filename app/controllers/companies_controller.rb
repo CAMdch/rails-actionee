@@ -26,6 +26,7 @@ class CompaniesController < ApplicationController
     @reviews = Review.where('company_id = ?', @company.id)
     recommendation(@company.symbol)
     @news = NewsJob.perform_now(@company.symbol)
+    @currency = StockJob.perform_now(@company.symbol)
     authorize @company
     @marker = [{ lat: @company.latitude, lng: @company.longitude }]
   end

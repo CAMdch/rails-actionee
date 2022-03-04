@@ -63,12 +63,12 @@
 
     </div>
 
-  <div class="company-finance" data-view-active-target="finance" data-controller="color-card" data-color-card-number-value ="-1.36">
+  <div class="company-finance" data-view-active-target="finance" data-controller="color-card" data-color-card-number-value ="<%= @currency[0]%>">
     <div class="advice advice-green" data-color-card-target ="advice">
       <p class="advice-status advice-status-green"><%= @recommendation%></p>
       <div class="price">
-        <p class="currency-value">3660 <span class="currency">USD</span></p>
-        <p class="pourcentage-value-green" data-color-card-target ="pourcentage" >- 1,36 <span class = "pourcentage">%</span></p>
+        <p class="currency-value"><%= @currency[1]%> <span class="currency">USD</span></p>
+        <p class="pourcentage-value-green" data-color-card-target ="pourcentage" ><%= @currency[0]%> <span class = "pourcentage">%</span></p>
       </div>
     </div>
 

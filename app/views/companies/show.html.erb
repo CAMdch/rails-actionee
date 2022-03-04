@@ -1,4 +1,4 @@
-<div class="container containerPerso" data-controller="view-active" >
+<div class="container containerPerso" data-controller="view-active">
 
     <div class="header-company">
       <div class="company-main-information">
@@ -48,25 +48,27 @@
 
       <div class="news">
         <h2>News</h2>
-        <div class="card-news">
-          <div class="full-grey-gard"></div>
-            <div class="text-news">
-              <h4>News-24</h4>
-              <h3>Top Wall Street analysts say buying Amazon...</h3>
-              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-              <a href="#" target="blank" class="btn-follow">Go to web site</a>
-            </div>
-        </div>
+        <%@news.each do |new|%>
+          <div class="card-news">
+            <div class="full-grey-gard"></div>
+              <div class="text-news">
+                <h4><%= new.source%></h4>
+                <h3><%= new.headline%></h3>
+                <p><%= new.summary%></p>
+                <a href="<%= new.url%>" target="blank" class="btn-follow">Go to web site</a>
+              </div>
+          </div>
+        <%end%>
       </div>
 
     </div>
 
-  <div class="company-finance" data-view-active-target="finance">
-    <div class="advice">
-      <p class="advice-status">Buy</p>
+  <div class="company-finance" data-view-active-target="finance" data-controller="color-card" data-color-card-number-value ="-1.36">
+    <div class="advice advice-green" data-color-card-target ="advice">
+      <p class="advice-status advice-status-green"><%= @recommendation%></p>
       <div class="price">
         <p class="currency-value">3660 <span class="currency">USD</span></p>
-        <p class="pourcentage-value">+ 1,36 <span class = "pourcentage">%</span></p>
+        <p class="pourcentage-value-green" data-color-card-target ="pourcentage" >- 1,36 <span class = "pourcentage">%</span></p>
       </div>
     </div>
 

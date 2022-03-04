@@ -1,5 +1,5 @@
 .advice {
-  border: 1px solid $light-green;
+  color: $dark-blue;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -10,11 +10,32 @@
 
 
 .advice-status {
-  color: $light-green;
   font-weight: bolder;
   font-size: 25px;
   margin: 0;
 }
+
+.advice-green {
+  border: 1px solid $light-green;
+}
+
+
+.pourcentage-value-green {
+  color: $light-green;
+
+}
+
+.advice-red {
+  border: 1px solid $light-red;
+}
+
+
+.advice-status-red, .pourcentage-value-red {
+  color: $light-red;
+
+}
+
+
 
 .price {
   p {
@@ -29,10 +50,6 @@
   .currency, .pourcentage{
     font-weight: lighter;
     font-size: 15px;
-  }
-
-  .pourcentage-value{
-    color: $light-green;
   }
 }
 

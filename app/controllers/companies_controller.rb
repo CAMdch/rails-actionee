@@ -1,13 +1,14 @@
 class CompaniesController < ApplicationController
   def index
-    if params[:query].present?
+    if params[:query].present? && filter_request?
+      @companies = policy_scope(Company).all
+    # elsif filter_request?
+      # @companies = policy_scope(Company.joins(:tags)).where(sql_query_filters_only)
+    elsif params[:query].present?
       @companies = policy_scope(Company).where('name ILIKE ?', "%#{params[:query]}%")
     else
       @companies = policy_scope(Company).all
     end
-    # if filter_request?
-    #   @companies = @companies.where('')
-    # end
     @favorite_user = Favorite.where('user_id = ?', current_user)
     respond_to do |format|
       format.html # Follow regular flow of Rails
@@ -15,6 +16,7 @@ class CompaniesController < ApplicationController
     end
     authorize @companies
   end
+
 
   def show
     @company = Company.find(params[:id])
@@ -41,16 +43,18 @@ class CompaniesController < ApplicationController
     filter_hash
   end
 
-  def filter_params_size
-    filter_params.length
-  end
-
-  def sql_query_for_filters
-    sql_query = " \
-        companies.tags ILIKE :query \
-        OR movies.synopsis ILIKE :query \
-        OR directors.first_name ILIKE :query \
-        OR directors.last_name ILIKE :query \
-      "
+  def sql_query_filters_only
+    sql_query_filter = ""
+    filter_params.each do |key, value|
+      sql_query_filter += "\ tags.name ILIKE #{key} \ OR"
+    end
+    sql_query_filter.delete_suffix!(' OR') if sql_query_filter.last(3) == " OR"
+    sql_query_filter
   end
 end
+# Tag.find_by(name: tag.name ) => tag intance
+# tag int.id
+# #Company.where(tag_id:  )
+
+# company.tags
+# make it into array and then randomise it

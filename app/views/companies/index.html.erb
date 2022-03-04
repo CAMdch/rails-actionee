@@ -44,17 +44,12 @@
                     tag.name
                   %>
               <% end %>
-              <%= submit_tag "Search", class: "btn btn-primary" %>
+              <div class="modal-footer">
+                <%= submit_tag "Search", class: "btn btn-filter" %>
+                <%# <button type="button" class="btn btn-filter" data-bs-dismiss="modal">Close</button> %>
+                <%# <button type="button" class="btn btn-filter">Submit</button> %>
+              </div>
             <% end %>
-              <%# <%= simple_form_for(@companies) do |f| %>
-                <%# <%= f.input :, :label => 'tag.name:', as: :check_boxes %>
-                <%# <div class="d-flex flex-row-reverse"><%= f.button :submit, 'Submit', class: 'btn-end btn-bold' %>
-              <%# <% end %>
-            ...
-          </div>
-          <div class="modal-footer">
-            <%# <button type="button" class="btn btn-filter" data-bs-dismiss="modal">Close</button> %>
-            <button type="button" class="btn btn-filter">Submit</button>
           </div>
         </div>
       </div>

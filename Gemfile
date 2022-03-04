@@ -71,7 +71,6 @@ gem 'pundit'
 #geocoder
 gem "geocoder"
 
-gem 'dotenv-rails', groups: [:development, :test]
 
 gem 'cloudinary', '~> 1.16.0'
 
@@ -81,3 +80,4 @@ gem 'finnhub_ruby', '~> 1.1.13'
 
 gem 'json'
 gem 'open-uri'
+gem 'popper_js'

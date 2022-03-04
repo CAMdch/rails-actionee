@@ -1,3 +1,7 @@
+require "json"
+require "open-uri"
+require 'finnhub_ruby'
+
 class CompaniesController < ApplicationController
   def index
     if params[:query].present?
@@ -20,7 +24,26 @@ class CompaniesController < ApplicationController
     @favorite_user = Favorite.where('user_id = ?', current_user)
     @review = Review.new
     @reviews = Review.where('company_id = ?', @company.id)
+    recommendation(@company.symbol)
+    @news = NewsJob.perform_now(@company.symbol)
     authorize @company
     @marker = [{ lat: @company.latitude, lng: @company.longitude }]
+  end
+
+  private
+
+  def recommendation(ticker)
+
+    finnhub_client = FinnhubRuby::DefaultApi.new
+    company_month = finnhub_client.recommendation_trends("#{ticker}")[0]
+
+    if company_month.buy > company_month.hold && company_month.buy > company_month.sell
+      return @recommendation = "Buy"
+    elsif company_month.sell > company_month.hold && company_month.sell > company_month.buy
+      return @recommendation = "Sell"
+    else
+      return @recommendation = "Hold"
+    end
+
   end
 end

@@ -1,8 +1,23 @@
-.card-company {
+.card-company-green {
   border: 1px solid $light-green;
   margin: 35px 45px;
   position: relative;
 }
+
+.card-company-red {
+  border: 1px solid $light-red;
+  margin: 35px 45px;
+  position: relative;
+}
+
+.stock-status-green {
+  color: $light-green;
+}
+
+.stock-status-red {
+  color: $light-red;
+}
+
 
 .company-info{
   display: flex;
@@ -47,10 +62,6 @@
     font-weight: bolder;
   }
 
-  .stock-status {
-    color: $light-green;
-  }
-
   #pourcentage, #currency{
     font-size: 18px;
     font-weight: lighter;
@@ -74,8 +85,14 @@
 }
 
 
-.card-company-little {
+.card-company-little-green {
   border: 1px solid $light-green;
+  position: relative;
+
+}
+
+.card-company-little-red {
+  border: 1px solid $light-red;
   position: relative;
 
 }

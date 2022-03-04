@@ -3,15 +3,15 @@
         <div class="companies row">
           <div class="col-lg-6 col-sm-12">
             <%= link_to company_path(company) do%>
-              <div class="card-company-little">
+              <div class="card-company-little card-company-little-green" data-controller="card-little" data-card-little-number-value="<%= StockJob.perform_now(company.symbol)[0]%>" data-card-little-target="border">
                 <div class="company-info">
                   <img src='<%= company.photo_url%>'>
                   <h3><%= company.name %></h3>
                 </div>
 
                 <div class="stock-info">
-                  <p class="stock-status">+ 1,36 <span id="pourcentage">%</span></p>
-                  <p class="stock-value">3450 <span id="currency">USD</span></p>
+                  <p class="stock-status-green" data-card-little-target="pourcentage"><%= StockJob.perform_now(company.symbol)[0]%><span id="pourcentage">%</span></p>
+                  <p class="stock-value"><%= StockJob.perform_now(company.symbol)[1]%> <span id="currency">USD</span></p>
                 </div>
 
                 <div class="add">

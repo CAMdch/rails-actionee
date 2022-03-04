@@ -2,7 +2,7 @@ class Company < ApplicationRecord
   geocoded_by :headquarter_city
   after_validation :geocode, if: :will_save_change_to_headquarter_city?
 
-  has_many :stocks
+  has_many :stocks, dependent: :destroy
   has_many :publications
   has_many :company_tags, dependent: :destroy
   has_many :recommendations

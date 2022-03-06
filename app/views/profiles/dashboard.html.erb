@@ -40,7 +40,7 @@
 
           <%if @order_invest[0].length == 1 && @order_invest[1].length == 0%>
             <%= render 'one_invest', order_invest: @order_invest[0][0]%>
-          <%else%>
+          <%elsif @order_invest[0].length != 0 && @order_invest[1].length != 0%>
             <%= render 'two_invest', order_invest: @order_invest %>
           <%end%>
     </div>

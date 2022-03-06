@@ -1,8 +1,15 @@
 .card-profile {
-  border: 1px solid $light-green;
   margin: 50px 45px;
   position: relative;
   padding-bottom: 23px;
+}
+
+.card-profile-green {
+  border: 1px solid $light-green;
+}
+
+.card-profile-red {
+  border: 1px solid $light-red;
 }
 
 
@@ -78,10 +85,17 @@
   }
 
   .stock-status {
-    color: $light-green;
     position: absolute;
     top: 10px;
     right: 15px;
+  }
+
+  .stock-status-green {
+    color: $light-green;
+  }
+
+  .stock-status-red {
+    color: $light-red;
   }
 
   #buy-far, #buy-close, #sell {

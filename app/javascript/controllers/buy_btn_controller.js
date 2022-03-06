@@ -15,7 +15,7 @@ export default class extends Controller {
   }
 
   appearSell(event) {
-    this.formTarget.classList.remove("d-none")
+    this.formsellTarget.classList.remove("d-none")
     this.buyTarget.classList.add("d-none")
     this.sellTarget.classList.add("d-none")
 
@@ -23,11 +23,13 @@ export default class extends Controller {
 
   cancelbuy(event) {
     this.formTarget.classList.add("d-none")
+    this.formsellTarget.classList.add("d-none")
     this.buyTarget.classList.remove("d-none")
     this.sellTarget.classList.remove("d-none")
   }
 
   cancelsell(event) {
+    this.formsellTarget.classList.add("d-none")
     this.formsellTarget.classList.add("d-none")
     this.buyTarget.classList.remove("d-none")
     this.sellTarget.classList.remove("d-none")

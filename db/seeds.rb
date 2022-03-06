@@ -19,24 +19,29 @@ amazon_user_serialized = URI.open(amazon_url, 'Authorization' => '7JjxkIwoknXJ5i
 amazon = JSON.parse(amazon_user_serialized)
 amazon_company = Company.create!(name: amazon["name"], description: amazon["description"], photo_url: amazon["logo"], headquarter_city: amazon["geo"]["city"], web_site_url: amazon["url"], symbol: amazon["ticker"])
 Stock.create!(date: Time.now, value: StockJob.perform_now(amazon_company.symbol)[1], company_id: amazon_company.id)
+NewsJob.perform_now(amazon_company.symbol)
 
 tesla_url = "https://company.bigpicture.io/v1/companies/find/stream?domain=tesla.com"
 tesla_user_serialized = URI.open(tesla_url, 'Authorization' => '7JjxkIwoknXJ5iqc529c0o:383ivUPS7WL3ebjQ1tUd6r').read
 tesla = JSON.parse(tesla_user_serialized)
 tesla_company = Company.create!(name: tesla["name"], description: tesla["description"], photo_url: tesla["logo"], headquarter_city: tesla["geo"]["city"], web_site_url: tesla["url"], symbol: tesla["ticker"])
 Stock.create!(date: Time.now, value: StockJob.perform_now(tesla_company.symbol)[1], company_id: tesla_company.id)
+NewsJob.perform_now(tesla_company.symbol)
 
 apple_url = "https://company.bigpicture.io/v1/companies/find/stream?domain=apple.com"
 apple_user_serialized = URI.open(apple_url, 'Authorization' => '7JjxkIwoknXJ5iqc529c0o:383ivUPS7WL3ebjQ1tUd6r').read
 apple = JSON.parse(apple_user_serialized)
 apple_company = Company.create!(name: apple["name"], description: apple["description"], photo_url: apple["logo"], headquarter_city: apple["geo"]["city"], web_site_url: apple["url"], symbol: apple["ticker"])
 Stock.create!(date: Time.now, value:  StockJob.perform_now(apple_company.symbol)[1], company_id: apple_company.id)
+NewsJob.perform_now(apple_company.symbol)
 
 walmart_url = "https://company.bigpicture.io/v1/companies/find/stream?domain=walmart.com"
 walmart_user_serialized = URI.open(walmart_url, 'Authorization' => '7JjxkIwoknXJ5iqc529c0o:383ivUPS7WL3ebjQ1tUd6r').read
 walmart = JSON.parse(walmart_user_serialized)
 walmart_company = Company.create!(name: walmart["name"], description: walmart["description"], photo_url: walmart["logo"], headquarter_city: walmart["geo"]["city"], web_site_url: walmart["url"], symbol: walmart["ticker"])
 Stock.create!(date: Time.now, value: StockJob.perform_now(walmart_company.symbol)[1], company_id: walmart_company.id)
+NewsJob.perform_now(walmart_company.symbol)
+
 
 # microsoft = Company.create!(name: 'Micosoft', description: "Microsoft Corporation is an American multinational technology corporation which produces computer software, consumer electronics, personal computers, and related services. Its best-known software products are the Microsoft Windows line of operating systems, the Microsoft Office suite, and the Internet Explorer and Edge web browsers. Its flagship hardware products are the Xbox video game consoles and the Microsoft Surface lineup of touchscreen personal computers.", photo_url: 'https://news.microsoft.com/wp-content/uploads/prod/sites/113/2017/06/Microsoft-logo_rgb_c-gray.png', headquarter_city: 'Redmond, Washington', web_site_url: 'https://www.microsoft.com/', symbol: 'MSFT')
 

@@ -17,6 +17,16 @@
 
     text-align: end;
   }
+  .buy {
+    color: $light-green;
+    font-weight: bolder;
+    font-size: 25px;
+  }
+  .sell {
+    color: $light-red;
+    font-weight: bolder;
+    font-size: 25px;
+  }
 }
 a {
   cursor: pointer;

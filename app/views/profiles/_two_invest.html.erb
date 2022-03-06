@@ -21,7 +21,7 @@
 <div class="overview-title worth-title">
   <h3>Top <%= pluralize order_invest[1].length, "loss" %></h3>
 </div>
-<% j = 0%>
+<% j = 1%>
 <% order_invest[1].each do |invest| %>
         <% company = Company.find(invest[:company])%>
         <div class="worth-invest">

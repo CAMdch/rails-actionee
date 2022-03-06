@@ -27,11 +27,11 @@
                       </div>
                       <div class='stock-detail-row row p-1'>
                         <p class="col-6 stock-number ">-<%= company.stop_loss(current_user).round%></p>
-                        <p class="col-6 stock-text " >USD stop-loss<i class="fas fa-pen-nib"></i></p>
+                        <p class="col-6 stock-text d-flex">USD stop-loss <a data-action="click->buy-btn#appearLoss" ><i class="fas fa-pen-nib"></i></a></p>
                       </div>
                     </div>
                     <div >
-                      <%= link_to favorite_path(Favorite.where('company_id = ? AND user_id = ?', company.id, current_user)[0]), method: :delete, id:"unfollow" do%>
+                      <%= link_to favorite_path(Favorite.where('company_id = ? AND user_id = ?', company.id, current_user)[0]), method: :delete, id:"unfollow", data: { buy_btn_target: "unfollow" } do%>
                         Unfollow
                       <%end%>
                       <a data-buy-btn-target="buy" data-action="click->buy-btn#appearBuy" id='buy-far'>Buy</a>
@@ -44,7 +44,6 @@
                     <%= simple_form_for(@track_items) do |f| %>
                       <%= f.input :company_id, :as => "hidden", :input_html => { :value => company.id } %>
                       <%= f.input :stock_quantity, :label => 'Number of stocks:' %>
-                      <%= f.input :stop_loss,  :label => 'Change stop-loss: ' %>
                       <%= f.input :value_stock, :label => 'Price of stocks:' %>
                       <div class="d-flex flex-row-reverse"><%= f.button :submit, 'Submit', class: 'btn-end btn-bold' %></div>
                     <% end %>
@@ -55,8 +54,16 @@
                     <%= simple_form_for(@track_items) do |f| %>
                       <%= f.input :company_id, :as => "hidden", :input_html => { :value => company.id } %>
                       <%= f.input :stock_quantity, :label => 'Number of stocks:' %>
-                      <%= f.input :stop_loss,  :label => 'Change stop-loss: ' %>
                       <%= f.input :value_stock, :label => 'Price of stocks:' %>
+                      <div class="d-flex flex-row-reverse"><%= f.button :submit, 'Submit', class: 'btn-end btn-bold', name: "sell"  %></div>
+                    <% end %>
+                  </div>
+
+                  <div class='track_form d-none' data-buy-btn-target="formloss">
+                    <div class="d-flex flex-row-reverse" data-buy-btn-target="cross" data-action="click->buy-btn#cancelloss"><i class="fas fa-times"></i></div>
+                    <%= simple_form_for(@track_items) do |f| %>
+                      <%= f.input :company_id, :as => "hidden", :input_html => { :value => company.id } %>
+                      <%= f.input :stop_loss,  :label => 'Change stop-loss: ' %>
                       <div class="d-flex flex-row-reverse"><%= f.button :submit, 'Submit', class: 'btn-end btn-bold', name: "sell"  %></div>
                     <% end %>
                   </div>

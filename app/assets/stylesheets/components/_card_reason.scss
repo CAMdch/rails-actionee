@@ -1,8 +1,8 @@
 .card_reason {
-  border: 3px solid #D8D2CB;
+  border: 2px solid #D8D2CB;
   display: flex;
   align-items: center;
-  padding: 46px 33px;
+  padding: 55px 33px;
   justify-content: center;
   margin: 14px 20px;
   text-align: center;
@@ -12,14 +12,14 @@
   display: flex;
   flex-direction: column;
 
-  img {
-    width: 90%;
-  }
-
   p {
     margin: 0;
     color: $dark-blue;
     font-weight: bold;
+  }
+
+  img {
+    width: 90%
   }
 
 }

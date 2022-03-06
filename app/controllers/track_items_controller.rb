@@ -7,6 +7,8 @@ class TrackItemsController < ApplicationController
       negative_stock_quantity = @track_items.stock_quantity
       @track_items.stock_quantity = - negative_stock_quantity
     end
+    stop_loss = TrackItem.find_by('user_id = ? AND company_id = ?', current_user.id, params[:track_item][:company_id].to_i).value_stock if @track_items.stop_loss.nil?
+    @track_items.stop_loss = stop_loss if @track_items.stop_loss.nil?
     @track_items.save
     unless @track_items.save
       flash[:notice] = 'It has been saved'

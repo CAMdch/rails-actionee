@@ -31,6 +31,9 @@
                       </div>
                     </div>
                     <div >
+                      <%= link_to favorite_path(Favorite.where('company_id = ? AND user_id = ?', company.id, current_user)[0]), method: :delete, id:"unfollow" do%>
+                        Unfollow
+                      <%end%>
                       <a data-buy-btn-target="buy" data-action="click->buy-btn#appearBuy" id='buy-far'>Buy</a>
                       <a data-buy-btn-target="sell" data-action="click->buy-btn#appearSell" id='sell'>Sell</a>
                     </div>

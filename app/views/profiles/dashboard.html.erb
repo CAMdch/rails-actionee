@@ -34,50 +34,15 @@
       <div class="overview d-none" data-profil-target="overview">
         <h2>Since <%=current_user.created_at.strftime('%B %Y')%></h2>
         <div class="total-gain">
-          <p><%= current_user.total_gains%> <span>USD</span></p>
+          <p><%if current_user.total_gains.positive?%>+ <%end%><%= current_user.total_gains%> <span>USD</span></p>
         </div>
 
-        <div class="best-invest">
-          <h3>Top 3 investments</h3>
-          <div class="card-best-invest">
-            <p class="nivel">1</p>
-            <p class="company">Amazon</p>
-            <p class="quantity-stocks">8</p>
-            <p class="stocks">STOCKS</p>
-            <p class="value-stock">3660</p>
-            <p class="currency">USD</p>
-            <p class="evolution">+ 1,36</p>
-            <p class="pourcentage">%</p>
-          </div>
 
-          <div class="card-best-invest">
-            <p class="nivel">2</p>
-            <p class="company">Uber</p>
-            <p class="quantity-stocks">10</p>
-            <p class="stocks">STOCKS</p>
-            <p class="value-stock">3660</p>
-            <p class="currency">USD</p>
-            <p class="evolution">+ 1,36</p>
-            <p class="pourcentage">%</p>
-          </div>
-        </div>
-
-        <div class="worth-invest">
-          <h3>Top 3 losses</h3>
-          <div class="card-worth-invest">
-            <p class="nivel">1</p>
-            <p class="company">Amazon</p>
-            <p class="quantity-stocks">8</p>
-            <p class="stocks">STOCKS</p>
-            <p class="value-stock">3660</p>
-            <p class="currency">USD</p>
-            <p class="evolution">+ 1,36</p>
-            <p class="pourcentage">%</p>
-          </div>
-        </div>
-      </div>
-
-
+          <%if @order_invest[0].length == 1 && @order_invest[1].length == 0%>
+            <%= render 'one_invest', order_invest: @order_invest[0][0]%>
+          <%else%>
+            <%= render 'two_invest', order_invest: @order_invest %>
+          <%end%>
     </div>
   </div>
 </div>

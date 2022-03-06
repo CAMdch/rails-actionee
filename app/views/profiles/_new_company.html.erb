@@ -16,7 +16,7 @@
                         <p class="col-6 stock-text " >Stocks</p>
                       </div>
                       <div class='stock-detail-row row p-1'>
-                        <p class="col-6 stock-number"><%= company.gains(current_user).round%></p>
+                        <p class="col-6 stock-number"><%if company.gains(current_user).positive?%>+ <%end%><%= company.gains(current_user).round%></p>
                         <p class="col-6 stock-text" >USD gains</p>
                       </div>
                     </div>

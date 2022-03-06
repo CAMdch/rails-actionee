@@ -11,9 +11,9 @@
     font-family: $body-font;
     padding: 11px 19px;
     border-radius: 0px;
-    background: $dark-blue;
+
     &:hover {
-      color: white;
+      color: $dark-blue;
       text-decoration: none;
       border: 100px, solid, white;
     }

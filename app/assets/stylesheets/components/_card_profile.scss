@@ -21,7 +21,7 @@
     top: -35px;
     left: -35px;
     border-radius: 50%;
-    border: 0.1px solid rgba($color: black, $alpha: 0.1);
+
     background-color: white;
     height: 70px;
     width: 70px;
@@ -36,8 +36,11 @@
     font-weight: 600;
     font-size: 23px;
     line-height: 40px;
+    color: $dark-blue;
+  }
 
-    color: #000000;
+  a {
+    text-decoration: none;
   }
 
 }

@@ -17,7 +17,11 @@
   }
 }
 
-.best-invest, .worth-invest {
+.worth-title {
+  margin-top: 54px;
+}
+
+.overview-title {
   border-top: 1px solid $sand;
   h3 {
     font-weight: bolder;
@@ -149,6 +153,6 @@
 }
 
 .worth-invest {
-  margin-top: 54px;
+  margin-top: 25px;
   margin-bottom: 55px;
 }

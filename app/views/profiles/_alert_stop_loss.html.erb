@@ -1,9 +1,11 @@
 <div data-controller="card-profil" data-card-profil-number-value="<%= company.currency_stock.pourcentage%>">
-          <div class="card-profile card-profile-green" data-card-profil-target="border">
+          <div class="card-profile card-profile-green" data-card-profil-target="border" data-controller="buy-btn">
 
             <div class="company-profile-info">
               <img src='<%= company.photo_url%>'>
-              <h3><%= company.name %></h3>
+              <%= link_to company_path(company) do %>
+                <h3><%= company.name %></h3>
+              <%end%>
             </div>
 
             <div class="stock-info">
@@ -14,7 +16,7 @@
                     <p class="col-6 stock-text text-start" >Stocks</p>
                   </div>
                   <div class='row align-items-center p-1'>
-                    <p class="col-6 stock-number text-end "><%= company.gains(current_user).round%></p>
+                    <p class="col-6 stock-number text-end "><%if company.gains(current_user).positive?%>+ <%end%><%= company.gains(current_user).round%></p>
                     <p class="col-6 stock-text text-start" >USD gains</p>
                   </div>
                 </div>
@@ -28,8 +30,30 @@
                     <p class="col-6 stock-text text-start" >USD stop-loss</p>
                   </div>
                 </div>
-                  <a href="#" id='buy-far'>Buy</a>
-                  <a href="#" id='sell'>Sell</a>
+                  <a data-buy-btn-target="buy" data-action="click->buy-btn#appearBuy" id='buy-far'>Buy</a>
+                  <a data-buy-btn-target="sell" data-action="click->buy-btn#appearSell" id='sell'>Sell</a>
+            </div>
+            <div class='track_form d-none' data-buy-btn-target="form">
+              <div class="d-flex flex-row-reverse" data-buy-btn-target="cross" data-action="click->buy-btn#cancelbuy"><i class="fas fa-times"></i></div>
+              <p class="buy">Buy</p>
+              <%= simple_form_for(@track_items) do |f| %>
+                  <%= f.input :company_id, :as => "hidden", :input_html => { :value => company.id } %>
+                  <%= f.input :stock_quantity, :label => 'Number of stocks:' %>
+                  <%= f.input :stop_loss,  :label => 'Change stop-loss: ' %>
+                  <%= f.input :value_stock, :label => 'Price of stocks:' %>
+                  <div class="d-flex flex-row-reverse"><%= f.button :submit, 'Submit', class: 'btn-end btn-bold' %></div>
+              <% end %>
+            </div>
+            <div class='track_form d-none' data-buy-btn-target="formsell">
+              <div class="d-flex flex-row-reverse" data-buy-btn-target="cross" data-action="click->buy-btn#cancelsell"><i class="fas fa-times"></i></div>
+               <p class="sell">Sell</p>
+               <%= simple_form_for(@track_items) do |f| %>
+                  <%= f.input :company_id, :as => "hidden", :input_html => { :value => company.id } %>
+                  <%= f.input :stock_quantity, :label => 'Number of stocks:' %>
+                  <%= f.input :stop_loss,  :label => 'Change stop-loss: ' %>
+                  <%= f.input :value_stock, :label => 'Price of stocks:' %>
+                  <div class="d-flex flex-row-reverse"><%= f.button :submit, 'Submit', class: 'btn-end btn-bold', name: "sell"  %></div>
+               <% end %>
             </div>
             <div class="alert-stop-loss">
               <div class="d-flex flex-row">

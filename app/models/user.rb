@@ -17,8 +17,9 @@ class User < ApplicationRecord
     track_items = TrackItem.where('user_id = ?', self)
     total = 0
     track_items.each do |item|
-      total += item.stock_quantity * item.value_stock
+      company = Company.find(item.company_id)
+      total += company.gains(self)
     end
-    return total
+    return total.round
   end
 end

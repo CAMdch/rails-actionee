@@ -3,8 +3,11 @@ class TrackItemsController < ApplicationController
     @track_items = TrackItem.new(track_items_params)
     @track_items.user = current_user
     authorize @track_items
+    unless params["sell"].nil?
+      negative_stock_quantity = @track_items.stock_quantity
+      @track_items.stock_quantity = - negative_stock_quantity
+    end
     @track_items.save
-
     unless @track_items.save
       flash[:notice] = 'It has been saved'
     end

@@ -11,8 +11,15 @@ class Company < ApplicationRecord
   has_many :track_items, dependent: :destroy
   has_many :tags, through: :company_tags
 
-  def track_item(user)
-    TrackItem.find_by('user_id = ? AND company_id = ?', user.id, self)
+  def total_stock(user)
+    total_quantity = stock_quantity(user)
+    value_actual = self.currency_stock.value
+    return value_actual * total_quantity
+  end
+
+  def stop_loss(user)
+    tracks = TrackItem.where('user_id = ? AND company_id = ?', user.id, self)
+    return tracks.first.stop_loss
   end
 
   def stock_quantity(user)

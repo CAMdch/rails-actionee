@@ -25,8 +25,8 @@ class CompaniesController < ApplicationController
     @review = Review.new
     @reviews = Review.where('company_id = ?', @company.id)
     recommendation(@company.symbol)
-    @news = NewsJob.perform_now(@company.symbol)
-    @currency = StockJob.perform_now(@company.symbol)
+    @news = Publication.where('company_id = ?', @company.id).order('created_at DESC').limit(3)
+    @currency = Stock.where('company_id = ?', @company.id).order('created_at DESC').first
     authorize @company
     @marker = [{ lat: @company.latitude, lng: @company.longitude }]
   end
@@ -34,7 +34,6 @@ class CompaniesController < ApplicationController
   private
 
   def recommendation(ticker)
-
     finnhub_client = FinnhubRuby::DefaultApi.new
     company_month = finnhub_client.recommendation_trends("#{ticker}")[0]
 
@@ -45,6 +44,5 @@ class CompaniesController < ApplicationController
     else
       return @recommendation = "Hold"
     end
-
   end
 end

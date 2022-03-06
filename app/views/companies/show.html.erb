@@ -52,10 +52,10 @@
           <div class="card-news">
             <div class="full-grey-gard"></div>
               <div class="text-news">
-                <h4><%= new.source%></h4>
-                <h3><%= new.headline%></h3>
-                <p><%= new.summary%></p>
-                <a href="<%= new.url%>" target="blank" class="btn-follow">Go to web site</a>
+                <h4><%= new.author%></h4>
+                <h3><%= new.title%></h3>
+                <p><%= new.content%></p>
+                <a href="<%= new.link%>" target="blank" class="btn-follow">Go to web site</a>
               </div>
           </div>
         <%end%>
@@ -70,8 +70,8 @@
           <p class="advice-status advice-status-green"><%= @recommendation%></p>
         </div>
       <div class="price">
-        <p class="currency-value"><%= @currency[1]%> <span class="currency">USD</span></p>
-        <p class="pourcentage-value-green" data-color-card-target ="pourcentage" ><%= @currency[0]%> <span class = "pourcentage">%</span></p>
+        <p class="currency-value"><%= @currency.value%> <span class="currency">USD</span></p>
+        <p class="pourcentage-value-green" data-color-card-target ="pourcentage" ><%= @currency.pourcentage%> <span class = "pourcentage">%</span></p>
       </div>
     </div>
 

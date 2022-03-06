@@ -71,13 +71,14 @@ gem 'pundit'
 #geocoder
 gem "geocoder"
 
-gem 'dotenv-rails', groups: [:development, :test]
-
 gem 'cloudinary', '~> 1.16.0'
 
 #API
 gem 'finnhub_ruby', '~> 1.1.13'
 
+#background-job
+gem 'sidekiq'
+gem 'sidekiq-failures', '~> 1.0'
 
 gem 'json'
 gem 'open-uri'

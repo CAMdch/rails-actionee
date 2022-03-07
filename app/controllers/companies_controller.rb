@@ -1,20 +1,21 @@
 class CompaniesController < ApplicationController
   def index
     if params[:query].present? && filter_request?
-      @companies = policy_scope(Company).all
-    # elsif filter_request?
-      # @companies = policy_scope(Company.joins(:tags)).where(sql_query_filters_only)
+      @companies = policy_scope(Company).where('name ILIKE ?', "%#{params[:query]}%").filter_tag(filter_params)
+    elsif filter_request?
+      @companies = policy_scope(Company).filter_tag(filter_params)
     elsif params[:query].present?
       @companies = policy_scope(Company).where('name ILIKE ?', "%#{params[:query]}%")
+      authorize @companies
     else
       @companies = policy_scope(Company).all
+      authorize @companies
     end
     @favorite_user = Favorite.where('user_id = ?', current_user)
     respond_to do |format|
       format.html # Follow regular flow of Rails
       format.text { render partial: 'companies_list', locals: { companies: @companies }, formats: [:html] }
     end
-    authorize @companies
   end
 
 

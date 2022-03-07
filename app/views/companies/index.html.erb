@@ -20,9 +20,9 @@
     <button type="button" class="btn btn-filter" data-bs-toggle="modal" data-bs-target="#filterModal">
       <i class="fas fa-filter"></i>Filter</a>
     </button>
-    <p>Gender Equality</p>
-    <p>Animal rights</p>
-    <p>Eco-friendly</p>
+    <p data-bs-toggle="modal" data-bs-target="#filterModal">Gender Equality</p>
+    <p data-bs-toggle="modal" data-bs-target="#filterModal">Animal rights</p>
+    <p data-bs-toggle="modal" data-bs-target="#filterModal">Eco-friendly</p>
   </div>
 
     <!-- Modal -->
@@ -34,27 +34,28 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <%= form_tag companies_path, method: :get do %>
-              <% Tag.all.each do |tag| %>
-                  <%= check_box_tag tag.name.to_sym,
-                    params[tag.name.to_s.to_sym],
-                    checked = false
-                  %>
-                  <%= label_tag tag.name.to_sym,
-                    tag.name
-                  %>
+            <div class="form-row">
+              <%= form_tag companies_path, method: :get do %>
+                <% Tag.all.each do |tag| %>
+                    <%= check_box_tag tag.name.to_sym,
+                      params[tag.name.to_s.to_sym],
+                      checked = false
+                    %>
+                      <%= label_tag tag.name.to_sym,
+                      tag.name
+                    %> <br>
+                <% end %>
+                <div class="modal-footer">
+                  <%= submit_tag "Search", class: "btn btn-filter" %>
+                  <%# <button type="button" class="btn btn-filter" data-bs-dismiss="modal">Close</button> %>
+                  <%# <button type="button" class="btn btn-filter">Submit</button> %>
+                </div>
               <% end %>
-              <div class="modal-footer">
-                <%= submit_tag "Search", class: "btn btn-filter" %>
-                <%# <button type="button" class="btn btn-filter" data-bs-dismiss="modal">Close</button> %>
-                <%# <button type="button" class="btn btn-filter">Submit</button> %>
-              </div>
-            <% end %>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <%= console %>
     <%= render 'companies_list', companies: @companies%>
 
 </div>

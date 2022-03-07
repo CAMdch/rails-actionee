@@ -5,6 +5,16 @@
   margin-left: 6px;
   object-fit: cover;
 }
+.avatar-box{
+  position: relative;
+  .fa-circle {
+    color: red;
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    font-size: 13px;
+  }
+}
 .avatar-large {
   width: 56px;
   border-radius: 50%;

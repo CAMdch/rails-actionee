@@ -24,9 +24,9 @@ class CompaniesController < ApplicationController
 
     @chart_options = {
       scales: {
-        yAxes: {
-          ticks: {
-            beginAtZero: true
+        y: {
+          grid: {
+            display: false
           }
         }
       }
@@ -47,18 +47,20 @@ class CompaniesController < ApplicationController
     @chart_data = {
       labels: time_chart.reverse,
       datasets: [{
-        label: 'Stock price',
-        backgroundColor: 'transparent',
-        borderColor: '$dark-blue',
+        label: 'Stock P',
+        backgroundColor: '#0B1E44',
+        borderWidth: 1,
+        borderColor: '#0B1E44',
         data: value_chart.reverse
       }]
     }
 
     @chart_options = {
       scales: {
-        yAxes: {
-          ticks: {
-            beginAtZero: true
+
+        y: {
+          grid: {
+            display: false
           }
         }
       }

@@ -1,5 +1,9 @@
 <div class="overview-title">
-  <h3>Top <%= pluralize order_invest[0].length, "investment" %></h3>
+  <%if order_invest[0].length == 1 %>
+    <h3>Your best investment</h3>
+  <%else%>
+    <h3>Top <%= pluralize order_invest[0].length, "investment" %></h3>
+  <%end%>
 </div>
 <% i = 1%>
 <% order_invest[0].each do |invest| %>
@@ -19,7 +23,11 @@
       </div>
 <%end%>
 <div class="overview-title worth-title">
-  <h3>Top <%= pluralize order_invest[1].length, "loss" %></h3>
+  <%if order_invest[1].length == 1 %>
+    <h3>Your loss</h3>
+  <%else%>
+    <h3>Top <%= pluralize order_invest[1].length, "loss" %></h3>
+  <%end%>
 </div>
 <% j = 1%>
 <% order_invest[1].each do |invest| %>

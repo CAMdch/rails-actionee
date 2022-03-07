@@ -1,5 +1,4 @@
 <div class="container containerPerso" style="margin-top: 80px;" data-controller="search">
-
   <div class="search-bar">
     <%= form_with url: companies_path, method: :get, html: { class:
     'form-input', data: { search_target: 'form' } } do |f| %>
@@ -56,6 +55,5 @@
         </div>
       </div>
     </div>
-    <%= render 'companies_list', companies: @companies%>
-
+    <%= render 'companies_list', companies: @companies %>
 </div>

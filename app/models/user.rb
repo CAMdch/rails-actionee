@@ -12,4 +12,14 @@ class User < ApplicationRecord
   has_many :reviews
   has_many :companies, through: :favorites
   has_one_attached :photo
+
+  def total_gains
+    track_items = TrackItem.where('user_id = ?', self)
+    total = 0
+    track_items.each do |item|
+      company = Company.find(item.company_id)
+      total += company.gains(self)
+    end
+    return total.round
+  end
 end

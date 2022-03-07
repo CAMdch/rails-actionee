@@ -13,14 +13,19 @@
       <div class="body-part">
         <h2>Why choose us ?</h2>
         <div class="row">
+
+
           <div class="card_reason col-sm-12 col-lg-3">
             <p>Advanced filtering</p>
+            <%= image_tag('filter.png')%>
           </div>
           <div class="card_reason col-sm-12 col-lg-3">
             <p>Keeping track the smart way</p>
+            <%= image_tag('track.png')%>
           </div>
           <div class="card_reason col-sm-12 col-lg-3">
             <p>Strong community</p>
+            <%= image_tag('community.png')%>
           </div>
         </div>
       </div>
@@ -34,7 +39,7 @@
       <div class="body-part">
         <h2>Top 3 of the day</h2>
         <% @top_3_companies.each do |company|%>
-          <div class="card-company companies-huge">
+          <div class="card-company-green card-company companies-huge" data-controller="card-company" data-card-company-number-value="<%= company.currency_stock.pourcentage%>" data-card-company-target="border">
             <%= link_to company_path(company) do%>
 
               <div class="company-info">
@@ -43,8 +48,8 @@
               </div>
 
               <div class="stock-info">
-                <p class="stock-status">+ 1,36 <span id="pourcentage">%</span></p>
-                <p class="stock-value">3450 <span id="currency">USD</span></p>
+                <p class="stock-status-green" data-card-company-target="pourcentage"><%= company.currency_stock.pourcentage%> <span id="pourcentage">%</span></p>
+                <p class="stock-value"><%= company.currency_stock.value.round%> <span id="currency">USD</span></p>
               </div>
 
 

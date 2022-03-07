@@ -1,0 +1,23 @@
+<h3>untracked company cards with from to start tracking </h3>
+        <% current_user.companies.each do |company|%>
+          <div class="card-profile">
+
+            <div class="company-profile-info">
+              <img src='<%= company.photo_url%>'>
+              <h3><%= company.name %></h3>
+            </div>
+
+            <div class="stock-info d-flex flex-row-reverse">
+              <p class="stock-status">+ 1,36 <span id="pourcentage">%</span></p>
+              <div class='track_form'>
+                <%= simple_form_for(@track_items) do |f| %>
+                  <%= f.input :company_id, :as => "hidden", :input_html => { :value => company.id } %>
+                  <%= f.input :stock_quantity, :label => 'Number of stocks:' %>
+                  <%= f.input :stop_loss,  :label => 'Alert if losses go beyond: ' %>
+                  <%= f.input :value_stock, :label => 'Price of stocks:' %>
+                  <div class="d-flex flex-row-reverse"><%= f.button :submit, 'Submit', class: 'btn-end btn-bold' %></div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        <%end%>

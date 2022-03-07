@@ -1,8 +1,15 @@
 .card-profile {
-  border: 1px solid $light-green;
   margin: 50px 45px;
   position: relative;
   padding-bottom: 23px;
+}
+
+.card-profile-green {
+  border: 1px solid $light-green;
+}
+
+.card-profile-red {
+  border: 1px solid $light-red;
 }
 
 
@@ -14,11 +21,11 @@
     top: -35px;
     left: -35px;
     border-radius: 50%;
-    border: 0.1px solid rgba($color: black, $alpha: 0.1);
+
     background-color: white;
     height: 70px;
     width: 70px;
-    object-fit: cover;
+    object-fit: contain;
     margin: 10px;
   }
 
@@ -29,8 +36,11 @@
     font-weight: 600;
     font-size: 23px;
     line-height: 40px;
+    color: $dark-blue;
+  }
 
-    color: #000000;
+  a {
+    text-decoration: none;
   }
 
 }
@@ -78,10 +88,17 @@
   }
 
   .stock-status {
-    color: $light-green;
     position: absolute;
     top: 10px;
     right: 15px;
+  }
+
+  .stock-status-green {
+    color: $light-green;
+  }
+
+  .stock-status-red {
+    color: $light-red;
   }
 
   #buy-far, #buy-close, #sell {
@@ -92,6 +109,13 @@
     text-decoration: none;
   }
 
+  #unfollow {
+    color: $sand;
+    position: absolute;
+    bottom: 12px;
+    right: 169px;
+    text-decoration: none;
+  }
 
   #buy-far {
     color: $light-green;

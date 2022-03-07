@@ -1,19 +1,20 @@
 class TrackItemsController < ApplicationController
   def create
     @track_items = TrackItem.new(track_items_params)
+    @company = Company.find(params[:track_item][:company_id])
     @track_items.user = current_user
     authorize @track_items
-    @track_items.save
-
-    unless @track_items.save
-      flash[:notice] = 'It has been saved'
+    unless params["sell"].nil?
+      negative_stock_quantity = @track_items.stock_quantity
+      @track_items.stock_quantity = - negative_stock_quantity
     end
-    redirect_to profile_path
+    @track_items.save
+    redirect_to profile_path + "#company-#{@company.id}"
   end
 
   private
 
   def track_items_params
-    params.require(:track_item).permit(:stop_loss, :stock_quantity, :value_stock, :company_id)
+    params.require(:track_item).permit(:stock_quantity, :value_stock, :company_id)
   end
 end

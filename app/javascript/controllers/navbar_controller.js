@@ -9,7 +9,7 @@ export default class extends Controller {
   updateNavbar() {
 
     if(window.location.pathname === "/"){
-      if (window.scrollY >= 400) {
+      if (window.scrollY >= 0.2 * window.innerHeight) {
         this.element.classList.add("navbar-lewagon-blue")
       } else {
         this.element.classList.remove("navbar-blue")

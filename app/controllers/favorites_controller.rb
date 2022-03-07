@@ -10,6 +10,15 @@ class FavoritesController < ApplicationController
     authorize @favorite
   end
 
+  def update
+    @favorite = Favorite.find(params[:id])
+    @favorite.stop_loss = params[:favorite][:stop_loss].to_i
+    @favorite.save
+    @company = Company.find(params[:favorite][:company_id])
+    redirect_to request.referer + "#company-#{@company.id}"
+    authorize @favorite
+  end
+
   def destroy
     @favorite = Favorite.find(params[:id])
     @company = @favorite.company

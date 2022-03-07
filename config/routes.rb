@@ -14,7 +14,8 @@ Rails.application.routes.draw do
     resources :likes, only: %i[new create update]
   end
 
-  resources :favorites, only: %i[destroy]
+  resources :favorites, only: %i[destroy update]
   resources :reviews, only: %i[destroy]
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

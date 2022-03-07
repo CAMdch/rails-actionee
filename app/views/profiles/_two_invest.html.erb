@@ -1,0 +1,48 @@
+<div class="overview-title">
+  <%if order_invest[0].length == 1 %>
+    <h3>Your best investment</h3>
+  <%else%>
+    <h3>Top <%= pluralize order_invest[0].length, "investment" %></h3>
+  <%end%>
+</div>
+<% i = 1%>
+<% order_invest[0].each do |invest| %>
+      <% company = Company.find(invest[:company])%>
+      <div class="best-invest">
+          <div class="card-best-invest">
+            <p class="nivel"><%= i%></p>
+            <% i += 1%>
+            <p class="company"><%= company.name%></p>
+            <p class="quantity-stocks"><%= company.stock_quantity(current_user)%></p>
+            <p class="stocks">STOCKS</p>
+            <p class="value-stock"><%= company.currency_stock.value.round%></p>
+            <p class="currency">USD</p>
+            <p class="evolution"><%= company.currency_stock.pourcentage%></p>
+            <p class="pourcentage">%</p>
+          </div>
+      </div>
+<%end%>
+<div class="overview-title worth-title">
+  <%if order_invest[1].length == 1 %>
+    <h3>Your loss</h3>
+  <%else%>
+    <h3>Top <%= pluralize order_invest[1].length, "loss" %></h3>
+  <%end%>
+</div>
+<% j = 1%>
+<% order_invest[1].each do |invest| %>
+        <% company = Company.find(invest[:company])%>
+        <div class="worth-invest">
+          <div class="card-worth-invest">
+            <p class="nivel"><%= j%></p>
+            <% j += 1%>
+            <p class="company"><%= company.name%></p>
+            <p class="quantity-stocks"><%= company.stock_quantity(current_user)%></p>
+            <p class="stocks">STOCKS</p>
+            <p class="value-stock"><%= company.currency_stock.value.round%></p>
+            <p class="currency">USD</p>
+            <p class="evolution"><%= company.currency_stock.pourcentage%></p>
+            <p class="pourcentage">%</p>
+          </div>
+        </div>
+<%end%>

@@ -21,245 +21,28 @@
 
       <div class="actionee" data-profil-target="actionee">
         <% current_user.companies.each do |company|%>
-          <% if current_user.track_items.to_a.any? {|tracked_company| tracked_company.company == company } %>
-
-            <div class="card-profile" data-controller="buy-btn">
-              <div class="company-profile-info">
-                <img src='<%= company.photo_url%>'>
-                <h3><%= company.name %></h3>
-              </div>
-              <div class="stock-info">
-                <p class="stock-status">+ 1,36 <span id="pourcentage">%</span></p>
-                  <div class="col p-1">
-                    <div class='stock-detail-row row p-1'>
-                      <p class="col-6 stock-number">8</p>
-                      <p class="col-6 stock-text " >Stocks</p>
-                    </div>
-                    <div class='stock-detail-row row p-1'>
-                      <p class="col-6 stock-number">+7000</p>
-                      <p class="col-6 stock-text" >USD gains</p>
-                    </div>
-                  </div>
-                  <div class="col p-1">
-                    <div class='stock-detail-row row p-1'>
-                      <p class="col-6 stock-number ">27600</p>
-                      <p class="col-6 stock-text " >USD total</p>
-                    </div>
-                    <div class='stock-detail-row row p-1'>
-                      <p class="col-6 stock-number ">-1000</p>
-                      <p class="col-6 stock-text " >USD stop-loss<i class="fas fa-pen-nib"></i></p>
-                    </div>
-                  </div>
-                    <a data-buy-btn-target="buy" data-action="click->buy-btn#appearBuy" id='buy-far'>Buy</a>
-                    <a data-buy-btn-target="sell" data-action="click->buy-btn#appearSell" id='sell'>Sell</a>
-              </div>
-                <div class='track_form d-none' data-buy-btn-target="form">
-                  <div class="d-flex flex-row-reverse" data-buy-btn-target="cross" data-action="click->buy-btn#cancelbuy"><i class="fas fa-times"></i></div>
-                  <%= simple_form_for(@track_items) do |f| %>
-                    <%= f.input :stock_quantity, :label => 'Number of stocks:' %>
-                    <%= f.input :stop_loss,  :label => 'Change stop-loss: ' %>
-                    <%= f.input :value_stock, :label => 'Price of stocks:' %>
-                    <div class="d-flex flex-row-reverse"><%= f.button :submit, 'Submit', class: 'btn-end btn-bold' %></div>
-                  <% end %>
-                </div>
-                <div class='track_form d-none' data-buy-btn-target="formsell">
-                  <div class="d-flex flex-row-reverse" data-buy-btn-target="cross" data-action="click->buy-btn#cancelsell"><i class="fas fa-times"></i></div>
-                  <%= simple_form_for(@track_items) do |f| %>
-                    <%= f.input :stock_quantity, :label => 'Number of stocks:' %>
-                    <%= f.input :stop_loss,  :label => 'Change stop-loss: ' %>
-                    <%= f.input :value_stock, :label => 'Price of stocks:' %>
-                    <div class="d-flex flex-row-reverse"><%= f.button :submit, 'Submit', class: 'btn-end btn-bold' %></div>
-                  <% end %>
-                </div>
-            </div>
-
-          <% else %>
-
-
-            <div class="card-profile" data-controller="start-tracking-button">
-              <div class="company-profile-info">
-                <img src='<%= company.photo_url%>'>
-                <h3><%= company.name %></h3>
-              </div>
-              <div class="stock-info d-flex flex-row-reverse">
-                <p class="stock-status">+ 1,36 <span id="pourcentage">%</span></p>
-                <div class="btn btn-bold" data-start-tracking-button-target="button" data-action="click->start-tracking-button#appear">Track</div>
-              </div>
-              <div class='d-none track_form' data-start-tracking-button-target="form">
-                <%= simple_form_for(@track_items) do |f| %>
-                  <div class="d-flex flex-row-reverse" data-start-tracking-button-target="cross" data-action="click->start-tracking-button#canceltrack"><i class="fas fa-times"></i></div>
-                  <%= f.input :company_id, :as => "hidden", :input_html => { :value => company.id } %>
-                  <%= f.input :stock_quantity, :label => 'Number of stocks:' %>
-                  <%= f.input :stop_loss,  :label => 'Alert if losses go beyond: ' %>
-                  <%= f.input :value_stock, :label => 'Price of stocks:' %>
-                  <div class="d-flex flex-row-reverse"><%= f.button :submit, 'Submit', class: 'btn-end btn-bold' %></div>
-                <% end %>
-              </div>
-            </div>
-
-
-          <% end %>
+          <%if company.gains(current_user) < company.favorite(current_user).stop_loss%>
+            <%= render 'alert_stop_loss', company: company%>
+          <%else%>
+            <%=render 'new_company', company: company%>
+          <%end%>
         <% end %>
 
-        <h3>tracked company cards with alert for stop-loss</h3>
-        <% current_user.companies.each do |company|%>
-          <div class="card-profile">
 
-            <div class="company-profile-info">
-              <img src='<%= company.photo_url%>'>
-              <h3><%= company.name %></h3>
-            </div>
-
-            <div class="stock-info">
-              <p class="stock-status">+ 1,36 <span id="pourcentage">%</span></p>
-                <div class="col p-1">
-                  <div class='row align-items-center p-1'>
-                    <p class="col-6 stock-number text-end ">8</p>
-                    <p class="col-6 stock-text text-start" >Stocks</p>
-                  </div>
-                  <div class='row align-items-center p-1'>
-                    <p class="col-6 stock-number text-end ">+7000</p>
-                    <p class="col-6 stock-text text-start" >USD gains</p>
-                  </div>
-                </div>
-                <div class="col p-1">
-                  <div class='row align-items-center p-1'>
-                    <p class="col-6 stock-number text-end ">27600</p>
-                    <p class="col-6 stock-text text-start" >USD total</p>
-                  </div>
-                  <div class='row align-items-center p-1'>
-                    <p class="col-6 stock-number text-end ">-1000</p>
-                    <p class="col-6 stock-text text-start" >USD stop-loss</p>
-                  </div>
-                </div>
-                  <a href="#" id='buy-far'>Buy</a>
-                  <a href="#" id='sell'>Sell</a>
-            </div>
-            <div class="alert-stop-loss">
-              <div class="d-flex flex-row">
-                <i class="fas fa-exclamation-triangle"></i>
-                <p>Limit reached</p>
-                <i class="fas fa-times"></i>
-              </div>
-            </div>
-          </div>
-        <%end%>
-
-        <h3>untracked company cards with from to start tracking </h3>
-        <% current_user.companies.each do |company|%>
-          <div class="card-profile">
-
-            <div class="company-profile-info">
-              <img src='<%= company.photo_url%>'>
-              <h3><%= company.name %></h3>
-            </div>
-
-            <div class="stock-info d-flex flex-row-reverse">
-              <p class="stock-status">+ 1,36 <span id="pourcentage">%</span></p>
-              <div class='track_form'>
-                <%= simple_form_for(@track_items) do |f| %>
-                  <%= f.input :company_id, :as => "hidden", :input_html => { :value => company.id } %>
-                  <%= f.input :stock_quantity, :label => 'Number of stocks:' %>
-                  <%= f.input :stop_loss,  :label => 'Alert if losses go beyond: ' %>
-                  <%= f.input :value_stock, :label => 'Price of stocks:' %>
-                  <div class="d-flex flex-row-reverse"><%= f.button :submit, 'Submit', class: 'btn-end btn-bold' %></div>
-                <% end %>
-              </div>
-            </div>
-          </div>
-        <%end%>
-        <h3>tracked company cards with dropdown form to buy</h3>
-        <% current_user.companies.each do |company|%>
-          <div class="card-profile">
-
-            <div class="company-profile-info">
-              <img src='<%= company.photo_url%>'>
-              <h3><%= company.name %></h3>
-            </div>
-
-            <div class="stock-info">
-              <p class="stock-status">+ 1,36 <span id="pourcentage">%</span></p>
-                <div class="col p-1">
-                  <div class='stock-detail-row row p-1'>
-                    <p class="col-6 stock-number">8</p>
-                    <p class="col-6 stock-text " >Stocks</p>
-                  </div>
-                  <div class='stock-detail-row row p-1'>
-                    <p class="col-6 stock-number">+7000</p>
-                    <p class="col-6 stock-text" >USD gains</p>
-                  </div>
-                </div>
-                <div class="col p-1">
-                  <div class='stock-detail-row row p-1'>
-                    <p class="col-6 stock-number ">27600</p>
-                    <p class="col-6 stock-text " >USD total</p>
-                  </div>
-                  <div class='stock-detail-row row p-1'>
-                    <p class="col-6 stock-number ">-1000</p>
-                    <p class="col-6 stock-text " >USD stop-loss</p>
-                  </div>
-                </div>
-                  <a href="#" id='buy-close'>Buy</a>
-            </div>
-                <div class='track_form'>
-                  <%= simple_form_for(@track_items) do |f| %>
-                    <%= f.input :stock_quantity, :label => 'Number of stocks:' %>
-                    <%= f.input :stop_loss,  :label => 'Change stop-loss: ' %>
-                    <%= f.input :value_stock, :label => 'Price of stocks:' %>
-                    <div class="d-flex flex-row-reverse"><%= f.button :submit, 'Submit', class: 'btn-end btn-bold' %></div>
-                  <% end %>
-                </div>
-          </div>
-        <%end %>
       </div>
 
       <div class="overview d-none" data-profil-target="overview">
         <h2>Since <%=current_user.created_at.strftime('%B %Y')%></h2>
         <div class="total-gain">
-          <p>+ 10.000 <span>USD</span></p>
+          <p><%if current_user.total_gains.positive?%>+ <%end%><%= current_user.total_gains%> <span>USD</span></p>
         </div>
 
-        <div class="best-invest">
-          <h3>Top 3 investments</h3>
-          <div class="card-best-invest">
-            <p class="nivel">1</p>
-            <p class="company">Amazon</p>
-            <p class="quantity-stocks">8</p>
-            <p class="stocks">STOCKS</p>
-            <p class="value-stock">3660</p>
-            <p class="currency">USD</p>
-            <p class="evolution">+ 1,36</p>
-            <p class="pourcentage">%</p>
-          </div>
 
-          <div class="card-best-invest">
-            <p class="nivel">2</p>
-            <p class="company">Uber</p>
-            <p class="quantity-stocks">10</p>
-            <p class="stocks">STOCKS</p>
-            <p class="value-stock">3660</p>
-            <p class="currency">USD</p>
-            <p class="evolution">+ 1,36</p>
-            <p class="pourcentage">%</p>
-          </div>
-        </div>
-
-        <div class="worth-invest">
-          <h3>Top 3 losses</h3>
-          <div class="card-worth-invest">
-            <p class="nivel">1</p>
-            <p class="company">Amazon</p>
-            <p class="quantity-stocks">8</p>
-            <p class="stocks">STOCKS</p>
-            <p class="value-stock">3660</p>
-            <p class="currency">USD</p>
-            <p class="evolution">+ 1,36</p>
-            <p class="pourcentage">%</p>
-          </div>
-        </div>
-      </div>
-
-
+          <%if @order_invest[0].length == 1 && @order_invest[1].length == 0%>
+            <%= render 'one_invest', order_invest: @order_invest[0][0]%>
+          <%elsif @order_invest[0].length != 0 && @order_invest[1].length != 0%>
+            <%= render 'two_invest', order_invest: @order_invest %>
+          <%end%>
     </div>
   </div>
 </div>

@@ -1,4 +1,4 @@
-<div class="container containerPerso" data-controller="view-active" >
+<div class="container containerPerso" data-controller="view-active">
 
     <div class="header-company">
       <div class="company-main-information">
@@ -7,8 +7,8 @@
         <a href="<%= @company.web_site_url%>" target="_blank" class="link-web-site">Go on <%= @company.name%>'s web site</a>
         <div class="d-flex justify-content-between btn-header">
           <div class="choice-info d-flex">
-            <h4 class="btn-unactive" data-action = "click->view-active#display" data-choice="information" data-view-active-target="btninformation">Information</h4>
-            <h4 class="btn-active" data-action = "click->view-active#display" data-choice="finance" data-view-active-target="btnfinance">Finance</h4>
+            <h4 class="btn-active" data-action = "click->view-active#display" data-choice="information" data-view-active-target="btninformation">Information</h4>
+            <h4 class="btn-unactive" data-action = "click->view-active#display" data-choice="finance" data-view-active-target="btnfinance">Finance</h4>
           </div>
           <div class="follow-unfollow">
             <% if user_signed_in? %>
@@ -34,12 +34,12 @@
       </div>
     </div>
 
-    <div class="company-information d-none" data-view-active-target="information">
+    <div class="company-information" data-view-active-target="information">
       <div class="description-company">
         <h2>Description</h2>
         <p><%= @company.description%></p>
 
-        <div style="width: 100%; height: 250px;"
+        <div id = "map"
             data-controller="mapbox"
             data-mapbox-markers-value="<%= @marker.to_json %>"
             data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
@@ -48,25 +48,30 @@
 
       <div class="news">
         <h2>News</h2>
-        <div class="card-news">
-          <div class="full-grey-gard"></div>
-            <div class="text-news">
-              <h4>News-24</h4>
-              <h3>Top Wall Street analysts say buying Amazon...</h3>
-              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-              <a href="#" target="blank" class="btn-follow">Go to web site</a>
-            </div>
-        </div>
+        <%@news.each do |new|%>
+          <div class="card-news">
+            <div class="full-grey-gard"></div>
+              <div class="text-news">
+                <h4><%= new.author%></h4>
+                <h3><%= new.title%></h3>
+                <p><%= new.content%></p>
+                <a href="<%= new.link%>" target="blank" class="btn-follow">Go to web site</a>
+              </div>
+          </div>
+        <%end%>
       </div>
 
     </div>
 
-  <div class="company-finance" data-view-active-target="finance">
-    <div class="advice">
-      <p class="advice-status">Buy</p>
+  <div class="company-finance d-none" data-view-active-target="finance" data-controller="color-card" data-color-card-number-value ="<%= @currency[0]%>">
+    <div class="advice advice-green" data-color-card-target ="advice">
+        <div class="advice-expert">
+          <p class="our-advice">Our Advice :</p>
+          <p class="advice-status advice-status-green"><%= @recommendation%></p>
+        </div>
       <div class="price">
-        <p class="currency-value">3660 <span class="currency">USD</span></p>
-        <p class="pourcentage-value">+ 1,36 <span class = "pourcentage">%</span></p>
+        <p class="currency-value"><%= @currency.value.round%> <span class="currency">USD</span></p>
+        <p class="pourcentage-value-green" data-color-card-target ="pourcentage" ><%= @currency.pourcentage%> <span class = "pourcentage">%</span></p>
       </div>
     </div>
 

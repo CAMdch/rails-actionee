@@ -1,3 +1,7 @@
+require "json"
+require "open-uri"
+require 'finnhub_ruby'
+
 class CompaniesController < ApplicationController
   def index
     if params[:query].present? && filter_request?
@@ -24,6 +28,9 @@ class CompaniesController < ApplicationController
     @favorite_user = Favorite.where('user_id = ?', current_user)
     @review = Review.new
     @reviews = Review.where('company_id = ?', @company.id)
+    recommendation(@company.symbol)
+    @news = Publication.where('company_id = ?', @company.id).order('created_at DESC').limit(3)
+    @currency = Stock.where('company_id = ?', @company.id).order('created_at DESC').first
     authorize @company
     @marker = [{ lat: @company.latitude, lng: @company.longitude }]
   end
@@ -44,13 +51,17 @@ class CompaniesController < ApplicationController
     filter_hash
   end
 
-  def sql_query_filters_only
-    sql_query_filter = ""
-    filter_params.each do |key, value|
-      sql_query_filter += "\ tags.name ILIKE #{key} \ OR"
+  def recommendation(ticker)
+    finnhub_client = FinnhubRuby::DefaultApi.new
+    company_month = finnhub_client.recommendation_trends("#{ticker}")[0]
+
+    if company_month.buy > company_month.hold && company_month.buy > company_month.sell
+      return @recommendation = "Buy"
+    elsif company_month.sell > company_month.hold && company_month.sell > company_month.buy
+      return @recommendation = "Sell"
+    else
+      return @recommendation = "Hold"
     end
-    sql_query_filter.delete_suffix!(' OR') if sql_query_filter.last(3) == " OR"
-    sql_query_filter
   end
 end
 # Tag.find_by(name: tag.name ) => tag intance

@@ -1,0 +1,13 @@
+<div class="overview-title">
+  <h3>Your investment</h3>
+</div>
+<% company = Company.find(order_invest[:company])%>
+          <div class="card-best-invest">
+            <p class="company"><%= company.name%></p>
+            <p class="quantity-stocks"><%= company.stock_quantity(current_user)%></p>
+            <p class="stocks">STOCKS</p>
+            <p class="value-stock"><%= company.currency_stock.value.round%></p>
+            <p class="currency">USD</p>
+            <p class="evolution"><%= company.currency_stock.pourcentage%></p>
+            <p class="pourcentage">%</p>
+          </div>

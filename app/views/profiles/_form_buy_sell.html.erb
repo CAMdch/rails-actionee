@@ -1,0 +1,43 @@
+<h3>tracked company cards with dropdown form to buy</h3>
+        <% current_user.companies.each do |company|%>
+          <div class="card-profile">
+
+            <div class="company-profile-info">
+              <img src='<%= company.photo_url%>'>
+              <h3><%= company.name %></h3>
+            </div>
+
+            <div class="stock-info">
+              <p class="stock-status">+ 1,36 <span id="pourcentage">%</span></p>
+                <div class="col p-1">
+                  <div class='stock-detail-row row p-1'>
+                    <p class="col-6 stock-number">8</p>
+                    <p class="col-6 stock-text " >Stocks</p>
+                  </div>
+                  <div class='stock-detail-row row p-1'>
+                    <p class="col-6 stock-number">+7000</p>
+                    <p class="col-6 stock-text" >USD gains</p>
+                  </div>
+                </div>
+                <div class="col p-1">
+                  <div class='stock-detail-row row p-1'>
+                    <p class="col-6 stock-number ">27600</p>
+                    <p class="col-6 stock-text " >USD total</p>
+                  </div>
+                  <div class='stock-detail-row row p-1'>
+                    <p class="col-6 stock-number ">-1000</p>
+                    <p class="col-6 stock-text " >USD stop-loss</p>
+                  </div>
+                </div>
+                  <a href="#" id='buy-close'>Buy</a>
+            </div>
+                <div class='track_form '>
+                  <%= simple_form_for(@track_items) do |f| %>
+                    <%= f.input :stock_quantity, :label => 'Number of stocks:' %>
+                    <%= f.input :stop_loss,  :label => 'Change stop-loss: ' %>
+                    <%= f.input :value_stock, :label => 'Price of stocks:' %>
+                    <div class="d-flex flex-row-reverse"><%= f.button :submit, 'Submit', class: 'btn-end btn-bold' %></div>
+                  <% end %>
+                </div>
+          </div>
+        <%end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_07_081926) do
+ActiveRecord::Schema.define(version: 2022_03_07_130917) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,14 @@ ActiveRecord::Schema.define(version: 2022_03_07_081926) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "alerts", force: :cascade do |t|
+    t.bigint "track_items_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.boolean "dismissed", default: false
+    t.index ["track_items_id"], name: "index_alerts_on_track_items_id"
   end
 
   create_table "companies", force: :cascade do |t|
@@ -157,6 +165,7 @@ ActiveRecord::Schema.define(version: 2022_03_07_081926) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "alerts", "track_items", column: "track_items_id"
   add_foreign_key "company_tags", "companies"
   add_foreign_key "company_tags", "tags"
   add_foreign_key "favorites", "companies"

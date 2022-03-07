@@ -76,7 +76,12 @@
     </div>
 
     <div class="graphique">
-        <%= image_tag('graph_exemple.png')%>
+              <canvas  height="100"
+                data-controller="chart"
+                data-chart-data-value="<%= @chart_data.to_json %>"
+                data-chart-options-value="<%= @chart_options.to_json %>"
+                data-chart-target="display"
+              ></canvas>
     </div>
 
     <div class="community-advice">

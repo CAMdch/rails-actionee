@@ -20,32 +20,18 @@ class CompaniesController < ApplicationController
       format.html # Follow regular flow of Rails
       format.text { render partial: 'companies_list', locals: { companies: @companies }, formats: [:html] }
     end
-
-
     authorize @companies
-
-    @chart_data = {
-      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-      datasets: [{
-        label: 'My First dataset',
-        backgroundColor: 'transparent',
-        borderColor: '#3B82F6',
-        data: [37, 83, 78, 54, 12, 5, 99]
-      }]
-    }
 
     @chart_options = {
       scales: {
-        yAxes: [{
+        yAxes: {
           ticks: {
             beginAtZero: true
           }
-        }]
+        }
       }
     }
-
   end
-
 
   def show
     @company = Company.find(params[:id])
@@ -57,6 +43,48 @@ class CompaniesController < ApplicationController
     @currency = Stock.where('company_id = ?', @company.id).order('created_at DESC').first
     authorize @company
     @marker = [{ lat: @company.latitude, lng: @company.longitude }]
+
+    @chart_data = {
+      labels: time_chart.reverse,
+      datasets: [{
+        label: 'Stock price',
+        backgroundColor: 'transparent',
+        borderColor: '$dark-blue',
+        data: value_chart.reverse
+      }]
+    }
+
+    @chart_options = {
+      scales: {
+        yAxes: {
+          ticks: {
+            beginAtZero: true
+          }
+        }
+      }
+    }
+  end
+
+  def time_chart
+    stocks = @company.stocks.order('created_at DESC')
+    i = 0
+    month = []
+    while i < @company.stocks.order('created_at DESC').length
+      month.push(stocks[i].created_at.strftime('%H:%M'))
+      i += 1
+    end
+    return month
+  end
+
+  def value_chart
+    stocks = @company.stocks.order('created_at DESC')
+    i = 0
+    value = []
+    while i < @company.stocks.order('created_at DESC').length
+      value.push(stocks[i].value)
+      i += 1
+    end
+    return value
   end
 
   def filter_request?

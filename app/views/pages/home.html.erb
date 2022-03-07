@@ -14,29 +14,45 @@
         <h2>Why choose us ?</h2>
         <div class="row">
 
+          <div class="card col-sm-12 col-lg-3">
+            <div class="content">
+              <div class="card_reason front">
+                <p>Advanced filtering</p>
+                <%= image_tag('filter.png')%>
+              </div>
+              <div class="back">
+                <p>Actionee, The website that will give you the tools and insights to make smarter investments.</p>
+              </div>
+            </div>
+          </div>
 
-          <div class="card_reason col-sm-12 col-lg-3">
-            <p>Advanced filtering</p>
-            <%= image_tag('filter.png')%>
+          <div class="card col-sm-12 col-lg-3">
+            <div class="content">
+              <div class="card_reason front">
+                <p>Keeping track the smart way</p>
+                <%= image_tag('track.png')%>
+              </div>
+              <div class="back">
+                <p>Through our advanced filtering tool, you will be able to find companies that fit your values.</p>
+              </div>
+            </div>
           </div>
-          <div class="card_reason col-sm-12 col-lg-3">
-            <p>Keeping track the smart way</p>
-            <%= image_tag('track.png')%>
+
+          <div class="card col-sm-12 col-lg-3">
+            <div class="content">
+              <div class="card_reason front">
+                <p>Strong community</p>
+                <%= image_tag('community.png')%>
+              </div>
+              <div class="back">
+                <p>Actionee is here to help you track of your favorite stocks and alerts of significant losses. We hope you will feel at home, with our vibrant community of investors.</p>
+              </div>
+            </div>
           </div>
-          <div class="card_reason col-sm-12 col-lg-3">
-            <p>Strong community</p>
-            <%= image_tag('community.png')%>
-          </div>
+
         </div>
       </div>
 
-      <div class="body-part">
-        <h2>Trending</h2>
-        <p class="trending_explanation">
-          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-        </p>
-
-      </div>
       <div class="body-part">
         <h2>Top 3 of the day</h2>
         <% @top_3_companies.each do |company|%>

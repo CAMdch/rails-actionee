@@ -16,11 +16,11 @@ class CompaniesController < ApplicationController
       authorize @companies
     end
     @favorite_user = Favorite.where('user_id = ?', current_user)
+
     respond_to do |format|
       format.html # Follow regular flow of Rails
       format.text { render partial: 'companies_list', locals: { companies: @companies }, formats: [:html] }
     end
-    authorize @companies
 
     @chart_options = {
       scales: {

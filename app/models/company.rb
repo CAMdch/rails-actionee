@@ -78,9 +78,10 @@ class Company < ApplicationRecord
     @chart_data = {
       labels: month.reverse,
       datasets: [{
-        label: 'Stock price',
-        backgroundColor: 'transparent',
-        borderColor: '$dark-blue',
+        label: 'Stock P',
+        backgroundColor: '#0B1E44',
+        borderWidth: 1,
+        borderColor: '#0B1E44',
         data: value.reverse
       }]
     }

@@ -1,6 +1,7 @@
 class TrackItemsController < ApplicationController
   def create
     @track_items = TrackItem.new(track_items_params)
+    @company = Company.find(params[:track_item][:company_id])
     @track_items.user = current_user
     authorize @track_items
     unless params["sell"].nil?
@@ -8,7 +9,7 @@ class TrackItemsController < ApplicationController
       @track_items.stock_quantity = - negative_stock_quantity
     end
     @track_items.save
-    redirect_to profile_path
+    redirect_to profile_path + "#company-#{@company.id}"
   end
 
   private

@@ -4,6 +4,7 @@
             <div class="company-profile-info">
               <img src='<%= company.photo_url%>'>
               <%= link_to company_path(company) do %>
+                <a href="#" id="company-<%= company.id %>" class="anchor"></a>
                 <h3><%= company.name %></h3>
               <%end%>
             </div>
@@ -39,7 +40,7 @@
             <div class='track_form d-none' data-buy-btn-target="form">
               <div class="d-flex flex-row-reverse" data-buy-btn-target="cross" data-action="click->buy-btn#cancelbuy"><i class="fas fa-times"></i></div>
               <p class="buy">Buy</p>
-              <%= simple_form_for(@track_items)  do |f| %>
+              <%= simple_form_for(@track_items, remote: true) do |f| %>
                   <%= f.input :company_id, :as => "hidden", :input_html => { :value => company.id } %>
                   <%= f.input :stock_quantity, :label => 'Number of stocks:' %>
                   <%= f.input :value_stock, :label => 'Price of stocks:' %>
@@ -49,7 +50,7 @@
             <div class='track_form d-none' data-buy-btn-target="formsell">
               <div class="d-flex flex-row-reverse" data-buy-btn-target="cross" data-action="click->buy-btn#cancelsell"><i class="fas fa-times"></i></div>
                <p class="sell">Sell</p>
-               <%= simple_form_for(@track_items)   do |f| %>
+               <%= simple_form_for(@track_items, remote: true) do |f| %>
                   <%= f.input :company_id, :as => "hidden", :input_html => { :value => company.id } %>
                   <%= f.input :stock_quantity, :label => 'Number of stocks:' %>
                   <%= f.input :value_stock, :label => 'Price of stocks:' %>
@@ -59,7 +60,7 @@
 
             <div class='track_form d-none' data-buy-btn-target="formloss">
               <div class="d-flex flex-row-reverse" data-buy-btn-target="cross" data-action="click->buy-btn#cancelloss"><i class="fas fa-times"></i></div>
-              <%= simple_form_for(company.favorite(current_user))  do |f| %>
+              <%= simple_form_for(company.favorite(current_user), remote: true) do |f| %>
                 <%= f.input :company_id, :as => "hidden", :input_html => { :value => company.id } %>
                 <%= f.input :stop_loss,  :label => 'Change stop-loss: ' %>
                 <div class="d-flex flex-row-reverse"><%= f.button :submit, 'Submit', class: 'btn-end btn-bold', name: "sell"  %></div>

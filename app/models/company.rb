@@ -11,6 +11,19 @@ class Company < ApplicationRecord
   has_many :track_items, dependent: :destroy
   has_many :tags, through: :company_tags
 
+  def self.filter_tag(filter_params)
+    companies = []
+    filter_params.each_key do |key|
+      tag_id = Tag.find_by(name: key).id
+      Company.all.each do |company|
+        if company.tags.any? { |tag| tag.id == tag_id}
+          companies << company
+        end
+      end
+    end
+    return companies.uniq
+  end
+  
   def total_stock(user)
     total_quantity = stock_quantity(user)
     value_actual = self.currency_stock.value

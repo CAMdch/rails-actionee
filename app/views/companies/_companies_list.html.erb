@@ -1,56 +1,58 @@
 <div data-search-target="list">
-      <% companies.each do |company|%>
-        <div class="companies row">
-          <div class="col-lg-6 col-sm-12">
-            <%= link_to company_path(company) do%>
-              <div class="card-company-little card-company-little-green" data-controller="card-little" data-card-little-number-value="<%= company.currency_stock.pourcentage%>" data-card-little-target="border">
-                <div class="company-info">
-                  <img src='<%= company.photo_url%>'>
-                  <h3><%= company.name %></h3>
-                </div>
+  <% companies.each do |company|%>
+    <div class="companies row">
+      <div class="col-lg-6 col-sm-12">
+        <%= link_to company_path(company) do%>
+          <div class="card-company-little card-company-little-green" data-controller="card-little" data-card-little-number-value="<%= company.currency_stock.pourcentage%>" data-card-little-target="border">
+            <div class="company-info">
+              <img src='<%= company.photo_url%>'>
+              <h3><%= company.name %></h3>
+            </div>
 
-                <div class="stock-info">
-                  <p class="stock-status-green" data-card-little-target="pourcentage"><%= company.currency_stock.pourcentage%><span id="pourcentage">%</span></p>
-                  <p class="stock-value"><%= company.currency_stock.value.round%> <span id="currency">USD</span></p>
-                </div>
+            <div class="stock-info">
+              <p class="stock-status-green" data-card-little-target="pourcentage"><%= company.currency_stock.pourcentage%><span id="pourcentage">%</span></p>
+              <p class="stock-value"><%= company.currency_stock.value.round%> <span id="currency">USD</span></p>
+            </div>
 
-                <div class="add">
-                  <% if user_signed_in? %>
-                    <%if @favorite_user.where('company_id = ?', company.id)[0].nil? %>
+            <div class="add">
+              <% if user_signed_in? %>
+                <%if @favorite_user.where('company_id = ?', company.id)[0].nil? %>
 
-                      <a href="#" id="company-<%= company.id %>" class="anchor"></a>
-                      <%= link_to company_favorites_path(company), method: :post, remote: true do%>
-                        <i class="fas fa-plus"></i>
-                      <%end%>
-
-                    <%else%>
-
-                      <a href="#" id="company-<%= company.id %>" class="anchor"></a>
-                      <%= link_to favorite_path(@favorite_user.where('company_id = ?', company.id)[0]), method: :delete, remote: true do%>
-                        <i class="fas fa-minus"></i>
-                      <%end%>
-
-                    <%end%>
+                  <a href="#" id="company-<%= company.id %>" class="anchor"></a>
+                  <%= link_to company_favorites_path(company), method: :post, remote: true do%>
+                     <i class="fas fa-plus"></i>
                   <%end%>
-                </div>
-              </div>
-            <%end%>
-          </div>
 
-          <div class="col-lg-6 col-sm-12 graph-company">
-              <canvas
+                <%else%>
+
+                  <a href="#" id="company-<%= company.id %>" class="anchor"></a>
+                  <%= link_to favorite_path(@favorite_user.where('company_id = ?', company.id)[0]), method: :delete, remote: true do%>
+                    <i class="fas fa-minus"></i>
+                  <%end%>
+
+                <%end%>
+              <%end%>
+            </div>
+          </div>
+        <%end%>
+      </div>
+
+        <div class="col-lg-6 col-sm-12 graph-company">
+              <canvas width="100%" height="40"
                 data-controller="chart"
-                data-chart-data-value="<%= @chart_data.to_json %>"
+                data-chart-data-value="<%= company.chart_value.to_json %>"
                 data-chart-options-value="<%= @chart_options.to_json %>"
                 data-chart-target="display"
               ></canvas>
-              </div>
-          </div>
-          <div class="tags">
-              <%company.tags.each do |tag|%>
-                <p>#<%=tag.name%></p>
-              <%end%>
-            </div>
         </div>
-      <%end%>
+
+        <div class="tags">
+          <%company.tags.each do |tag|%>
+            <p>#<%=tag.name%></p>
+          <%end%>
+        </div>
+
+
+    </div>
+  <%end%>
 </div>

@@ -23,7 +23,7 @@ class Company < ApplicationRecord
     end
     return companies.uniq
   end
-  
+
   def total_stock(user)
     total_quantity = stock_quantity(user)
     value_actual = self.currency_stock.value
@@ -58,4 +58,32 @@ class Company < ApplicationRecord
   def currency_stock
     Stock.where('company_id = ?', self.id).order('created_at DESC').first
   end
+
+  def chart_value
+    stocks = self.stocks.order('created_at DESC')
+    i = 0
+    j = 0
+    month = []
+    value = []
+    while i < self.stocks.order('created_at DESC').length
+      month.push(stocks[i].created_at.strftime('%H:%M'))
+      i += 1
+    end
+
+    while j < self.stocks.order('created_at DESC').length
+      value.push(stocks[j].value)
+      j += 1
+    end
+
+    @chart_data = {
+      labels: month.reverse,
+      datasets: [{
+        label: 'Stock price',
+        backgroundColor: 'transparent',
+        borderColor: '$dark-blue',
+        data: value.reverse
+      }]
+    }
+  end
+
 end

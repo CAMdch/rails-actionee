@@ -16,12 +16,46 @@
   </div>
 
   <div class="filter-choice">
-    <a href="#" class="btn btn-filter"><i class="fas fa-filter"></i>  Filter</a>
-    <p>Gender Equality</p>
-    <p>Animal rights</p>
-    <p>Eco-friendly</p>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-filter" data-bs-toggle="modal" data-bs-target="#filterModal">
+      <i class="fas fa-filter"></i>Filter</a>
+    </button>
+    <p data-bs-toggle="modal" data-bs-target="#filterModal">Gender Equality</p>
+    <p data-bs-toggle="modal" data-bs-target="#filterModal">Animal rights</p>
+    <p data-bs-toggle="modal" data-bs-target="#filterModal">Eco-friendly</p>
   </div>
 
+    <!-- Modal -->
+    <div class="modal fade" id="filterModal" tabindex="-1" aria-labelledby="filterModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title" id="filterModalLabel">Filter</h2>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="form-row">
+              <%= form_tag companies_path, method: :get do %>
+                <% Tag.all.each do |tag| %>
+                    <%= check_box_tag tag.name.to_sym,
+                      params[tag.name.to_s.to_sym],
+                      checked = false
+                    %>
+                      <%= label_tag tag.name.to_sym,
+                      tag.name
+                    %> <br>
+                <% end %>
+                <div class="modal-footer">
+                  <%= submit_tag "Search", class: "btn btn-filter" %>
+                  <%# <button type="button" class="btn btn-filter" data-bs-dismiss="modal">Close</button> %>
+                  <%# <button type="button" class="btn btn-filter">Submit</button> %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <%= render 'companies_list', companies: @companies%>
 
 </div>

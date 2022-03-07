@@ -11,6 +11,7 @@ Stock.destroy_all
 Publication.destroy_all
 Review.destroy_all
 User.destroy_all
+Tag.destroy_all
 
 require "json"
 require "open-uri"

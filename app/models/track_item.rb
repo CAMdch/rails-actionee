@@ -3,7 +3,6 @@ class TrackItem < ApplicationRecord
   belongs_to :user
 
   validates :stock_quantity, presence: true
-  validates :stop_loss, presence: true
   validates :value_stock, presence: true
 
   def self.tracked?(favorite)

@@ -26,7 +26,7 @@
                         <p class="col-6 stock-text " >USD total</p>
                       </div>
                       <div class='stock-detail-row row p-1'>
-                        <p class="col-6 stock-number ">-<%= company.stop_loss(current_user).round%></p>
+                        <p class="col-6 stock-number "><%if company.favorite(current_user).stop_loss.round != 0%>- <%end%><%= company.favorite(current_user).stop_loss.round%></p>
                         <p class="col-6 stock-text d-flex">USD stop-loss <a data-action="click->buy-btn#appearLoss" ><i class="fas fa-pen-nib"></i></a></p>
                       </div>
                     </div>
@@ -61,7 +61,7 @@
 
                   <div class='track_form d-none' data-buy-btn-target="formloss">
                     <div class="d-flex flex-row-reverse" data-buy-btn-target="cross" data-action="click->buy-btn#cancelloss"><i class="fas fa-times"></i></div>
-                    <%= simple_form_for(@track_items) do |f| %>
+                    <%= simple_form_for(company.favorite(current_user)) do |f|%>
                       <%= f.input :company_id, :as => "hidden", :input_html => { :value => company.id } %>
                       <%= f.input :stop_loss,  :label => 'Change stop-loss: ' %>
                       <div class="d-flex flex-row-reverse"><%= f.button :submit, 'Submit', class: 'btn-end btn-bold', name: "sell"  %></div>
@@ -90,7 +90,6 @@
                     <div class="d-flex flex-row-reverse" data-start-tracking-button-target="cross" data-action="click->start-tracking-button#canceltrack"><i class="fas fa-times"></i></div>
                     <%= f.input :company_id, :as => "hidden", :input_html => { :value => company.id } %>
                     <%= f.input :stock_quantity, :label => 'Number of stocks:' %>
-                    <%= f.input :stop_loss,  :label => 'Alert if losses go beyond: ' %>
                     <%= f.input :value_stock, :label => 'Price of stocks:' %>
                     <div class="d-flex flex-row-reverse"><%= f.button :submit, 'Submit', class: 'btn-end btn-bold' %></div>
                   <% end %>

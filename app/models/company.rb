@@ -17,9 +17,9 @@ class Company < ApplicationRecord
     return value_actual * total_quantity
   end
 
-  def stop_loss(user)
-    tracks = TrackItem.where('user_id = ? AND company_id = ?', user.id, self)
-    return tracks.first.stop_loss
+  def favorite(user)
+    favorite = Favorite.find_by('user_id = ? AND company_id = ?', user.id, self)
+    return favorite
   end
 
   def stock_quantity(user)

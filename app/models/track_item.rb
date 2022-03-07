@@ -1,6 +1,7 @@
 class TrackItem < ApplicationRecord
   belongs_to :company
   belongs_to :user
+  has_many :alerts
 
   validates :stock_quantity, presence: true
   validates :value_stock, presence: true

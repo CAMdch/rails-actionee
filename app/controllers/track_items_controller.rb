@@ -17,4 +17,9 @@ class TrackItemsController < ApplicationController
   def track_items_params
     params.require(:track_item).permit(:stock_quantity, :value_stock, :company_id)
   end
+
+  # def start_alert(track_items)
+  #   alert = Alert.new(track_items: track_items)
+  #   alert.save
+  # end
 end

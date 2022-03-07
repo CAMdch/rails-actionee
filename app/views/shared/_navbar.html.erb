@@ -21,16 +21,12 @@
           <li class="nav-item dropdown">
               <div class="menu-avatar">
                 <i class="fas fa-bars"></i>
-                <% if current_user.photo.key? %>
-                  <div class="avatar-box">
-                    <%= cl_image_tag current_user.photo.key, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false, :width => "20px"%>
+                <% if current_user.photo.key?  %>
+                    <%= cl_image_tag current_user.photo.key, class: "avatar avatar-box dropdown-toggle", id: "navbarDropdown", 'aria-haspopup': true, 'aria-expanded': false, data: { bs_toggle: "dropdown" }, :width => "20px"%>
                     <i class="fas fa-circle"></i>
-                  </div>
                 <% else %>
-                  <div class="avatar-box">
-                    <%= image_tag "https://tse4.mm.bing.net/th?id=OIP.vAJEPP27RrrXc8H9WguukgHaHa&pid=Api&P=0&w=178&h=178", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+                    <%= image_tag "https://tse4.mm.bing.net/th?id=OIP.vAJEPP27RrrXc8H9WguukgHaHa&pid=Api&P=0&w=178&h=178", class: "avatar avatar-box dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
                     <i class="fas fa-circle"></i>
-                  </div>
                 <% end %>
                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                   <%= link_to "All companies", companies_path, class: "dropdown-item" %>

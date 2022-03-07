@@ -10,6 +10,7 @@ Company.destroy_all
 Stock.destroy_all
 Publication.destroy_all
 Review.destroy_all
+User.destroy_all
 
 require "json"
 require "open-uri"

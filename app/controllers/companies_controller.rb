@@ -20,6 +20,30 @@ class CompaniesController < ApplicationController
       format.html # Follow regular flow of Rails
       format.text { render partial: 'companies_list', locals: { companies: @companies }, formats: [:html] }
     end
+
+
+    authorize @companies
+
+    @chart_data = {
+      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+      datasets: [{
+        label: 'My First dataset',
+        backgroundColor: 'transparent',
+        borderColor: '#3B82F6',
+        data: [37, 83, 78, 54, 12, 5, 99]
+      }]
+    }
+
+    @chart_options = {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+
   end
 
 

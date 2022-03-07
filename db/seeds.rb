@@ -16,6 +16,8 @@ require "json"
 require "open-uri"
 require "time"
 
+User.create!(email: 'camille@gmail.com', password: 'azerty', name: 'Camille Dauchy', admin: true)
+
 amazon_url = "https://company.bigpicture.io/v1/companies/find/stream?domain=amazon.com"
 amazon_user_serialized = URI.open(amazon_url, 'Authorization' => '7JjxkIwoknXJ5iqc529c0o:383ivUPS7WL3ebjQ1tUd6r').read
 amazon = JSON.parse(amazon_user_serialized)

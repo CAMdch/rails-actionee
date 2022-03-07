@@ -38,7 +38,13 @@
           </div>
 
           <div class="col-lg-6 col-sm-12 graph-company">
-            <%= image_tag('graph_exemple.png')%>
+              <canvas
+                data-controller="chart"
+                data-chart-data-value="<%= @chart_data.to_json %>"
+                data-chart-options-value="<%= @chart_options.to_json %>"
+                data-chart-target="display"
+              ></canvas>
+              </div>
           </div>
           <div class="tags">
               <%company.tags.each do |tag|%>

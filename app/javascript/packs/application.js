@@ -2,6 +2,11 @@
 // present in this directory. You're encouraged to place your actual application logic in
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
+//= require jquery
+//= require popper
+//= require turbolinks
+//= require bootstrap
+//= require_tree.
 
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
@@ -14,3 +19,10 @@ ActiveStorage.start()
 
 import "controllers"
 import "bootstrap"
+
+var myModal = document.getElementById('myModal')
+var myInput = document.getElementById('myInput')
+
+myModal.addEventListener('shown.bs.modal', function () {
+  myInput.focus()
+})

@@ -16,12 +16,18 @@
 
   <div class="filter-choice">
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-filter" data-bs-toggle="modal" data-bs-target="#filterModal">
-      <i class="fas fa-filter"></i>Filter</a>
-    </button>
-    <p data-bs-toggle="modal" data-bs-target="#filterModal">Gender Equality</p>
-    <p data-bs-toggle="modal" data-bs-target="#filterModal">Animal rights</p>
-    <p data-bs-toggle="modal" data-bs-target="#filterModal">Eco-friendly</p>
+      <button type="button" class="btn btn-filter button-filter" data-bs-toggle="modal" data-bs-target="#filterModal">
+        <i class="fas fa-filter"></i>Filter</a>
+      </button>
+      <%if params.values.include?("on")%>
+        <div class="container-filter row">
+          <% params.select{|key, value| value == "on" }.keys.each do |filter|%>
+            <p class="filter col-lg-3"><%= filter%></p>
+          <%end%>
+        </div>
+      <%else%>
+
+      <%end%>
   </div>
 
     <!-- Modal -->

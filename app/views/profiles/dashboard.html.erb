@@ -21,7 +21,8 @@
 
       <div class="actionee" data-profil-target="actionee">
         <% current_user.companies.each do |company|%>
-          <%if company.gains(current_user) < company.favorite(current_user).stop_loss%>
+         <%# && (!company.track_items.track(favorite_instance)[0].alert_dismissed) %>
+          <%if company.gains(current_user) < company.favorite(current_user).stop_loss %>
             <%= render 'alert_stop_loss', company: company%>
           <%else%>
             <%=render 'new_company', company: company%>

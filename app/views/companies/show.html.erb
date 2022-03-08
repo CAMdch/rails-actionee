@@ -35,17 +35,6 @@
     </div>
 
     <div class="company-information d-none" data-view-active-target="information">
-      <div class="description-company">
-        <h2>Description</h2>
-        <p><%= @company.description%></p>
-
-        <div id = "map"
-            data-controller="mapbox"
-            data-mapbox-markers-value="<%= @marker.to_json %>"
-            data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
-            data-action="update-map@window->mapbox#mapResize">
-        </div>
-      </div>
 
       <div class="news">
         <h2>News</h2>
@@ -61,6 +50,20 @@
           </div>
         <%end%>
       </div>
+
+      <div class="description-company">
+        <h2>Description</h2>
+        <p><%= @company.description%></p>
+
+        <div id = "map"
+            data-controller="mapbox"
+            data-mapbox-markers-value="<%= @marker.to_json %>"
+            data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+            data-action="update-map@window->mapbox#mapResize">
+        </div>
+      </div>
+
+
 
     </div>
   <div class="company-finance" data-view-active-target="finance" data-controller="color-card" data-color-card-number-value ="<%= @currency.pourcentage%>">

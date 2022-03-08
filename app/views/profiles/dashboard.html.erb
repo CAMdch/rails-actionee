@@ -37,6 +37,14 @@
           <p><%if current_user.total_gains.positive?%>+ <%end%><%= current_user.total_gains%> <span>USD</span></p>
         </div>
 
+        <canvas  height="100"
+                  data-controller="chart"
+                  data-chart-data-value="<%= @round_data.to_json %>"
+                  data-chart-options-value="<%= @round_options.to_json %>"
+                  data-chart-type-value='bar'
+                  data-chart-target="display"
+        ></canvas>
+
 
           <%if @order_invest[0].length == 1 && @order_invest[1].length == 0%>
             <%= render 'one_invest', order_invest: @order_invest[0][0]%>

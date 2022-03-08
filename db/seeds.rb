@@ -25,6 +25,7 @@ amazon = JSON.parse(amazon_user_serialized)
 amazon_company = Company.create!(name: amazon["name"], description: amazon["description"], photo_url: amazon["logo"], headquarter_city: amazon["geo"]["city"], web_site_url: amazon["url"], symbol: amazon["ticker"])
 StockJob.perform_now(amazon_company.symbol)
 NewsJob.perform_now(amazon_company.symbol)
+puts 'Amazon done'
 
 tesla_url = "https://company.bigpicture.io/v1/companies/find/stream?domain=tesla.com"
 tesla_user_serialized = URI.open(tesla_url, 'Authorization' => '7JjxkIwoknXJ5iqc529c0o:383ivUPS7WL3ebjQ1tUd6r').read
@@ -32,6 +33,7 @@ tesla = JSON.parse(tesla_user_serialized)
 tesla_company = Company.create!(name: tesla["name"], description: tesla["description"], photo_url: tesla["logo"], headquarter_city: tesla["geo"]["city"], web_site_url: tesla["url"], symbol: tesla["ticker"])
 StockJob.perform_now(tesla_company.symbol)
 NewsJob.perform_now(tesla_company.symbol)
+puts 'Tesla done'
 
 apple_url = "https://company.bigpicture.io/v1/companies/find/stream?domain=apple.com"
 apple_user_serialized = URI.open(apple_url, 'Authorization' => '7JjxkIwoknXJ5iqc529c0o:383ivUPS7WL3ebjQ1tUd6r').read
@@ -39,6 +41,7 @@ apple = JSON.parse(apple_user_serialized)
 apple_company = Company.create!(name: apple["name"], description: apple["description"], photo_url: apple["logo"], headquarter_city: apple["geo"]["city"], web_site_url: apple["url"], symbol: apple["ticker"])
 StockJob.perform_now(apple_company.symbol)
 NewsJob.perform_now(apple_company.symbol)
+puts 'Apple done'
 
 walmart_url = "https://company.bigpicture.io/v1/companies/find/stream?domain=walmart.com"
 walmart_user_serialized = URI.open(walmart_url, 'Authorization' => '7JjxkIwoknXJ5iqc529c0o:383ivUPS7WL3ebjQ1tUd6r').read
@@ -46,21 +49,63 @@ walmart = JSON.parse(walmart_user_serialized)
 walmart_company = Company.create!(name: walmart["name"], description: walmart["description"], photo_url: walmart["logo"], headquarter_city: walmart["geo"]["city"], web_site_url: walmart["url"], symbol: walmart["ticker"])
 StockJob.perform_now(walmart_company.symbol)
 NewsJob.perform_now(walmart_company.symbol)
+puts 'Walmart done'
 
+microsoft_url = "https://company.bigpicture.io/v1/companies/find/stream?domain=microsoft.com"
+microsoft_user_serialized = URI.open(microsoft_url, 'Authorization' => '7JjxkIwoknXJ5iqc529c0o:383ivUPS7WL3ebjQ1tUd6r').read
+microsoft = JSON.parse(microsoft_user_serialized)
+microsoft_company = Company.create!(name: microsoft["name"], description: microsoft["description"], photo_url: microsoft["logo"], headquarter_city: microsoft["geo"]["city"], web_site_url: microsoft["url"], symbol: microsoft["ticker"])
+StockJob.perform_now(microsoft_company.symbol)
+NewsJob.perform_now(microsoft_company.symbol)
+puts 'Microsoft done'
 
-# microsoft = Company.create!(name: 'Micosoft', description: "Microsoft Corporation is an American multinational technology corporation which produces computer software, consumer electronics, personal computers, and related services. Its best-known software products are the Microsoft Windows line of operating systems, the Microsoft Office suite, and the Internet Explorer and Edge web browsers. Its flagship hardware products are the Xbox video game consoles and the Microsoft Surface lineup of touchscreen personal computers.", photo_url: 'https://news.microsoft.com/wp-content/uploads/prod/sites/113/2017/06/Microsoft-logo_rgb_c-gray.png', headquarter_city: 'Redmond, Washington', web_site_url: 'https://www.microsoft.com/', symbol: 'MSFT')
+google_url = "https://company.bigpicture.io/v1/companies/find/stream?domain=google.com"
+google_user_serialized = URI.open(google_url, 'Authorization' => '7JjxkIwoknXJ5iqc529c0o:383ivUPS7WL3ebjQ1tUd6r').read
+google = JSON.parse(google_user_serialized)
+google_company = Company.create!(name: google["name"], description: google["description"], photo_url: google["logo"], headquarter_city: google["geo"]["city"], web_site_url: google["url"], symbol: "GOOGL")
+StockJob.perform_now(google_company.symbol)
+NewsJob.perform_now(google_company.symbol)
+puts 'Google done'
 
-# google = Company.create!(name: 'Google', description: "Google LLC is an American multinational technology company that specializes in Internet-related services and products, which include a search engine, online advertising technologies, cloud computing, software, and hardware. Google’s parent company Alphabet Inc. is considered one of the Big Five American information technology companies, alongside Amazon, Apple, Meta and Microsoft.Google was founded on September 4, 1998, by Larry Page and Sergey Brin while they were Ph.D. students at Stanford University in California.", photo_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/2880px-Google_2015_logo.svg.png', headquarter_city: 'Mountain View, California', web_site_url:'https://www.google.com/', symbol:'GOOG')
+berkshirehathaway_url = "https://company.bigpicture.io/v1/companies/find/stream?domain=berkshirehathaway.com"
+berkshirehathaway_user_serialized = URI.open(berkshirehathaway_url, 'Authorization' => '7JjxkIwoknXJ5iqc529c0o:383ivUPS7WL3ebjQ1tUd6r').read
+berkshirehathaway = JSON.parse(berkshirehathaway_user_serialized)
+berkshirehathaway_company = Company.create!(name: berkshirehathaway["name"], description: berkshirehathaway["description"], photo_url: berkshirehathaway["logo"], headquarter_city: berkshirehathaway["geo"]["city"], web_site_url: berkshirehathaway["url"], symbol: berkshirehathaway["ticker"])
+StockJob.perform_now(berkshirehathaway_company.symbol)
+NewsJob.perform_now(berkshirehathaway_company.symbol)
+puts 'Berkshire Hathaway done'
 
-# berkshire_hathaway = Company.create!(name: 'Berkshire Hathaway', description: "Berkshire Hathaway Inc. is an American multinational conglomerate holding company headquartered in Omaha, Nebraska, United States. The company wholly owns GEICO, Duracell, Dairy Queen, BNSF, Lubrizol, Fruit of the Loom, Helzberg Diamonds, Long & Foster, FlightSafety International, Shaw Industries, Pampered Chef, Forest River, and NetJets, and also owns 38.6% of Pilot Flying J; and significant minority holdings in public companies Kraft Heinz Company (26.7%), American Express (18.8%), The Coca-Cola Company (9.32%), Bank of America (11.9%), and Apple (6.3%).", photo_url:'https://1000logos.net/wp-content/uploads/2018/08/Berkshire-Hathaway-Logo.png', headquarter_city: 'Omaha, Nebraska', web_site_url:'https://www.berkshirehathaway.com/', symbol:'BRK.B')
+nvidia_url = "https://company.bigpicture.io/v1/companies/find/stream?domain=nvidia.com"
+nvidia_user_serialized = URI.open(nvidia_url, 'Authorization' => '7JjxkIwoknXJ5iqc529c0o:383ivUPS7WL3ebjQ1tUd6r').read
+nvidia = JSON.parse(nvidia_user_serialized)
+nvidia_company = Company.create!(name: nvidia["name"], description: nvidia["description"], photo_url: nvidia["logo"], headquarter_city: nvidia["geo"]["city"], web_site_url: nvidia["url"], symbol: nvidia["ticker"])
+StockJob.perform_now(nvidia_company.symbol)
+NewsJob.perform_now(nvidia_company.symbol)
+puts 'Nvidia done'
 
-# nvdia = Company.create!(name: 'NVDIA', description: "Nvidia Corporation is an American multinational technology company incorporated in Delaware and based in Santa Clara, California. It is a fabless company which designs graphics processing units (GPUs) for the gaming and professional markets, as well as system on a chip units (SoCs) for the mobile computing and automotive market. Its primary GPU line, labeled GeForce, is in direct competition with the GPUs of the Radeon brand by Advanced Micro Devices (AMD). Nvidia expanded its presence in the gaming industry with its handheld game consoles Shield Portable, Shield Tablet, and Shield Android TV and its cloud gaming service GeForce Now. Its professional line of GPUs are used in workstations for applications in such fields as architecture, engineering and construction, media and entertainment, automotive, scientific research, and manufacturing design", photo_url:'https://www.nvidia.com/content/dam/en-zz/Solutions/about-nvidia/logo-and-brand/01-nvidia-logo-horiz-500x200-2c50-p@2x.png', headquarter_city: 'Santa Clara, California', web_site_url: 'https://www.nvidia.com/', symbol: 'NVDA' )
+meta_url = "https://company.bigpicture.io/v1/companies/find/stream?domain=meta.com"
+meta_user_serialized = URI.open(meta_url, 'Authorization' => '7JjxkIwoknXJ5iqc529c0o:383ivUPS7WL3ebjQ1tUd6r').read
+meta = JSON.parse(meta_user_serialized)
+meta_company = Company.create!(name: meta["name"], description: meta["description"], photo_url: meta["logo"], headquarter_city: meta["geo"]["city"], web_site_url: meta["url"], symbol: "FB")
+StockJob.perform_now(meta_company.symbol)
+NewsJob.perform_now(meta_company.symbol)
+puts 'Meta done'
 
-# meta = Company.create!(name: 'Facebook', description: "Meta Platforms, Inc., doing business as Meta and formerly known as Facebook, Inc., is an American multinational technology conglomerate based in Menlo Park, California. The company is the parent organization of Facebook, Instagram, and WhatsApp, among other subsidiaries. Meta is one of the world's most valuable companies. It is one of the Big Five American information technology companies, alongside Alphabet, Amazon, Apple, and Microsoft.", photo_url:'https://logo-marque.com/wp-content/uploads/2021/11/Meta-Logo.png', headquarter_city: 'Menlo Park, California', web_site_url: 'https://about.facebook.com/fr/meta/', symbol: 'FB')
+visa_url = "https://company.bigpicture.io/v1/companies/find/stream?domain=visa.com"
+visa_user_serialized = URI.open(visa_url, 'Authorization' => '7JjxkIwoknXJ5iqc529c0o:383ivUPS7WL3ebjQ1tUd6r').read
+visa = JSON.parse(visa_user_serialized)
+visa_company = Company.create!(name: visa["name"], description: visa["description"], photo_url: visa["logo"], headquarter_city: visa["geo"]["city"], web_site_url: visa["url"], symbol: visa["ticker"])
+StockJob.perform_now(visa_company.symbol)
+NewsJob.perform_now(visa_company.symbol)
+puts 'Visa done'
 
-# visa = Company.create!(name: 'Visa', description: "Visa Inc. is an American multinational financial services corporation headquartered in Foster City, California, United States. It facilitates electronic funds transfers throughout the world, most commonly through Visa-branded credit cards, debit cards and prepaid cards. Visa is one of the world's most valuable companies. Visa does not issue cards, extend credit or set rates and fees for consumers; rather, Visa provides financial institutions with Visa-branded payment products that they then use to offer credit, debit, prepaid and cash access programs to their customers. In 2021, Visa's global network (known as VisaNet) processed 206 billion transactions with a total volume of US$12.5 trillion.", photo_url: 'https://logo-marque.com/wp-content/uploads/2020/04/Visa-Logo.png', headquarter_city: 'San Francisco, California', web_site_url:'https://www.visa.fr/', symbol:'V')
-
-# united_health = Company.create!(name: 'United Health', description: "UnitedHealth Group Incorporated is an American multinational managed healthcare and insurance company based in Minnetonka, Minnesota. It offers health care products and insurance services. UnitedHealth Group is the world's eighth largest company by revenue and second-largest healthcare company behind CVS Health by revenue, and the largest insurance company by net premiums. UnitedHealthcare revenues comprise 80% of the Group's overall revenue.", photo_url:'https://download.logo.wine/logo/UnitedHealth_Group/UnitedHealth_Group-Logo.wine.png', headquarter_city: 'Minnetonka, Minesota', web_site_url: 'https://www.uhc.com/', symbol: 'UNH')
+unitedhealthgroup_url = "https://company.bigpicture.io/v1/companies/find/stream?domain=unitedhealthgroup.com"
+unitedhealthgroup_user_serialized = URI.open(unitedhealthgroup_url, 'Authorization' => '7JjxkIwoknXJ5iqc529c0o:383ivUPS7WL3ebjQ1tUd6r').read
+unitedhealthgroup = JSON.parse(unitedhealthgroup_user_serialized)
+unitedhealthgroup_company = Company.create!(name: unitedhealthgroup["name"], description: unitedhealthgroup["description"], photo_url: unitedhealthgroup["logo"], headquarter_city: unitedhealthgroup["geo"]["city"], web_site_url: unitedhealthgroup["url"], symbol: unitedhealthgroup["ticker"])
+StockJob.perform_now(unitedhealthgroup_company.symbol)
+NewsJob.perform_now(unitedhealthgroup_company.symbol)
+puts 'United Health done'
 
 # jpmorgan_chase = Company.create!(name: 'JPMorgan Chase', description: "JPMorgan Chase & Co. is an American multinational investment bank and financial services holding company headquartered in New York City. JPMorgan Chase is incorporated in Delaware. As of September 30, 2021, JPMorgan Chase is the largest bank in the United States, the world's largest bank by market capitalization, and the fifth-largest bank in the world in terms of total assets, with total assets of US$3.758 trillion.", photo_url:'https://logo-marque.com/wp-content/uploads/2021/02/JP-Morgan-Chase-Logo.png', headquarter_city: 'New York, New York', web_site_url: 'https://www.jpmorganchase.com/', symbol: 'JPM')
 
@@ -95,7 +140,7 @@ gender_equality = Tag.create!(name: 'Gender Equality')
 diversity_and_inclusion = Tag.create!(name: 'Diversity and Inclusion')
 handicap_support = Tag.create!(name: 'Handicap Support')
 fair_compensation = Tag.create!(name: 'Fair Compensation')
-no_animal_cruelty = Tag.create!(name: 'No Animal Cruelty')
+no_animal_cruelty = Tag.create!(name: 'Cruelty-free')
 
 CompanyTag.create!(company: amazon_company, tag: fair_compensation)
 CompanyTag.create!(company: amazon_company, tag: gender_equality)
@@ -111,28 +156,28 @@ CompanyTag.create!(company: tesla_company, tag: handicap_support)
 
 CompanyTag.create!(company: walmart_company, tag: diversity_and_inclusion)
 
-# CompanyTag.create!(company: microsoft, tag: diversity_and_inclusion)
-# CompanyTag.create!(company: microsoft, tag: no_animal_cruelty)
-# CompanyTag.create!(company: microsoft, tag: handicap_support)
+CompanyTag.create!(company: microsoft_company, tag: diversity_and_inclusion)
+CompanyTag.create!(company: microsoft_company, tag: no_animal_cruelty)
+CompanyTag.create!(company: microsoft_company, tag: handicap_support)
 
-# CompanyTag.create!(company: google, tag: fair_compensation)
-# CompanyTag.create!(company: google, tag: no_animal_cruelty)
-# CompanyTag.create!(company: google, tag: diversity_and_inclusion)
-# CompanyTag.create!(company: google, tag: gender_equality)
+CompanyTag.create!(company: google_company, tag: fair_compensation)
+CompanyTag.create!(company: google_company, tag: no_animal_cruelty)
+CompanyTag.create!(company: google_company, tag: diversity_and_inclusion)
+CompanyTag.create!(company: google_company, tag: gender_equality)
 
-# CompanyTag.create!(company: berkshire_hathaway, tag: no_animal_cruelty)
-# CompanyTag.create!(company: berkshire_hathaway, tag: fair_compensation)
+CompanyTag.create!(company: berkshirehathaway_company, tag: no_animal_cruelty)
+CompanyTag.create!(company: berkshirehathaway_company, tag: fair_compensation)
 
-# CompanyTag.create!(company: nvdia, tag: diversity_and_inclusion)
+CompanyTag.create!(company: nvidia_company, tag: diversity_and_inclusion)
 
-# CompanyTag.create!(company: meta, tag: no_animal_cruelty)
-# CompanyTag.create!(company: meta, tag: diversity_and_inclusion)
-# CompanyTag.create!(company: meta, tag: gender_equality)
+CompanyTag.create!(company: meta_company, tag: no_animal_cruelty)
+CompanyTag.create!(company: meta_company, tag: diversity_and_inclusion)
+CompanyTag.create!(company: meta_company, tag: gender_equality)
 
-# CompanyTag.create!(company: visa, tag: no_animal_cruelty)
+CompanyTag.create!(company: visa_company, tag: no_animal_cruelty)
 
-# CompanyTag.create!(company: united_health, tag: no_animal_cruelty)
-# CompanyTag.create!(company: united_health, tag: handicap_support)
+CompanyTag.create!(company: unitedhealthgroup_company, tag: no_animal_cruelty)
+CompanyTag.create!(company: unitedhealthgroup_company, tag: handicap_support)
 
 # CompanyTag.create!(company: jpmorgan_chase, tag: fair_compensation)
 

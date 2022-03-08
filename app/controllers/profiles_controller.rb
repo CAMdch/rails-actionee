@@ -5,6 +5,25 @@ class ProfilesController < ApplicationController
     @track_items = TrackItem.new
     @all_favorite = TrackItem.where('user_id = ?', current_user).select('company_id').group('company_id')
     @order_invest = best_worth_invest
+
+    @round_data = {
+      labels: ['Buy', 'Hold', 'Sell'],
+      datasets: [{
+        label: 'Your investment',
+        backgroundColor: ['#0B1E44', '#D8D2CB', '#66BBE8'],
+        data: [12, 13, 15]
+      }]
+    }
+
+    @round_options = {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
   end
 
   private

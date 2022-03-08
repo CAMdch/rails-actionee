@@ -19,9 +19,17 @@
     <button type="button" class="btn btn-filter" data-bs-toggle="modal" data-bs-target="#filterModal">
       <i class="fas fa-filter"></i>Filter</a>
     </button>
-    <p data-bs-toggle="modal" data-bs-target="#filterModal">Gender Equality</p>
+    <%# <p data-bs-toggle="modal" data-bs-target="#filterModal">Gender Equality</p>
     <p data-bs-toggle="modal" data-bs-target="#filterModal">Animal rights</p>
-    <p data-bs-toggle="modal" data-bs-target="#filterModal">Eco-friendly</p>
+    <p data-bs-toggle="modal" data-bs-target="#filterModal">Eco-friendly</p> %>
+    <%= console %>
+   <%#  pour afficher les boutons de filtres en fonctions des choix de l'utilisateurs
+    récupérer touts les tags de la base de données(à faire dans le controleur)
+    récupérer les params présents dans l'url (avec params[])
+    filtrer les tags récupéré de la base de données avec les params récupéré
+    si le nom d'un tag correspond à un des params l'afficher autrement ne pas le faire (if)
+    (aussi voir si il n'y a pas moyen de stocker tout les params lié au tag dans un seul array) %>
+
   </div>
 
     <!-- Modal -->

@@ -208,4 +208,79 @@ CompanyTag.create!(company: unitedhealthgroup_company, tag: handicap_support)
 
 # CompanyTag.create!(company: eli_lilly, tag: gender_equality)
 
+
+photo_beth = URI.open('https://www.thelanguagecenter.fr/en/files/2019/11/Business-Woman-portrait-3.jpg')
+beth = User.new(email: 'beth@gmail.com', password: 'azerty', name: 'Beth Galetti')
+beth.photo.attach(io: photo_beth, filename: 'beth-image.jpg', content_type: 'image/jpg')
+beth.save!
+
+photo_lisa = URI.open('https://www.apple.com/leadership/images/bio/lisa_jackson_image.png.og.png?1644352889233')
+lisa = User.new(email: 'lisa@gmail.com', password: 'azerty', name: 'Lisa Jackson')
+lisa.photo.attach(io: photo_lisa, filename: 'lisa-image.jpg', content_type: 'image/jpg')
+lisa.save!
+
+photo_ellen = URI.open('http://magazine.blogs.wesleyan.edu/files/2019/09/ELLEN-WEST.jpg')
+ellen = User.new(email: 'ellen@gmail.com', password: 'azerty', name: 'Ellen West')
+ellen.photo.attach(io: photo_ellen, filename: 'ellen-image.jpg', content_type: 'image/jpg')
+ellen.save!
+
+photo_susan = URI.open('https://www.americanconsumernews.net/media/insiders/2058push_susantaylor.jpg')
+susan = User.new(email: 'susan@gmail.com', password: 'azerty', name: 'Susan Taylor')
+susan.photo.attach(io: photo_susan, filename: 'susan-image.jpg', content_type: 'image/jpg')
+susan.save!
+
+photo_kate = URI.open('https://www.sho.com/site/image-bin/images/1032076_3_0/1032076_3_0_prm-condolarashad_1024x640.jpg')
+kate = User.new(email: 'kate@gmail.com', password: 'azerty', name: 'Kate Sacker')
+kate.photo.attach(io: photo_kate, filename: 'kate-image.jpg', content_type: 'image/jpg')
+kate.save!
+
+photo_wendy = URI.open('https://tidibits.files.wordpress.com/2021/09/wendyrhoades6-1024x751-1.png')
+wendy = User.new(email: 'wendy@gmail.com', password: 'azerty', name: 'Wendy Rhoades')
+wendy.photo.attach(io: photo_wendy, filename: 'wendy-image.jpg', content_type: 'image/jpg')
+wendy.save!
+
+photo_warren = URI.open('https://img3.kurzy.cz/zpravy/obrazky/42/606042-warren-buffett-investuje-miliardy-do-techto-3-technologickych-akcii/Warren-Buffett-HD-Wallpaper-scaled.jpg')
+warren = User.new(email: 'warren@gmail.com', password: 'azerty', name: 'Warren Buffet')
+warren.photo.attach(io: photo_warren, filename: 'warren-image.jpg', content_type: 'image/jpg')
+warren.save!
+
+photo_mike = URI.open('https://thecinemaholic.com/wp-content/uploads/2022/01/billions-jhydr.jpg')
+mike = User.new(email: 'mike@gmail.com', password: 'azerty', name: 'Mike Prince')
+mike.photo.attach(io: photo_mike, filename: 'mike-image.jpg', content_type: 'image/jpg')
+mike.save!
+
+photo_taylor = URI.open('https://media.istockphoto.com/photos/portrait-of-a-confident-young-businessman-working-in-a-modern-office-picture-id1315205465?b=1&k=20&m=1315205465&s=170667a&w=0&h=NpuWnCZm03XM9igG68Er27J2hQnpLv80A4u6uRBjdkA=')
+taylor = User.new(email: 'taylor@gmail.com', password: 'azerty', name: 'Taylor Mason')
+taylor.photo.attach(io: photo_taylor, filename: 'taylor-image.jpg', content_type: 'image/jpg')
+taylor.save!
+
+photo_bill = URI.open('https://d1e00ek4ebabms.cloudfront.net/production/c375c9f4-f6c1-4d67-b0ca-4d9cfcfde354.jpg')
+bill = User.new(email: 'bill@gmail.com', password: 'azerty', name: 'Bill Ackman')
+bill.photo.attach(io: photo_bill, filename: 'lisa-image.jpg', content_type: 'image/jpg')
+bill.save!
+
+photo_ben = URI.open('https://www.b4-business.com/wp-content/uploads/2021/04/Founder-of-Gymshark-Ben-Francis.jpg')
+ben = User.new(email: 'ben@gmail.com', password: 'azerty', name: 'Ben Francis')
+ben.photo.attach(io: photo_ben, filename: 'ben-image.jpg', content_type: 'image/jpg')
+ben.save!
+
+photo_adam = URI.open('https://static.timesofisrael.com/www/uploads/2019/10/AP_19267645664475-e1571257830548.jpg')
+adam = User.new(email: 'adam@gmail.com', password: 'azerty', name: 'Adam Neumann')
+adam.photo.attach(io: photo_adam, filename: 'adam-image.jpg', content_type: 'image/jpg')
+adam.save!
+
+
+Review.create!(content: "Great stock to buy for the long term, check the article below https://www.cnbc.com/2022/03/06/top-wall-street-analysts-say-buy-stocks-like-apple-airbnb.html", user: warren , company: apple_company )
+Review.create!(content: "Best e-commerce company to invest in, , check the article below https://money.usnews.com/investing/stock-market-news/slideshows/great-reasons-to-buy-amazon-stock", user: beth , company: amazon_company )
+Review.create!(content: "This company has the best CEO, definetely a BUY, check the article below https://www.tipranks.com/news/blurbs/new-buy-rating-for-tesla-tsla-the-technology-giant-2", user: adam , company: tesla_company )
+Review.create!(content: "Safe bet during riskier times, check the article below https://seekingalpha.com/article/4493240-walmart-stock-omnichannel-solid-long-term-growth-pillar", user: lisa , company: walmart_company )
+Review.create!(content: "Good Tech company, with a strong management team, check the article below https://seekingalpha.com/article/4490707-microsoft-stock-overvalued-undervalued", user: ben , company: microsoft_company )
+Review.create!(content: "My favourite stock, Google is expected to grow 18% next year, check the article below https://www.investors.com/news/technology/google-stock-buy-now/", user: ellen , company: google_company )
+Review.create!(content: "I am selling the stock as I prefer mastercard, check the article below https://www.investing.com/analysis/1-stock-to-buy-1-to-dump-when-markets-open-exxon-mobil-visa-200619379", user: bill , company: visa_company )
+Review.create!(content: "Best semiconductor stock to buy right now, check the article below https://www.barrons.com/articles/nvidia-stock-51644345326", user: wendy, company: nvidia_company )
+Review.create!(content: "If you use their products you have to invest, check the article below https://www.barrons.com/articles/meta-stock-facebook-buy-sell-51644868760", user: kate , company: meta_company )
+Review.create!(content: "Good company to hold for the long term, check the article below https://www.investors.com/research/berkshire-hathaway-stock-buy-now-warren-buffett-stock/", user: mike , company: berkshirehathaway_company )
+Review.create!(content: "I am buying this healthcare stock and insiders are also buying, check the article below https://www.barrons.com/articles/unitedhealth-stock-buy-51646174580", user: susan , company: unitedhealthgroup_company )
+
+
 puts 'Finished !'

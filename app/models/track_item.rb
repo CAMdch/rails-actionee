@@ -13,6 +13,6 @@ class TrackItem < ApplicationRecord
 
   def self.track(favorite)
     user = User.find(favorite.user_id)
-    user.track_items.to_a.select { |tracked_company| tracked_company.company == favorite.company }
+    user.track_items.to_a.select { |tracked_company| tracked_company.company_id == favorite.company_id }
   end
 end

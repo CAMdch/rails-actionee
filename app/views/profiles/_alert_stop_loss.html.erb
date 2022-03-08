@@ -71,7 +71,13 @@
               <div class="d-flex flex-row">
                 <i class="fas fa-exclamation-triangle"></i>
                 <p>Limit reached</p>
-                <i class="fas fa-times"></i>
+                <%# <%= link_to track_items_path(TrackItem.where('company_id = ? AND user_id = ?', company.id, current_user)[0]), method: :patch do%> %>
+                  <%# <%= simple_form_for(@track_items, remote: true) do |f| %>
+                    <%# <%= f.input :company_id, :as => "hidden", :input_html => { :value => true } %>
+                    <%# <%= f.button :submit do%> %>
+                      <%# <i class="fas fa-times"></i> %>
+                    <%# <% end %> %> %>
+                <%# <% end %> %> %>
               </div>
             </div>
           </div>

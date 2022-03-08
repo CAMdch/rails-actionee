@@ -9,4 +9,12 @@ class TrackItemPolicy < ApplicationPolicy
   def create?
     true
   end
+
+  def dismiss?
+    true
+  end
+
+  def reset?
+    true
+  end
 end

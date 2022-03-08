@@ -30,6 +30,9 @@ export default class extends Controller {
       this.btnfinanceTarget.classList.add("btn-unactive")
       this.btnfinanceTarget.classList.remove("btn-active")
 
+      const event = new CustomEvent("update-map")
+      window.dispatchEvent(event)
+
 
     }
   }

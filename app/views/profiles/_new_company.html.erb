@@ -1,6 +1,6 @@
 <div data-controller="card-profil" data-card-profil-number-value="<%= company.currency_stock.pourcentage%>">
   <% if current_user.track_items.to_a.any? {|tracked_company| tracked_company.company == company } %>
-
+              <% @track_item = TrackItem.find_by(company_id: company.id, user_id: current_user ) %>
               <div class="card-profile card-profil-green" data-controller="buy-btn" data-card-profil-target="border">
                 <div class="company-profile-info">
                   <img src='<%= company.photo_url%>'>

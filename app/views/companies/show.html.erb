@@ -63,16 +63,24 @@
       </div>
 
     </div>
-
   <div class="company-finance" data-view-active-target="finance" data-controller="color-card" data-color-card-number-value ="<%= @currency.pourcentage%>">
     <div class="advice advice-green" data-color-card-target ="advice">
-        <div class="advice-expert">
-          <p class="our-advice">Our Advice :</p>
-          <p class="advice-status advice-status-green"><%= @recommendation%></p>
-        </div>
-      <div class="price">
-        <p class="currency-value"><%= @currency.value.round%> <span class="currency">USD</span></p>
-        <p class="pourcentage-value-green" data-color-card-target ="pourcentage" ><%= @currency.pourcentage%> <span class = "pourcentage">%</span></p>
+      <div class="title-adice">
+            <div class="d-flex align-items-center">
+              <div class="graph">
+                <canvas  width="300" height="300"
+                  data-controller="chart"
+                  data-chart-data-value="<%= @round_data.to_json %>"
+                  data-chart-options-value="<%= @round_options.to_json %>"
+                  data-chart-type-value="doughnut"
+                  data-chart-target="display"
+                ></canvas>
+              </div>
+              <div class="price">
+                <p class="currency-value"><%= @currency.value.round%> <span class="currency">USD</span></p>
+                <p class="pourcentage-value-green" data-color-card-target ="pourcentage" ><%= @currency.pourcentage%> <span class = "pourcentage">%</span></p>
+              </div>
+          </div>
       </div>
     </div>
 

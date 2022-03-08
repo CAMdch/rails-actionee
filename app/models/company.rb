@@ -5,7 +5,7 @@ class Company < ApplicationRecord
   has_many :stocks, dependent: :destroy
   has_many :publications, dependent: :destroy
   has_many :company_tags, dependent: :destroy
-  has_many :recommendations
+  has_many :recommendations, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :reviews, dependent: :destroy
   has_many :track_items, dependent: :destroy

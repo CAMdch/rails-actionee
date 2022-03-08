@@ -15,4 +15,12 @@ class TrackItem < ApplicationRecord
     user = User.find(favorite.user_id)
     user.track_items.to_a.select { |tracked_company| tracked_company.company_id == favorite.company_id }
   end
+
+  def self.notif(user)
+    need_notif = []
+    user.track_items.each do |track_item|
+      need_notif << (!track_item.alert_dismissed && track_item.company.stop_loss_below?(user))
+    end
+    return need_notif.any? { |notif| notif == true}
+  end
 end

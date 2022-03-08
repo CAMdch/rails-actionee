@@ -22,4 +22,8 @@ class User < ApplicationRecord
     end
     return total.round
   end
+
+  def notif2
+    return self.companies.any? { |company| company.gains(self) < company.favorite(self).stop_loss }
+  end
 end

@@ -3,11 +3,18 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 25px 40px;
-  width: 40%;
-  margin: 45px auto;
+  margin: 30px auto;
+  border-bottom: 1px solid $sand;
+}
+.title-adice {
+  display: flex;
+  flex-direction: column;
+  margin:  0 auto;
 }
 
+.our-advice {
+  text-align: center;
+}
 
 .advice-status {
   font-weight: bolder;
@@ -16,7 +23,7 @@
 }
 
 .advice-green {
-  border: 1px solid $light-green;
+
 }
 
 
@@ -26,7 +33,7 @@
 }
 
 .advice-red {
-  border: 1px solid $light-red;
+
 }
 
 
@@ -38,7 +45,7 @@
 
 .advice-expert {
   display: flex;
-  flex-direction: column;
+  align-items: center;
   .our-advice {
     margin-bottom: 0;
   }
@@ -48,25 +55,41 @@
   }
 }
 
+.advice-content {
+  padding-right: 15px;
+  .advice-buy {
+    font-size: 40px;
+    text-align: center;
+  }
+  .advice-pourcentage {
+    font-weight: lighter;
+    font-size: 20px;
+    text-align: center;
+  }
+}
+
 
 .price {
+  margin-left: 40px;
+  width: 55%;
   p {
     margin: 0;
-    font-size: 20px;
+    font-size: 40px;
   }
 
   .currency-value, .pourcentage-value {
     font-weight: bolder;
-    font-size: 20px;
+    font-size: 40px;
   }
 
   .currency, .pourcentage{
     font-weight: lighter;
-    font-size: 15px;
+    font-size: 18px;
   }
 }
 
-.graphique img {
+
+.graph {
   width: 100%;
 }
 

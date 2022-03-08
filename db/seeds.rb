@@ -25,6 +25,7 @@ amazon = JSON.parse(amazon_user_serialized)
 amazon_company = Company.create!(name: amazon["name"], description: amazon["description"], photo_url: amazon["logo"], headquarter_city: amazon["geo"]["city"], web_site_url: amazon["url"], symbol: amazon["ticker"])
 StockJob.perform_now(amazon_company.symbol)
 NewsJob.perform_now(amazon_company.symbol)
+RecommendationJob.perform_now(amazon_company.symbol)
 puts 'Amazon done'
 
 tesla_url = "https://company.bigpicture.io/v1/companies/find/stream?domain=tesla.com"
@@ -33,6 +34,7 @@ tesla = JSON.parse(tesla_user_serialized)
 tesla_company = Company.create!(name: tesla["name"], description: tesla["description"], photo_url: tesla["logo"], headquarter_city: tesla["geo"]["city"], web_site_url: tesla["url"], symbol: tesla["ticker"])
 StockJob.perform_now(tesla_company.symbol)
 NewsJob.perform_now(tesla_company.symbol)
+RecommendationJob.perform_now(tesla_company.symbol)
 puts 'Tesla done'
 
 apple_url = "https://company.bigpicture.io/v1/companies/find/stream?domain=apple.com"
@@ -41,6 +43,7 @@ apple = JSON.parse(apple_user_serialized)
 apple_company = Company.create!(name: apple["name"], description: apple["description"], photo_url: apple["logo"], headquarter_city: apple["geo"]["city"], web_site_url: apple["url"], symbol: apple["ticker"])
 StockJob.perform_now(apple_company.symbol)
 NewsJob.perform_now(apple_company.symbol)
+RecommendationJob.perform_now(apple_company.symbol)
 puts 'Apple done'
 
 walmart_url = "https://company.bigpicture.io/v1/companies/find/stream?domain=walmart.com"
@@ -49,6 +52,7 @@ walmart = JSON.parse(walmart_user_serialized)
 walmart_company = Company.create!(name: walmart["name"], description: walmart["description"], photo_url: walmart["logo"], headquarter_city: walmart["geo"]["city"], web_site_url: walmart["url"], symbol: walmart["ticker"])
 StockJob.perform_now(walmart_company.symbol)
 NewsJob.perform_now(walmart_company.symbol)
+RecommendationJob.perform_now(walmart_company.symbol)
 puts 'Walmart done'
 
 microsoft_url = "https://company.bigpicture.io/v1/companies/find/stream?domain=microsoft.com"
@@ -57,6 +61,7 @@ microsoft = JSON.parse(microsoft_user_serialized)
 microsoft_company = Company.create!(name: microsoft["name"], description: microsoft["description"], photo_url: microsoft["logo"], headquarter_city: microsoft["geo"]["city"], web_site_url: microsoft["url"], symbol: microsoft["ticker"])
 StockJob.perform_now(microsoft_company.symbol)
 NewsJob.perform_now(microsoft_company.symbol)
+RecommendationJob.perform_now(microsoft_company.symbol)
 puts 'Microsoft done'
 
 google_url = "https://company.bigpicture.io/v1/companies/find/stream?domain=google.com"
@@ -65,6 +70,7 @@ google = JSON.parse(google_user_serialized)
 google_company = Company.create!(name: google["name"], description: google["description"], photo_url: google["logo"], headquarter_city: google["geo"]["city"], web_site_url: google["url"], symbol: "GOOGL")
 StockJob.perform_now(google_company.symbol)
 NewsJob.perform_now(google_company.symbol)
+RecommendationJob.perform_now(google_company.symbol)
 puts 'Google done'
 
 berkshirehathaway_url = "https://company.bigpicture.io/v1/companies/find/stream?domain=berkshirehathaway.com"
@@ -73,6 +79,7 @@ berkshirehathaway = JSON.parse(berkshirehathaway_user_serialized)
 berkshirehathaway_company = Company.create!(name: berkshirehathaway["name"], description: berkshirehathaway["description"], photo_url: berkshirehathaway["logo"], headquarter_city: berkshirehathaway["geo"]["city"], web_site_url: berkshirehathaway["url"], symbol: berkshirehathaway["ticker"])
 StockJob.perform_now(berkshirehathaway_company.symbol)
 NewsJob.perform_now(berkshirehathaway_company.symbol)
+RecommendationJob.perform_now(berkshirehathaway_company.symbol)
 puts 'Berkshire Hathaway done'
 
 nvidia_url = "https://company.bigpicture.io/v1/companies/find/stream?domain=nvidia.com"
@@ -81,6 +88,7 @@ nvidia = JSON.parse(nvidia_user_serialized)
 nvidia_company = Company.create!(name: nvidia["name"], description: nvidia["description"], photo_url: nvidia["logo"], headquarter_city: nvidia["geo"]["city"], web_site_url: nvidia["url"], symbol: nvidia["ticker"])
 StockJob.perform_now(nvidia_company.symbol)
 NewsJob.perform_now(nvidia_company.symbol)
+RecommendationJob.perform_now(nvidia_company.symbol)
 puts 'Nvidia done'
 
 meta_url = "https://company.bigpicture.io/v1/companies/find/stream?domain=meta.com"
@@ -89,6 +97,7 @@ meta = JSON.parse(meta_user_serialized)
 meta_company = Company.create!(name: meta["name"], description: meta["description"], photo_url: meta["logo"], headquarter_city: meta["geo"]["city"], web_site_url: meta["url"], symbol: "FB")
 StockJob.perform_now(meta_company.symbol)
 NewsJob.perform_now(meta_company.symbol)
+RecommendationJob.perform_now(meta_company.symbol)
 puts 'Meta done'
 
 visa_url = "https://company.bigpicture.io/v1/companies/find/stream?domain=visa.com"
@@ -97,6 +106,7 @@ visa = JSON.parse(visa_user_serialized)
 visa_company = Company.create!(name: visa["name"], description: visa["description"], photo_url: visa["logo"], headquarter_city: visa["geo"]["city"], web_site_url: visa["url"], symbol: visa["ticker"])
 StockJob.perform_now(visa_company.symbol)
 NewsJob.perform_now(visa_company.symbol)
+RecommendationJob.perform_now(visa_company.symbol)
 puts 'Visa done'
 
 unitedhealthgroup_url = "https://company.bigpicture.io/v1/companies/find/stream?domain=unitedhealthgroup.com"
@@ -105,6 +115,7 @@ unitedhealthgroup = JSON.parse(unitedhealthgroup_user_serialized)
 unitedhealthgroup_company = Company.create!(name: unitedhealthgroup["name"], description: unitedhealthgroup["description"], photo_url: unitedhealthgroup["logo"], headquarter_city: unitedhealthgroup["geo"]["city"], web_site_url: unitedhealthgroup["url"], symbol: unitedhealthgroup["ticker"])
 StockJob.perform_now(unitedhealthgroup_company.symbol)
 NewsJob.perform_now(unitedhealthgroup_company.symbol)
+RecommendationJob.perform_now(unitedhealthgroup_company.symbol)
 puts 'United Health done'
 
 # jpmorgan_chase = Company.create!(name: 'JPMorgan Chase', description: "JPMorgan Chase & Co. is an American multinational investment bank and financial services holding company headquartered in New York City. JPMorgan Chase is incorporated in Delaware. As of September 30, 2021, JPMorgan Chase is the largest bank in the United States, the world's largest bank by market capitalization, and the fifth-largest bank in the world in terms of total assets, with total assets of US$3.758 trillion.", photo_url:'https://logo-marque.com/wp-content/uploads/2021/02/JP-Morgan-Chase-Logo.png', headquarter_city: 'New York, New York', web_site_url: 'https://www.jpmorganchase.com/', symbol: 'JPM')

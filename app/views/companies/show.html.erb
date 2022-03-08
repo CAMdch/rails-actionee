@@ -35,17 +35,6 @@
     </div>
 
     <div class="company-information d-none" data-view-active-target="information">
-      <div class="description-company">
-        <h2>Description</h2>
-        <p><%= @company.description%></p>
-
-        <div id = "map"
-            data-controller="mapbox"
-            data-mapbox-markers-value="<%= @marker.to_json %>"
-            data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
-            data-action="update-map@window->mapbox#mapResize">
-        </div>
-      </div>
 
       <div class="news">
         <h2>News</h2>
@@ -62,17 +51,39 @@
         <%end%>
       </div>
 
-    </div>
+      <div class="description-company">
+        <h2>Description</h2>
+        <p><%= @company.description%></p>
 
+        <div id = "map"
+            data-controller="mapbox"
+            data-mapbox-markers-value="<%= @marker.to_json %>"
+            data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"
+            data-action="update-map@window->mapbox#mapResize">
+        </div>
+      </div>
+
+
+
+    </div>
   <div class="company-finance" data-view-active-target="finance" data-controller="color-card" data-color-card-number-value ="<%= @currency.pourcentage%>">
     <div class="advice advice-green" data-color-card-target ="advice">
-        <div class="advice-expert">
-          <p class="our-advice">Our Advice :</p>
-          <p class="advice-status advice-status-green"><%= @recommendation%></p>
-        </div>
-      <div class="price">
-        <p class="currency-value"><%= @currency.value.round%> <span class="currency">USD</span></p>
-        <p class="pourcentage-value-green" data-color-card-target ="pourcentage" ><%= @currency.pourcentage%> <span class = "pourcentage">%</span></p>
+      <div class="title-adice">
+            <div class="d-flex align-items-center">
+              <div class="graph">
+                <canvas  width="300" height="300"
+                  data-controller="chart"
+                  data-chart-data-value="<%= @round_data.to_json %>"
+                  data-chart-options-value="<%= @round_options.to_json %>"
+                  data-chart-type-value="doughnut"
+                  data-chart-target="display"
+                ></canvas>
+              </div>
+              <div class="price">
+                <p class="currency-value"><%= @currency.value.round%> <span class="currency">USD</span></p>
+                <p class="pourcentage-value-green" data-color-card-target ="pourcentage" ><%= @currency.pourcentage%> <span class = "pourcentage">%</span></p>
+              </div>
+          </div>
       </div>
     </div>
 

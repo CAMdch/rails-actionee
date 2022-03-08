@@ -47,7 +47,7 @@ class CompaniesController < ApplicationController
     @favorite_user = Favorite.where('user_id = ?', current_user)
     @review = Review.new
     @reviews = Review.where('company_id = ?', @company.id)
-    recommendation(@company.symbol)
+    @recommendation = Recommendation.where('company_id = ?', @company.id).order('created_at DESC').first
     @news = Publication.where('company_id = ?', @company.id).order('created_at DESC').limit(3)
     @currency = Stock.where('company_id = ?', @company.id).order('created_at DESC').first
     authorize @company
@@ -62,6 +62,30 @@ class CompaniesController < ApplicationController
         borderColor: '#0B1E44',
         data: value_chart.reverse
       }]
+    }
+
+    @round_data = {
+      labels: ['Buy', 'Hold', 'Sell'],
+      datasets: [{
+        label: 'My First dataset',
+        backgroundColor: ['#0B1E44', '#D8D2CB', '#66BBE8'],
+        data: [@recommendation.buy, @recommendation.hold, @recommendation.sell]
+      }]
+    }
+
+    @round_options = {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      },
+      plugins: {
+        legend: {
+          position: 'right'
+        }
+      }
     }
 
     @chart_options = {
@@ -112,19 +136,6 @@ class CompaniesController < ApplicationController
       filter_hash[key] = value if value == "on"
     end
     filter_hash
-  end
-
-  def recommendation(ticker)
-    finnhub_client = FinnhubRuby::DefaultApi.new
-    company_month = finnhub_client.recommendation_trends("#{ticker}")[0]
-
-    if company_month.buy > company_month.hold && company_month.buy > company_month.sell
-      return @recommendation = "Buy"
-    elsif company_month.sell > company_month.hold && company_month.sell > company_month.buy
-      return @recommendation = "Sell"
-    else
-      return @recommendation = "Hold"
-    end
   end
 end
 # Tag.find_by(name: tag.name ) => tag intance

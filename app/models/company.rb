@@ -44,6 +44,11 @@ class Company < ApplicationRecord
     return stock_quantity
   end
 
+
+  def stop_loss_below?(user)
+    self.gains(user) < self.favorite(user).stop_loss
+  end
+
   def gains(user)
     stock_quantity = stock_quantity(user)
     value_total = stock_quantity * self.currency_stock.value

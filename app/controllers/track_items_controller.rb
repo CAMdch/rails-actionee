@@ -12,10 +12,26 @@ class TrackItemsController < ApplicationController
     redirect_to profile_path + "#company-#{@company.id}"
   end
 
+  def dismiss
+    @track_item = TrackItem.find(params[:id])
+    @track_item.alert_dismissed = true
+    authorize @track_item
+    @track_item.save!
+    redirect_to profile_path + "#company-#{@track_item.company.id}"
+  end
+
+  def reset
+    @track_item = TrackItem.find(params[:id])
+    @track_item.alert_dismissed = false
+    authorize @track_item
+    @track_item.save!
+    redirect_to profile_path + "#company-#{@track_item.company.id}"
+  end
+
   private
 
   def track_items_params
-    params.require(:track_item).permit(:stock_quantity, :value_stock, :company_id)
+    params.require(:track_item).permit(:stock_quantity, :value_stock, :company_id, :alert_dismissed)
   end
 
   # def start_alert(track_items)

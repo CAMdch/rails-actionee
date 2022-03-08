@@ -2,7 +2,6 @@
   background-color: $dark-blue;
   color:white;
   transition: 1s;
-
   &:hover {
     transition: 1s;
     background-color: transparent;
@@ -13,4 +12,18 @@
       transition: 1s;
     }
   }
+}
+
+.button-filter {
+  width: 14%;
+}
+
+.container-filter {
+  display: flex;
+  width: 100%;
+}
+
+.filter {
+  border-bottom: 1px solid $dark-blue;
+  height: 26px;
 }

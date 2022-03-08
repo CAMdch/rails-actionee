@@ -18,6 +18,15 @@ class CompaniesController < ApplicationController
     @favorite_user = Favorite.where('user_id = ?', current_user)
 
     respond_to do |format|
+      @chart_options = {
+        scales: {
+          y: {
+            grid: {
+              display: false
+            }
+          }
+        }
+      }
       format.html # Follow regular flow of Rails
       format.text { render partial: 'companies_list', locals: { companies: @companies }, formats: [:html] }
     end
@@ -47,7 +56,7 @@ class CompaniesController < ApplicationController
     @chart_data = {
       labels: time_chart.reverse,
       datasets: [{
-        label: 'Stock P',
+        label: 'Stock Price',
         backgroundColor: '#0B1E44',
         borderWidth: 1,
         borderColor: '#0B1E44',

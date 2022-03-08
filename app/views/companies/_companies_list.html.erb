@@ -47,9 +47,9 @@
         </div>
 
 
-        <div class="tags">
+        <div class="tags" data-controller="tag" data-tag-params-value ="<%= params.select{|key, value| value == "on" }.keys%>">
           <%company.tags.each do |tag|%>
-            <p>#<%=tag.name%></p>
+            <p>#<span data-tag-target="tag"><%=tag.name%></span></p>
           <%end%>
         </div>
 

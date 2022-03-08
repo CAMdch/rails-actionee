@@ -6,7 +6,7 @@ class ProfilesController < ApplicationController
     @all_favorite = TrackItem.where('user_id = ?', current_user).select('company_id').group('company_id')
     @order_invest = best_worth_invest
 
-    @round_data = {
+    @bar_data = {
       labels: ['Buy', 'Hold', 'Sell'],
       datasets: [{
         label: 'Your investment',
@@ -15,7 +15,7 @@ class ProfilesController < ApplicationController
       }]
     }
 
-    @round_options = {
+    @bar_options = {
       scales: {
         yAxes: [{
           ticks: {

@@ -1,4 +1,4 @@
-<div data-controller="card-profil" data-card-profil-number-value="<%= company.currency_stock.pourcentage%>">
+<div data-controller="card-profil" data-controller="alert-up" data-card-profil-number-value="<%= company.currency_stock.pourcentage%>">
           <div class="card-profile card-profile-green" data-card-profil-target="border" data-controller="buy-btn">
           <% @track_item = TrackItem.find_by(company_id: company.id, user_id: current_user.id) %>
             <div class="company-profile-info">
@@ -29,15 +29,15 @@
                   <div class='row align-items-center p-1'>
                     <p class="col-6 stock-number text-end "><%if company.favorite(current_user).stop_loss.round != 0%>- <%end%><%= company.favorite(current_user).stop_loss.round%></p>
                     <p class="col-6 stock-text text-start d-flex" >USD stop-loss<a data-action="click->buy-btn#appearLoss" ><i class="fas fa-pen-nib"></i>
-                      <% if @track_item.alert_dismissed %>
-                        <%= link_to reset_path(@track_item, remote: true), method: :patch do %>
-                          <i class="far fa-bell"></i>
+                        <% if @track_item.alert_dismissed %>
+                          <%= link_to reset_path(@track_item), remote: true, method: :patch do %>
+                            <i class="far fa-bell"></i>
+                          <% end %>
+                        <% else %>
+                          <%= link_to dismiss_path(@track_item), remote: true, method: :patch do %>
+                            <i class="far fa-bell-slash"></i>
+                          <% end %>
                         <% end %>
-                      <% else %>
-                        <%= link_to dismiss_path(@track_item, remote: true), method: :patch do %>
-                          <i class="far fa-bell-slash"></i>
-                        <% end %>
-                      <% end %>
                   </div>
                 </div>
                   <%= link_to favorite_path(Favorite.where('company_id = ? AND user_id = ?', company.id, current_user)[0]), method: :delete, id:"unfollow", data: { buy_btn_target: "unfollow" }  do%>
@@ -80,7 +80,7 @@
                 <div class="d-flex flex-row">
                   <i class="fas fa-exclamation-triangle"></i>
                   <p>Limit reached</p>
-                  <%= link_to dismiss_path(@track_item), method: :patch do %>
+                  <%= link_to dismiss_path(@track_item),remote: true, method: :patch do %>
                     <i class="fas fa-times" ></i>
                   <% end %>
                 </div>

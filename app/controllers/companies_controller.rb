@@ -73,6 +73,7 @@ class CompaniesController < ApplicationController
       }]
     }
 
+
     @round_data = {
       labels: ['Buy', 'Hold', 'Sell'],
       datasets: [{

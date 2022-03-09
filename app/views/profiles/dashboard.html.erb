@@ -33,10 +33,24 @@
 
       <div class="overview d-none" data-profil-target="overview">
         <h2>Since <%=current_user.created_at.strftime('%B %Y')%></h2>
-        <div class="total-gain">
-          <p><%if current_user.total_gains.positive?%>+ <%end%><%= current_user.total_gains%> <span>USD</span></p>
-        </div>
+        <div class="dashboard">
+          <div class="total-gain-contain">
+            <p class="gains-header">Total gains</p>
+            <p class="total-gain"><%if current_user.total_gains.positive?%>+ <%end%><%= current_user.total_gains%> <span> USD</span></p>
+          </div>
+          <div class="round-chart">
+            <p class="wallet">Your wallet</p>
+            <canvas
+                      data-controller="chart"
+                      data-chart-data-value="<%= @round_data.to_json %>"
+                      data-chart-options-value="<%= @round_options.to_json %>"
+                      data-chart-type-value='doughnut'
+                      data-chart-target="display"
+            ></canvas>
+          </div>
 
+        </div>
+        <p class="gains-header">Your gains and losses</p>
         <canvas  height="100"
                   data-controller="chart"
                   data-chart-data-value="<%= @bar_data.to_json %>"
@@ -44,13 +58,6 @@
                   data-chart-type-value='bar'
                   data-chart-target="display"
         ></canvas>
-
-
-          <%if @order_invest[0].length == 1 && @order_invest[1].length == 0%>
-            <%= render 'one_invest', order_invest: @order_invest[0][0]%>
-          <%elsif @order_invest[0].length != 0 && @order_invest[1].length != 0%>
-            <%= render 'two_invest', order_invest: @order_invest %>
-          <%end%>
     </div>
   </div>
 </div>

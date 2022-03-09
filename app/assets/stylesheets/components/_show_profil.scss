@@ -11,6 +11,13 @@
 
 }
 
+.overview {
+  h2 {
+    text-align: left;
+    border-bottom: 1px solid $sand;
+  }
+}
+
 .avatar-profil {
   position: absolute;
   bottom: -53px;
@@ -25,4 +32,62 @@
   width: 70%;
   margin-left: 215px;
   padding: 15px 0;
+}
+
+.dashboard {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 70px;
+  .round-chart {
+    width: 40%;
+  }
+}
+
+
+.total-gain {
+  display: flex;
+  justify-content: center;
+  color: $light-green;
+  font-size: 35px;
+  font-weight: bolder;
+  font-family: $body-font;
+  span {
+    color: $light-green;
+    font-size: 35px;
+    font-weight: lighter;
+    font-family: $body-font;
+    margin-left: 30px;
+  }
+}
+
+
+.gains-header {
+
+  color: $dark-blue;
+  font-size: 35px;
+  font-weight: lighter;
+  text-align: center;
+  font-family: $headers-font;
+
+}
+
+.total-gain-contain {
+  border: 1px solid $sand;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 60%;
+  margin-right: 40px;
+  border-radius: 5px;
+  margin-top: 41px;
+  margin-bottom: 41px;
+}
+
+.wallet {
+  font-family: $headers-font;
+  color: $dark-blue;
+  font-size: 25px;
+
 }

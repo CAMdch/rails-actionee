@@ -25,6 +25,11 @@ class CompaniesController < ApplicationController
               display: false
             }
           }
+        },
+        elements: {
+          point:{
+              radius: 0
+          }
         }
       }
       format.html # Follow regular flow of Rails
@@ -37,6 +42,11 @@ class CompaniesController < ApplicationController
           grid: {
             display: false
           }
+        }
+      },
+      elements: {
+        point:{
+            radius: 0
         }
       }
     }
@@ -57,9 +67,8 @@ class CompaniesController < ApplicationController
       labels: time_chart.reverse,
       datasets: [{
         label: 'Stock Price',
-        backgroundColor: '#0B1E44',
         borderWidth: 1,
-
+        borderColor: '#0B1E44',
         data: value_chart.reverse
       }]
     }
@@ -96,16 +105,22 @@ class CompaniesController < ApplicationController
             display: false
           }
         }
+      },
+      elements: {
+        point:{
+            radius: 0
+        }
       }
     }
   end
 
   def time_chart
     stocks = @company.stocks.order('created_at DESC')
+    time_stop = stocks.length < 42 ? @company.stocks.order('created_at DESC').last.created_at.time : @company.stocks.order('created_at DESC').first.created_at.time - 7
     i = 0
     month = []
-    while i < @company.stocks.order('created_at DESC').length
-      month.push(stocks[i].created_at.strftime('%H:%M'))
+    while stocks[i].created_at.time > time_stop
+      month.push((stocks[i].created_at + 3600).strftime('%H:%M'))
       i += 1
     end
     return month
@@ -113,11 +128,12 @@ class CompaniesController < ApplicationController
 
   def value_chart
     stocks = @company.stocks.order('created_at DESC')
-    i = 0
+    time_stop = stocks.length < 42 ? @company.stocks.order('created_at DESC').last.created_at.time : @company.stocks.order('created_at DESC').first.created_at.time - 7
+    j = 0
     value = []
-    while i < @company.stocks.order('created_at DESC').length
-      value.push(stocks[i].value)
-      i += 1
+    while stocks[j].created_at.time > time_stop
+      value.push(stocks[j].value)
+      j += 1
     end
     return value
   end

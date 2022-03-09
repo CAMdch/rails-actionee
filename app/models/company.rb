@@ -77,7 +77,7 @@ class Company < ApplicationRecord
       i += 1
     end
 
-    while stocks[i].created_at.time > time_stop
+    while stocks[j].created_at.time > time_stop
       value.push(stocks[j].value)
       j += 1
     end

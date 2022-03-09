@@ -5,7 +5,7 @@ class FavoritesController < ApplicationController
     @favorite.company = @company
     @favorite.user = current_user
     if @favorite.save
-      if request.referer == "http://localhost:3000/companies/#{@company.id}"
+      if request.referer == "http://localhost:3000/companies/#{@company.id}" || request.referer == "https://actionee.herokuapp.com/companies/#{@company.id}"
         redirect_to profile_path + "#company-#{@company.id}"
       else
         redirect_to request.referer + "#company-#{@company.id}"

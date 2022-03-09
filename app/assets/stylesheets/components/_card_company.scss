@@ -1,10 +1,12 @@
 .card-company-green {
   border: 1px solid $light-green;
   margin: 35px 45px;
+  padding: 30px;
   position: relative;
 }
 
 .card-company-red {
+  padding: 30px;
   border: 1px solid $light-red;
   margin: 35px 45px;
   position: relative;
@@ -48,11 +50,8 @@
 
 .card-company-little .stock-info {
   display: flex;
-  justify-content: space-between;
-  margin-left: 105px;
-  margin-right: 47px;
-  margin-bottom: 4px;
-  margin-top:15px;
+  justify-content: space-around;
+  margin: 15px;
 }
 
 .card-company .stock-info, .card-company-little .stock-info {
@@ -157,5 +156,30 @@
     right: -24px;
   }
 
+}
+
+.companies{
+  canvas {
+    padding: 0px 20px;
+  }
+}
+
+.stock-info {
+  p {
+    align-self: center;
+  }
+  img {
+    width: 60px;
+    object-fit: contain;
+    height: 60px;
+    align-self: center;
+  }
+  strong {
+    font-size: 13px;
+    font-weight: 600px;
+    // color: #888888;
+    color: $dark-blue;
+    letter-spacing: 2px;
+  }
 }
 //                       padding-right: 24px;

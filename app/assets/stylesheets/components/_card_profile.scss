@@ -51,8 +51,8 @@
     justify-content: space-between;
     margin-left: 35px;
     margin-right: 35px;
-    margin-bottom: 59px;
-    margin-top: 30px;
+    margin-bottom: 2px;
+    margin-top: 74px;
 
     .stock-detail-row {
       align-items: center;
@@ -148,7 +148,7 @@
     .fa-exclamation-triangle {
       color: $light-red;
       text-align: start;
-      padding-right: 5px;
+      padding-right: 20px;
       font-size: 15px;
     }
     // this comment is highly uncessary just a problem with ghit hub I am trying to fix

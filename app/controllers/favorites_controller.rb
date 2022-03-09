@@ -19,7 +19,7 @@ class FavoritesController < ApplicationController
     @favorite.stop_loss = params[:favorite][:stop_loss].to_i
     @favorite.save
     @company = Company.find(params[:favorite][:company_id])
-    # redirect_to request.referer + "#company-#{@company.id}"
+    redirect_to request.referer + "#company-#{@company.id}"
     authorize @favorite
   end
 

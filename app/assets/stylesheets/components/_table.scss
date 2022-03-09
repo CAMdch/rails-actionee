@@ -1,0 +1,57 @@
+
+td {
+    border-top: 1px solid $sand;
+    text-align: center;
+    font-family: $body-font;
+    letter-spacing: 8px;
+    padding: 7px 15px;
+    font-size: 20px;
+    font-weight: lighter;
+    span {
+      font-size: 15px;
+      color: $sand;
+    }
+}
+th {
+  font-family: $body-font;
+    letter-spacing: 8px;
+    padding: 7px 15px;
+}
+
+thead {
+    color: $dark-blue;
+    text-align: center;
+    font-family: $body-font;
+    font-family: $body-font;
+}
+
+.td1, .td2, .td3{
+  border-right: 1px solid $sand;
+}
+
+.td4 {
+  display: flex;
+  flex-direction: column;
+  i {
+    color: $dark-blue;
+    opacity: 0.5;
+    transition: 1s;
+    font-size: 20px;
+    &:hover {
+      opacity: 1;
+      transition: 1s;
+    }
+  }
+
+  .fa-bell, .fa-bell-slash {
+    font-size: 20px;
+  }
+}
+
+table {
+  margin-top: 52px;
+  margin-bottom: 35px;
+  margin-left: 77px;
+  margin-right: 77px;
+
+}

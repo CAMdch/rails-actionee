@@ -73,15 +73,6 @@ NewsJob.perform_now(google_company.symbol)
 RecommendationJob.perform_now(google_company.symbol)
 puts 'Google done'
 
-berkshirehathaway_url = "https://company.bigpicture.io/v1/companies/find/stream?domain=berkshirehathaway.com"
-berkshirehathaway_user_serialized = URI.open(berkshirehathaway_url, 'Authorization' => '7JjxkIwoknXJ5iqc529c0o:383ivUPS7WL3ebjQ1tUd6r').read
-berkshirehathaway = JSON.parse(berkshirehathaway_user_serialized)
-berkshirehathaway_company = Company.create!(name: berkshirehathaway["name"], description: berkshirehathaway["description"], photo_url: berkshirehathaway["logo"], headquarter_city: berkshirehathaway["geo"]["city"], web_site_url: berkshirehathaway["url"], symbol: berkshirehathaway["ticker"])
-StockJob.perform_now(berkshirehathaway_company.symbol)
-NewsJob.perform_now(berkshirehathaway_company.symbol)
-RecommendationJob.perform_now(berkshirehathaway_company.symbol)
-puts 'Berkshire Hathaway done'
-
 nvidia_url = "https://company.bigpicture.io/v1/companies/find/stream?domain=nvidia.com"
 nvidia_user_serialized = URI.open(nvidia_url, 'Authorization' => '7JjxkIwoknXJ5iqc529c0o:383ivUPS7WL3ebjQ1tUd6r').read
 nvidia = JSON.parse(nvidia_user_serialized)
@@ -118,25 +109,95 @@ NewsJob.perform_now(unitedhealthgroup_company.symbol)
 RecommendationJob.perform_now(unitedhealthgroup_company.symbol)
 puts 'United Health done'
 
-# jpmorgan_chase = Company.create!(name: 'JPMorgan Chase', description: "JPMorgan Chase & Co. is an American multinational investment bank and financial services holding company headquartered in New York City. JPMorgan Chase is incorporated in Delaware. As of September 30, 2021, JPMorgan Chase is the largest bank in the United States, the world's largest bank by market capitalization, and the fifth-largest bank in the world in terms of total assets, with total assets of US$3.758 trillion.", photo_url:'https://logo-marque.com/wp-content/uploads/2021/02/JP-Morgan-Chase-Logo.png', headquarter_city: 'New York, New York', web_site_url: 'https://www.jpmorganchase.com/', symbol: 'JPM')
+jpmorganchase_url = "https://company.bigpicture.io/v1/companies/find/stream?domain=jpmorganchase.com"
+jpmorganchase_user_serialized = URI.open(jpmorganchase_url, 'Authorization' => '7JjxkIwoknXJ5iqc529c0o:383ivUPS7WL3ebjQ1tUd6r').read
+jpmorganchase = JSON.parse(jpmorganchase_user_serialized)
+jpmorganchase_company = Company.create!(name: jpmorganchase["name"], description: jpmorganchase["description"], photo_url: jpmorganchase["logo"], headquarter_city: jpmorganchase["geo"]["city"], web_site_url: jpmorganchase["url"], symbol: jpmorganchase["ticker"])
+StockJob.perform_now(jpmorganchase_company.symbol)
+NewsJob.perform_now(jpmorganchase_company.symbol)
+RecommendationJob.perform_now(jpmorganchase_company.symbol)
+puts 'Jpmorgan Chase done'
 
-# johnson_johnson = Company.create!(name: 'Johnson & Johnson', description: "Johnson & Johnson (J&J) is an American multinational corporation founded in 1886 that develops medical devices, pharmaceuticals, and consumer packaged goods. Its common stock is a component of the Dow Jones Industrial Average and the company is ranked No. 36 on the 2021 Fortune 500 list of the largest United States corporations by total revenue. Johnson & Johnson is one of the world's most valuable companies, and is one of only two U.S.-based companies that has a prime credit rating of AAA, higher than that of the United States government.", photo_url: 'https://wwwfr.uni.lu/var/storage/images/media/images/lcl_images/johnson_johnson_logo/1265817-2-fre-FR/johnson_johnson_logo.png', headquarter_city: 'New Brunswick, New Jersey', web_site_url: 'https://www.jnj.com/healthcare-products', symbol:'JNJ')
+johnsonjohnson_url = "https://company.bigpicture.io/v1/companies/find/stream?domain=johnsonjohnson.com"
+johnsonjohnson_user_serialized = URI.open(johnsonjohnson_url, 'Authorization' => '7JjxkIwoknXJ5iqc529c0o:383ivUPS7WL3ebjQ1tUd6r').read
+johnsonjohnson = JSON.parse(johnsonjohnson_user_serialized)
+johnsonjohnson_company = Company.create!(name: johnsonjohnson["name"], description: johnsonjohnson["description"], photo_url: johnsonjohnson["logo"], headquarter_city: johnsonjohnson["geo"]["city"], web_site_url: johnsonjohnson["url"], symbol: johnsonjohnson["ticker"])
+StockJob.perform_now(johnsonjohnson_company.symbol)
+NewsJob.perform_now(johnsonjohnson_company.symbol)
+RecommendationJob.perform_now(johnsonjohnson_company.symbol)
+puts 'Johnsonjohnson done'
 
-# procter_gamble = Company.create!(name: 'Procter & Gamble', description: "The Procter & Gamble Company (P&G) is an American multinational consumer goods corporation headquartered in Cincinnati, Ohio, founded in 1837 by William Procter and James Gamble. It specializes in a wide range of personal health/consumer health, and personal care and hygiene products; these products are organized into several segments including Beauty; Grooming; Health Care; Fabric & Home Care; and Baby, Feminine, & Family Care. Before the sale of Pringles to Kellogg's, its product portfolio also included food, snacks, and beverages. P&G is incorporated in Ohio.", photo_url: 'https://upload.wikimedia.org/wikipedia/fr/d/d3/Procter_%26_Gamble_2013_%28logo%29.png', headquarter_city: 'Cincinnati, Ohio', web_site_url: 'https://fr.pg.com/', symbol: 'PG')
+# pg_url = "https://company.bigpicture.io/v1/companies/find/stream?domain=pg.com"
+# pg_user_serialized = URI.open(pg_url, 'Authorization' => '7JjxkIwoknXJ5iqc529c0o:383ivUPS7WL3ebjQ1tUd6r').read
+# pg = JSON.parse(pg_user_serialized)
+# pg_company = Company.create!(name: pg["name"], description: pg["description"], photo_url: pg["logo"], headquarter_city: pg["geo"]["city"], web_site_url: pg["url"], symbol: "PG")
+# StockJob.perform_now(pg_company.symbol)
+# NewsJob.perform_now(pg_company.symbol)
+# RecommendationJob.perform_now(pg_company.symbol)
+# puts "PG done"
 
-# mastercard = Company.create!(name: 'Mastercard', description: "Mastercard Inc. is an American multinational financial services corporation headquartered in the Mastercard International Global Headquarters in Purchase, New York. The Global Operations Headquarters is located in O'Fallon, Missouri, a municipality of St. Charles County, Missouri. Throughout the world, its principal business is to process payments between the banks of merchants and the card-issuing banks or credit unions of the purchasers who use the Mastercard brand debit, credit and prepaid cards to make purchases.", photo_url: 'https://logos-marques.com/wp-content/uploads/2021/07/Mastercard-logo.png', headquarter_city: 'Purchase, Harrison, New York', web_site_url: 'https://www.mastercard.fr/fr-fr.html', symbol: 'MA')
+# mastercard_url = "https://company.bigpicture.io/v1/companies/find/stream?domain=mastercard.com"
+# mastercard_user_serialized = URI.open(mastercard_url, 'Authorization' => '7JjxkIwoknXJ5iqc529c0o:383ivUPS7WL3ebjQ1tUd6r').read
+# mastercard = JSON.parse(mastercard_user_serialized)
+# mastercard_company = Company.create!(name: mastercard["name"], description: mastercard["description"], photo_url: mastercard["logo"], headquarter_city: mastercard["geo"]["city"], web_site_url: mastercard["url"], symbol: "MA")
+# StockJob.perform_now(mastercard_company.symbol)
+# NewsJob.perform_now(mastercard_company.symbol)
+# RecommendationJob.perform_now(mastercard_company.symbol)
+# puts "mastercard done"
 
-# bank_of_america = Company.create!(name: 'Bank Of America', description: "The Bank of America Corporation is an American multinational investment bank and financial services holding company headquartered in Charlotte, North Carolina. The bank was founded in San Francisco, and took its present form when NationsBank of Charlotte acquired it in 1998. It is the second largest banking institution in the United States, after JPMorgan Chase, and the eighth largest bank in the world. Bank of America is one of the Big Four banking institutions of the United States. It serves approximately 10.73% of all American bank deposits, in direct competition with JPMorgan Chase, Citigroup, and Wells Fargo. Its primary financial services revolve around commercial banking, wealth management, and investment banking.", photo_url: 'https://logos-marques.com/wp-content/uploads/2021/07/Bank-of-America-logo.png', headquarter_city: 'Charlotte, North Carolina', web_site_url: 'https://www.bankofamerica.com/', symbol:'BAC')
+# bankofamerica_url = "https://company.bigpicture.io/v1/companies/find/stream?domain=bankofamerica.com"
+# bankofamerica_user_serialized = URI.open(bankofamerica_url, 'Authorization' => '7JjxkIwoknXJ5iqc529c0o:383ivUPS7WL3ebjQ1tUd6r').read
+# bankofamerica = JSON.parse(bankofamerica_user_serialized)
+# bankofamerica_company = Company.create!(name: bankofamerica["name"], description: bankofamerica["description"], photo_url: bankofamerica["logo"], headquarter_city: bankofamerica["geo"]["city"], web_site_url: bankofamerica["url"], symbol: bankofamerica["ticker"])
+# StockJob.perform_now(bankofamerica_company.symbol)
+# NewsJob.perform_now(bankofamerica_company.symbol)
+# RecommendationJob.perform_now(bankofamerica_company.symbol)
+# puts "bankofamerica done"
 
-# home_depot = Company.create!(name: 'Home Depot', description: "The Home Depot, Inc., commonly known as Home Depot, is the largest home improvement retailer in the United States, supplying tools, construction products, appliances, and services. The company is headquartered in incorporated Cobb County, Georgia, with an Atlanta mailing address. It operates many big-box format stores across the United States ; all 10 provinces of Canada; and all 32 Mexican states and Mexico City. MRO company Interline Brands (now The Home Depot Pro) is also owned by The Home Depot, with 70 distribution centers across the United States.", photo_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/TheHomeDepot.svg/800px-TheHomeDepot.svg.png', headquarter_city: 'Atlanta, Georgia', web_site_url: 'https://ir.homedepot.com/', symbol: 'HD')
+# homedepot_url = "https://company.bigpicture.io/v1/companies/find/stream?domain=homedepot.com"
+# homedepot_user_serialized = URI.open(homedepot_url, 'Authorization' => '7JjxkIwoknXJ5iqc529c0o:383ivUPS7WL3ebjQ1tUd6r').read
+# homedepot = JSON.parse(homedepot_user_serialized)
+# homedepot_company = Company.create!(name: homedepot["name"], description: homedepot["description"], photo_url: homedepot["logo"], headquarter_city: homedepot["geo"]["city"], web_site_url: homedepot["url"], symbol: homedepot["ticker"])
+# StockJob.perform_now(homedepot_company.symbol)
+# NewsJob.perform_now(homedepot_company.symbol)
+# RecommendationJob.perform_now(homedepot_company.symbol)
+# puts "homedepot done"
 
-# exxon_mobil = Company.create!(name: 'Exxon Mobil', description: "Exxon Mobil Corporation, stylized as ExxonMobil, is an American multinational oil and gas corporation headquartered in Irving, Texas. It is the largest direct descendant of John D. Rockefeller's Standard Oil, and was formed on November 30, 1999, by the merger of Exxon (formerly the Standard Oil Company of New Jersey) and Mobil (formerly the Standard Oil Company of New York). ExxonMobil's primary brands are Exxon, Mobil, Esso, and ExxonMobil Chemical. ExxonMobil is incorporated in New Jersey.", photo_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Exxon_Mobil_Logo.svg/2560px-Exxon_Mobil_Logo.svg.png', headquarter_city: 'Irving,Texas', web_site_url:'https://corporate.exxonmobil.com/', symbol:'XOM')
+# exxonmobil_url = "https://company.bigpicture.io/v1/companies/find/stream?domain=exxonmobil.com"
+# exxonmobil_user_serialized = URI.open(exxonmobil_url, 'Authorization' => '7JjxkIwoknXJ5iqc529c0o:383ivUPS7WL3ebjQ1tUd6r').read
+# exxonmobil = JSON.parse(exxonmobil_user_serialized)
+# exxonmobil_company = Company.create!(name: exxonmobil["name"], description: exxonmobil["description"], photo_url: exxonmobil["logo"], headquarter_city: exxonmobil["geo"]["city"], web_site_url: exxonmobil["url"], symbol: exxonmobil["ticker"])
+# StockJob.perform_now(exxonmobil_company.symbol)
+# NewsJob.perform_now(exxonmobil_company.symbol)
+# RecommendationJob.perform_now(exxonmobil_company.symbol)
+# puts "exxonmobil done"
 
-# chevron = Company.create!(name: 'Chevron', description: "Chevron Corporation is an American multinational energy corporation. One of the successor companies of Standard Oil, it is headquartered in San Ramon, California, and active in more than 180 countries. Chevron is engaged in every aspect of the oil and natural gas industries, including hydrocarbon exploration and production; refining, marketing and transport; chemicals manufacturing and sales; and power generation. It was also one of the Seven Sisters that dominated the global petroleum industry from the mid-1940s to the 1970s.", photo_url: 'https://upload.wikimedia.org/wikipedia/fr/thumb/9/99/Chevron.svg/1200px-Chevron.svg.png', headquarter_city: 'San Ramon, California', web_site_url: 'https://www.chevron.com/', symbol: 'CVX')
+# chevron_url = "https://company.bigpicture.io/v1/companies/find/stream?domain=chevron.com"
+# chevron_user_serialized = URI.open(chevron_url, 'Authorization' => '7JjxkIwoknXJ5iqc529c0o:383ivUPS7WL3ebjQ1tUd6r').read
+# chevron = JSON.parse(chevron_user_serialized)
+# chevron_company = Company.create!(name: chevron["name"], description: chevron["description"], photo_url: chevron["logo"], headquarter_city: chevron["geo"]["city"], web_site_url: chevron["url"], symbol: chevron["ticker"])
+# StockJob.perform_now(chevron_company.symbol)
+# NewsJob.perform_now(chevron_company.symbol)
+# RecommendationJob.perform_now(chevron_company.symbol)
+# puts "chevron done"
 
-# coca_cola = Company.create!(name: 'Coca Cola', description: "Coca-Cola, or Coke, is a carbonated soft drink manufactured by The Coca-Cola Company. Originally marketed as a temperance drink and intended as a patent medicine, it was invented in the late 19th century by John Stith Pemberton and was bought out by businessman Asa Griggs Candler, whose marketing tactics led Coca-Cola to its dominance of the world soft-drink market throughout the 20th century. The drink's name refers to two of its original ingredients: coca leaves, and kola nuts (a source of caffeine). The current formula of Coca-Cola remains a trade secret; however, a variety of reported recipes and experimental recreations have been published. The drink has inspired imitators and created a whole classification of soft drink: colas.", photo_url: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Coca-Cola_logo.svg/1024px-Coca-Cola_logo.svg.png', headquarter_city: 'Atlanta, Georgia', web_site_url: 'https://www.coca-cola.com/', symbol:'KO')
+# cocacola_url = "https://company.bigpicture.io/v1/companies/find/stream?domain=cocacola.com"
+# cocacola_user_serialized = URI.open(cocacola_url, 'Authorization' => '7JjxkIwoknXJ5iqc529c0o:383ivUPS7WL3ebjQ1tUd6r').read
+# cocacola = JSON.parse(cocacola_user_serialized)
+# cocacola_company = Company.create!(name: cocacola["name"], description: cocacola["description"], photo_url: cocacola["logo"], headquarter_city: cocacola["geo"]["city"], web_site_url: cocacola["url"], symbol: "KO")
+# StockJob.perform_now(cocacola_company.symbol)
+# NewsJob.perform_now(cocacola_company.symbol)
+# RecommendationJob.perform_now(cocacola_company.symbol)
+# puts "cocacola done"
 
-# walt_disney = Company.create!(name: 'The Walt Disney Company', description: "The Walt Disney Company, is an American multinational entertainment and media conglomerate headquartered at the Walt Disney Studios complex in Burbank, California. Disney was originally founded on October 16, 1923, by brothers Walt and Roy O. Disney as the Disney Brothers Cartoon Studio; it also operated under the names The Walt Disney Studio and Walt Disney Productions before officially changing its name to The Walt Disney Company in 1986. The company established itself as a leader in the American animation industry before diversifying into live-action film production, television, and theme parks. The company is known for its film studio division, The Walt Disney Studios, which includes Walt Disney Pictures, Walt Disney Animation Studios, Pixar, Marvel Studios, Lucasfilm, 20th Century Studios, 20th Century Animation, and Searchlight Pictures. Disney's other main business units include divisions in television, broadcasting, streaming media, theme park resorts, consumer products, publishing, and international operations. Through these various segments, Disney owns and operates the ABC broadcast network; cable television networks such as Disney Channel, ESPN, Freeform, FX, and National Geographic; publishing, merchandising, music, and theater divisions; direct-to-consumer streaming services such as Disney+, Star+, ESPN+, Hulu, and Hotstar; and Disney Parks, Experiences and Products, a group of 14 theme parks, resort hotels, and cruise lines around the world. Cartoon character Mickey Mouse, created in 1928 by Walt Disney and Ub Iwerks, serves as the company's mascot.", photo_url: 'https://logos-download.com/wp-content/uploads/2016/06/The_Walt_Disney_company_logo.png', headquarter_city: 'Burbank, California', web_site_url: 'https://thewaltdisneycompany.com/', symbol: 'DIS')
+# disney_url = "https://company.bigpicture.io/v1/companies/find/stream?domain=disney.com"
+# disney_user_serialized = URI.open(disney_url, 'Authorization' => '7JjxkIwoknXJ5iqc529c0o:383ivUPS7WL3ebjQ1tUd6r').read
+# disney = JSON.parse(disney_user_serialized)
+# disney_company = Company.create!(name: disney["name"], description: disney["description"], photo_url: disney["logo"], headquarter_city: disney["geo"]["city"], web_site_url: disney["url"], symbol: "DIS")
+# StockJob.perform_now(disney_company.symbol)
+# NewsJob.perform_now(disney_company.symbol)
+# RecommendationJob.perform_now(disney_company.symbol)
+# puts "disney done"
 
 # pfizer = Company.create!(name: 'Pfizer', description: "Pfizer Inc. is an American multinational pharmaceutical and biotechnology corporation headquartered on 42nd Street in Manhattan, New York City. The company was established in 1849 in New York by two German immigrants, Charles Pfizer (1824–1906) and his cousin Charles F. Erhart (1821–1891). Pfizer develops and produces medicines and vaccines for immunology, oncology, cardiology, endocrinology, and neurology. The company has several blockbuster drugs or products that each generate more than US$1 billion in annual revenues. In 2020, 52% of the company's revenues came from the United States, 6% came from each of China and Japan, and 36% came from other countries.", photo_url: 'https://logos-marques.com/wp-content/uploads/2021/06/Pfizer_logo.png', headquarter_city: 'New York, New York', web_site_url: 'https://www.pfizer.com/', symbol: 'PFE')
 
@@ -176,9 +237,6 @@ CompanyTag.create!(company: google_company, tag: no_animal_cruelty)
 CompanyTag.create!(company: google_company, tag: diversity_and_inclusion)
 CompanyTag.create!(company: google_company, tag: gender_equality)
 
-CompanyTag.create!(company: berkshirehathaway_company, tag: no_animal_cruelty)
-CompanyTag.create!(company: berkshirehathaway_company, tag: fair_compensation)
-
 CompanyTag.create!(company: nvidia_company, tag: diversity_and_inclusion)
 
 CompanyTag.create!(company: meta_company, tag: no_animal_cruelty)
@@ -190,25 +248,25 @@ CompanyTag.create!(company: visa_company, tag: no_animal_cruelty)
 CompanyTag.create!(company: unitedhealthgroup_company, tag: no_animal_cruelty)
 CompanyTag.create!(company: unitedhealthgroup_company, tag: handicap_support)
 
-# CompanyTag.create!(company: jpmorgan_chase, tag: fair_compensation)
+CompanyTag.create!(company: jpmorganchase_company, tag: fair_compensation)
 
-# CompanyTag.create!(company: johnson_johnson, tag: diversity_and_inclusion)
+CompanyTag.create!(company: johnsonjohnson_company, tag: diversity_and_inclusion)
 
-# CompanyTag.create!(company: procter_gamble, tag: diversity_and_inclusion)
+# CompanyTag.create!(company: pg_company, tag: diversity_and_inclusion)
 
-# CompanyTag.create!(company: mastercard, tag: no_animal_cruelty)
-# CompanyTag.create!(company: mastercard, tag: eco_friendly)
+# CompanyTag.create!(company: mastercard_company, tag: no_animal_cruelty)
+# CompanyTag.create!(company: mastercard_company, tag: eco_friendly)
 
-# CompanyTag.create!(company: bank_of_america, tag: handicap_support)
+# CompanyTag.create!(company: bankofamerica_company, tag: handicap_support)
 
-# CompanyTag.create!(company: home_depot, tag: no_animal_cruelty)
-# CompanyTag.create!(company: home_depot, tag: fair_compensation)
+# CompanyTag.create!(company: homedepot_company, tag: no_animal_cruelty)
+# CompanyTag.create!(company: homedepot_company, tag: fair_compensation)
 
-# CompanyTag.create!(company: coca_cola, tag: no_animal_cruelty)
-# CompanyTag.create!(company: coca_cola, tag: diversity_and_inclusion)
+# CompanyTag.create!(company: cocacola_company, tag: no_animal_cruelty)
+# CompanyTag.create!(company: cocacola_company, tag: diversity_and_inclusion)
 
-# CompanyTag.create!(company: walt_disney, tag: diversity_and_inclusion)
-# CompanyTag.create!(company: walt_disney, tag: gender_equality)
+# CompanyTag.create!(company: disnay_company, tag: diversity_and_inclusion)
+# CompanyTag.create!(company: disnay_company, tag: gender_equality)
 
 # CompanyTag.create!(company: pfizer, tag: fair_compensation)
 

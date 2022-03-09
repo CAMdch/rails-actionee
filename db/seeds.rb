@@ -12,6 +12,7 @@ Publication.destroy_all
 Review.destroy_all
 User.destroy_all
 Tag.destroy_all
+Like.destroy_all
 
 require "json"
 require "open-uri"
@@ -265,8 +266,8 @@ CompanyTag.create!(company: johnsonjohnson_company, tag: diversity_and_inclusion
 # CompanyTag.create!(company: cocacola_company, tag: no_animal_cruelty)
 # CompanyTag.create!(company: cocacola_company, tag: diversity_and_inclusion)
 
-# CompanyTag.create!(company: disnay_company, tag: diversity_and_inclusion)
-# CompanyTag.create!(company: disnay_company, tag: gender_equality)
+# CompanyTag.create!(company: disney_company, tag: diversity_and_inclusion)
+# CompanyTag.create!(company: disney_company, tag: gender_equality)
 
 # CompanyTag.create!(company: pfizer, tag: fair_compensation)
 
@@ -338,17 +339,54 @@ adam = User.new(email: 'adam@gmail.com', password: 'azerty', name: 'Adam Neumann
 adam.photo.attach(io: photo_adam, filename: 'adam-image.jpg', content_type: 'image/jpg')
 adam.save!
 
+photo_sam = URI.open('https://fr.techtribune.net/wp-content/uploads/2021/08/ftx-boss-sam-bankman-fried-says-the-crypto-world-must-act-more-responsibly-to-show-it-doesnt-need-strict-regulation-as-he-hits-out-at-scammers-scaled.jpg')
+sam = User.new(email: 'sam@gmail.com', password: 'azerty', name: 'Sam Bankman')
+sam.photo.attach(io: photo_sam, filename: 'sam-image.jpg', content_type: 'image/jpg')
+sam.save!
+
+
 Review.create!(content: "Great stock to buy for the long term, check the article below https://www.cnbc.com/2022/03/06/top-wall-street-analysts-say-buy-stocks-like-apple-airbnb.html", user: warren , company: apple_company )
+Review.create!(content: "Buy Apple stock if you want a great company that will benefit from the 5G upgrade cycle, check the article below https://www.fool.com/investing/2022/01/11/3-reasons-to-buy-apple-stock/#:~:text=Growing%20free%20cash%20flow%2C%20buybacks,returning%20it%20all%20to%20shareholders.", user: beth , company: apple_company )
+
 Review.create!(content: "Best e-commerce company to invest in, check the article below https://money.usnews.com/investing/stock-market-news/slideshows/great-reasons-to-buy-amazon-stock", user: beth , company: amazon_company )
+Review.create!(content: "Great company with still insane growth ahead, check the article below https://www.investors.com/news/technology/amazon-stock-buy-now/", user: warren , company: amazon_company )
+
 Review.create!(content: "This company has the best CEO, definetely a BUY, check the article below https://www.tipranks.com/news/blurbs/new-buy-rating-for-tesla-tsla-the-technology-giant-2", user: adam , company: tesla_company )
+Review.create!(content: "With Tesla opening its giga factory in Berlin,the growth next year will be insane, in my opinion it is time to buy the stock, check the article below https://www.fool.com/investing/2022/02/09/is-tesla-stock-a-buy/", user: lisa , company: tesla_company )
+
 Review.create!(content: "Safe bet during riskier times, check the article below https://seekingalpha.com/article/4493240-walmart-stock-omnichannel-solid-long-term-growth-pillar", user: lisa , company: walmart_company )
+Review.create!(content: "One of the best blue chip stock, check the article below https://www.nasdaq.com/articles/why-walmart-wmt-is-a-top-stock-for-the-long-term", user: adam , company: walmart_company )
+
 Review.create!(content: "Good Tech company, with a strong management team, check the article below https://seekingalpha.com/article/4490707-microsoft-stock-overvalued-undervalued", user: ben , company: microsoft_company )
+Review.create!(content: "Company with some great products, it just made a significant acquisition wich can have positive impact on their stock, check the article below https://www.barrons.com/articles/microsoft-msft-stock-strong-buy-earnings-growth-51644332954", user: ellen , company: microsoft_company )
+
 Review.create!(content: "My favourite stock, Google is expected to grow 18% next year, check the article below https://www.investors.com/news/technology/google-stock-buy-now/", user: ellen , company: google_company )
+Review.create!(content: "Google just made a major acquisition, it might be time to buy the stock, check the article below https://www.cnet.com/news/google-to-buy-cybersecurity-company-mandiant-for-about-5-4-billion/", user: ben , company: google_company )
+
 Review.create!(content: "I am selling the stock as I prefer mastercard, check the article below https://www.investing.com/analysis/1-stock-to-buy-1-to-dump-when-markets-open-exxon-mobil-visa-200619379", user: bill , company: visa_company )
+Review.create!(content: "I am buying the stock, It still has so more potential in my opinion, check the article below https://seekingalpha.com/article/4486242-visa-stock-buy-sell-recent-earnings", user: wendy , company: visa_company )
+
 Review.create!(content: "Best semiconductor stock to buy right now, check the article below https://www.barrons.com/articles/nvidia-stock-51644345326", user: wendy, company: nvidia_company )
+Review.create!(content: "One of the best stock to buy right now and It has a great profit margin, check the article below https://www.fool.com/investing/2022/03/03/why-today-could-be-the-best-time-to-buy-nvidias-st/", user: bill, company: nvidia_company )
+
 Review.create!(content: "If you use their products you have to invest, check the article below https://www.barrons.com/articles/meta-stock-facebook-buy-sell-51644868760", user: kate , company: meta_company )
+Review.create!(content: "Invest in Meta if you believe in the meataverse, check the article below https://www.fool.com/investing/2022/03/07/will-meta-platforms-be-a-trillion-dollar-stock-by/", user: susan , company: meta_company )
+
 Review.create!(content: "I am buying this healthcare stock and insiders are also buying, check the article below https://www.barrons.com/articles/unitedhealth-stock-buy-51646174580", user: susan , company: unitedhealthgroup_company )
+Review.create!(content: "Great American company that will overcome inflation easily , check the article below https://www.fool.com/investing/2022/02/10/if-you-invested-5000-in-unitedhealth-10-years-ago/", user: kate , company: unitedhealthgroup_company )
+
 Review.create!(content: "Great investment against inflation, it even pays dividends, check the article below https://finance.yahoo.com/news/heres-why-johnson-johnson-jnj-140002428.html#:~:text=Meanwhile%2C%20J%26J%20has%20one%20of,value%20investors%20should%20take%20notice.", user: bill , company: johnsonjohnson_company)
+Review.create!(content: "If you want a safe investment for the long term, you should invest in J&J, check the article below https://finance.yahoo.com/news/heres-why-johnson-johnson-jnj-140002428.html#:~:text=Meanwhile%2C%20J%26J%20has%20one%20of,value%20investors%20should%20take%20notice.", user: wendy , company: johnsonjohnson_company)
+
 Review.create!(content: "Biggest US bank with the best CEO in the finance industry, if you want a safe dividend play this stock is the one for you, check the article below https://www.fool.com/investing/2021/04/08/is-jpmorgan-chase-the-value-stock-for-you/#:~:text=Many%20consider%20JPMorgan%20Chase%20a,P%2FE%20for%20financial%20institutions.", user: wendy, company: jpmorganchase_company )
+Review.create!(content: "If you want shares of a bank just buy JPMorgan stock, check the article below https://www.fool.com/investing/2022/02/10/if-you-invested-5000-in-unitedhealth-10-years-ago/ ", user: bill, company: jpmorganchase_company )
+
+
+puts "creating likes"
+Review.all.each do |review|
+  User.all.each do |user|
+    Like.create!(review:review, user:user, enjoyed:[true,false].sample)
+  end
+end
 
 puts 'Finished !'

@@ -114,3 +114,48 @@
   text-decoration: none;
   color: $dark-blue;
 }
+
+.top-3-card {
+  padding-left: 80px;
+  margin-right: 135px;
+  margin-bottom: 70px;
+  padding-right: 80px;
+  border: none;
+  // .fas {
+
+  // }
+  .fa-arrow-up {
+    color: $light-green;
+  }
+  .fa-arrow-down {
+    color: $red;
+  }
+
+  .hierarchy {
+    h1 {
+      font-size: 82px;
+      font-weight: 400;
+      color: #0b1e44c9;
+      padding-top: 10px;
+      -webkit-text-fill-color: white;
+      -webkit-text-stroke-width: 1px;
+      -webkit-text-stroke-color: #0b1e44c9;
+    }
+  }
+}
+
+.add {
+  img {
+    position: relative;
+    height: 90px;
+    width: 90px;
+    object-fit: contain;
+  }
+  .arrow-company {
+    position: absolute;
+    top: -3px;
+    right: -24px;
+  }
+
+}
+//                       padding-right: 24px;

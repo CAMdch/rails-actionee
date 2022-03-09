@@ -66,16 +66,18 @@ class Company < ApplicationRecord
 
   def chart_value
     stocks = self.stocks.order('created_at DESC')
+    time_stop = stocks.length < 42 ? self.stocks.order('created_at DESC').last.created_at.time : self.stocks.order('created_at DESC').first.created_at.time - 7
     i = 0
     j = 0
     month = []
     value = []
-    while i < self.stocks.order('created_at DESC').length
-      month.push(stocks[i].created_at.strftime('%H:%M'))
+
+    while stocks[i].created_at.time > time_stop
+      month.push((stocks[i].created_at + 3600).strftime('%H:%M'))
       i += 1
     end
 
-    while j < self.stocks.order('created_at DESC').length
+    while stocks[i].created_at.time > time_stop
       value.push(stocks[j].value)
       j += 1
     end
@@ -84,7 +86,6 @@ class Company < ApplicationRecord
       labels: month.reverse,
       datasets: [{
         label: 'Stock Price',
-        backgroundColor: '#0B1E44',
         borderWidth: 1,
         borderColor: '#0B1E44',
         data: value.reverse

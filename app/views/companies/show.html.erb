@@ -15,7 +15,7 @@
               <%if @favorite_user.where('company_id = ?', @company.id)[0].nil? %>
 
                   <a href="#" id="@-<%= @company.id %>" class="anchor"></a>
-                  <%= link_to company_favorites_path(@company), method: :post, remote: true, class:"btn-follow" do%>
+                  <%= link_to company_favorites_path(@company), method: :post, class:"btn-follow" do%>
                     Follow
                   <%end%>
 

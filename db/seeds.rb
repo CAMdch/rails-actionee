@@ -338,7 +338,6 @@ adam = User.new(email: 'adam@gmail.com', password: 'azerty', name: 'Adam Neumann
 adam.photo.attach(io: photo_adam, filename: 'adam-image.jpg', content_type: 'image/jpg')
 adam.save!
 
-
 Review.create!(content: "Great stock to buy for the long term, check the article below https://www.cnbc.com/2022/03/06/top-wall-street-analysts-say-buy-stocks-like-apple-airbnb.html", user: warren , company: apple_company )
 Review.create!(content: "Best e-commerce company to invest in, , check the article below https://money.usnews.com/investing/stock-market-news/slideshows/great-reasons-to-buy-amazon-stock", user: beth , company: amazon_company )
 Review.create!(content: "This company has the best CEO, definetely a BUY, check the article below https://www.tipranks.com/news/blurbs/new-buy-rating-for-tesla-tsla-the-technology-giant-2", user: adam , company: tesla_company )
@@ -348,8 +347,6 @@ Review.create!(content: "My favourite stock, Google is expected to grow 18% next
 Review.create!(content: "I am selling the stock as I prefer mastercard, check the article below https://www.investing.com/analysis/1-stock-to-buy-1-to-dump-when-markets-open-exxon-mobil-visa-200619379", user: bill , company: visa_company )
 Review.create!(content: "Best semiconductor stock to buy right now, check the article below https://www.barrons.com/articles/nvidia-stock-51644345326", user: wendy, company: nvidia_company )
 Review.create!(content: "If you use their products you have to invest, check the article below https://www.barrons.com/articles/meta-stock-facebook-buy-sell-51644868760", user: kate , company: meta_company )
-Review.create!(content: "Good company to hold for the long term, check the article below https://www.investors.com/research/berkshire-hathaway-stock-buy-now-warren-buffett-stock/", user: mike , company: berkshirehathaway_company )
 Review.create!(content: "I am buying this healthcare stock and insiders are also buying, check the article below https://www.barrons.com/articles/unitedhealth-stock-buy-51646174580", user: susan , company: unitedhealthgroup_company )
-
 
 puts 'Finished !'

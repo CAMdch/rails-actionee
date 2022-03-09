@@ -12,6 +12,7 @@ Publication.destroy_all
 Review.destroy_all
 User.destroy_all
 Tag.destroy_all
+Like.destroy_all
 
 require "json"
 require "open-uri"

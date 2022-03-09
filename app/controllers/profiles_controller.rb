@@ -6,12 +6,46 @@ class ProfilesController < ApplicationController
     @all_favorite = TrackItem.where('user_id = ?', current_user).select('company_id').group('company_id')
     @order_invest = best_worth_invest
 
-    @bar_data = {
-      labels: ['Buy', 'Hold', 'Sell'],
+    @companies = @all_favorite.map do |company|
+      name_company = Company.find(company.company_id)
+      name_company.name
+    end
+
+    @gains = @all_favorite.map do |company|
+      value_company = Company.find(company.company_id)
+      value_company.gains(current_user)
+    end
+
+    @totals = @all_favorite.map do |company|
+      value_company = Company.find(company.company_id)
+      value_company.total_stock(current_user)
+    end
+
+    @round_data = {
+      labels: @companies,
       datasets: [{
         label: 'Your investment',
+        backgroundColor: ['#0B1E44', '#D8D2CB', '#66BBE8','#D8D2CB', '#66BBE8'],
+        data: @totals
+      }]
+    }
+
+    @round_options = {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+
+    @bar_data = {
+      labels: @companies,
+      datasets: [{
+        label: 'Your gains and losses',
         backgroundColor: ['#0B1E44', '#D8D2CB', '#66BBE8'],
-        data: [12, 13, 15]
+        data: @gains
       }]
     }
 

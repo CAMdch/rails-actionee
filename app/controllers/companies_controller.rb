@@ -59,7 +59,7 @@ class CompaniesController < ApplicationController
         label: 'Stock Price',
         backgroundColor: '#0B1E44',
         borderWidth: 1,
-        borderColor: '#0B1E44',
+
         data: value_chart.reverse
       }]
     }

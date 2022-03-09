@@ -13,6 +13,4 @@ export default class extends Controller {
       this.gainTarget.classList.add("total-gain-green")
      }
   }
-
-
 }

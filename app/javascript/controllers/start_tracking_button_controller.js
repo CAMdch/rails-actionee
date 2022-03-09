@@ -8,7 +8,7 @@ export default class extends Controller {
   }
 
   appear(event) {
-    console.log(event)
+
 
     this.formTarget.classList.remove("d-none")
     this.buttonTarget.classList.add("d-none")

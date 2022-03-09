@@ -338,7 +338,6 @@ adam = User.new(email: 'adam@gmail.com', password: 'azerty', name: 'Adam Neumann
 adam.photo.attach(io: photo_adam, filename: 'adam-image.jpg', content_type: 'image/jpg')
 adam.save!
 
-
 Review.create!(content: "Great stock to buy for the long term, check the article below https://www.cnbc.com/2022/03/06/top-wall-street-analysts-say-buy-stocks-like-apple-airbnb.html", user: warren , company: apple_company )
 Review.create!(content: "Best e-commerce company to invest in, check the article below https://money.usnews.com/investing/stock-market-news/slideshows/great-reasons-to-buy-amazon-stock", user: beth , company: amazon_company )
 Review.create!(content: "This company has the best CEO, definetely a BUY, check the article below https://www.tipranks.com/news/blurbs/new-buy-rating-for-tesla-tsla-the-technology-giant-2", user: adam , company: tesla_company )

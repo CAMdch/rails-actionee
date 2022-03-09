@@ -34,9 +34,9 @@
       <div class="overview d-none" data-profil-target="overview">
         <h2>Since <%=current_user.created_at.strftime('%B %Y')%></h2>
         <div class="dashboard">
-          <div class="total-gain-contain">
+          <div class="total-gain-contain" data-controller="gains" data-gains-number-value="<%= current_user.total_gains%>">
             <p class="gains-header">Total gains</p>
-            <p class="total-gain"><%if current_user.total_gains.positive?%>+ <%end%><%= current_user.total_gains%> <span> USD</span></p>
+            <p class="total-gain total-gain-green" data-gains-target="gain"><%if current_user.total_gains.positive?%>+ <%end%><%= current_user.total_gains%> <span> USD</span></p>
           </div>
           <div class="round-chart">
             <p class="wallet">Your wallet</p>

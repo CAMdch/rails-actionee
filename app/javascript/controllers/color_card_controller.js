@@ -5,7 +5,7 @@ export default class extends Controller {
   static values = {number: String}
 
   connect() {
-    console.log(this.numberValue)
+
     if (this.numberValue.substr(0, 1) === "-") {
       this.adviceTarget.classList.remove("advice-green")
       this.pourcentageTarget.classList.remove("pourcentage-value-green")

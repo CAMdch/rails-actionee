@@ -4,7 +4,7 @@ export default class extends Controller {
 
   static targets = ["buy", "sell", "form", "formsell", "formloss", "cross", "unfollow"]
   connect() {
-    console.log(this.unfollowTarget)
+
   }
 
   appearLoss(event) {

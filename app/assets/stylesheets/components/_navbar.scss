@@ -36,7 +36,39 @@
 .fa-bars{
   color: white
 }
+.btn-navbar {
+  color: white;
+  font-family: $headers-font;
+  font-size: 15px;
+  text-decoration: none;
+  transition: 1s;
+  margin-right: 30px;
+  &:hover{
+    color: white;
+    transition: 300ms;
+  }
 
+  &::after {
+    content: '';
+    width: 0px;
+    height: 1px;
+    display: block;
+    background: white;
+    transition: 300ms;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+}
+
+.me-auto {
+  height: 25px;
+}
+
+.discover-btn {
+  margin-right: 30px;
+}
 // .navbar-lewagon .navbar-brand img {
 //   // width: 40px;
 // }

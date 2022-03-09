@@ -2,7 +2,7 @@
   background-color: $dark-blue;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   height: 100px;
   padding: 0px 50px;
   color: white;
@@ -27,7 +27,7 @@ body {
 
 }
 
-.footer-copyright a {
+.custom-list a {
   color: white;
   text-decoration: none;
 }
@@ -53,3 +53,22 @@ body {
 .footer .fa-heart {
   color: white;
 }
+
+.custom-list {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin: 0;
+}
+ .custom-button {
+  background-color: $dark-blue;
+  color: white;
+ }
+ .custom-button:hover {
+  background-color: #66BBE8;
+ }
+
+ .custom-dropdown li a {
+  color: $dark-blue;
+  text-decoration: none;
+ }

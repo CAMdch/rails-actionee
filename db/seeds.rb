@@ -340,7 +340,7 @@ adam.save!
 
 
 Review.create!(content: "Great stock to buy for the long term, check the article below https://www.cnbc.com/2022/03/06/top-wall-street-analysts-say-buy-stocks-like-apple-airbnb.html", user: warren , company: apple_company )
-Review.create!(content: "Best e-commerce company to invest in, , check the article below https://money.usnews.com/investing/stock-market-news/slideshows/great-reasons-to-buy-amazon-stock", user: beth , company: amazon_company )
+Review.create!(content: "Best e-commerce company to invest in, check the article below https://money.usnews.com/investing/stock-market-news/slideshows/great-reasons-to-buy-amazon-stock", user: beth , company: amazon_company )
 Review.create!(content: "This company has the best CEO, definetely a BUY, check the article below https://www.tipranks.com/news/blurbs/new-buy-rating-for-tesla-tsla-the-technology-giant-2", user: adam , company: tesla_company )
 Review.create!(content: "Safe bet during riskier times, check the article below https://seekingalpha.com/article/4493240-walmart-stock-omnichannel-solid-long-term-growth-pillar", user: lisa , company: walmart_company )
 Review.create!(content: "Good Tech company, with a strong management team, check the article below https://seekingalpha.com/article/4490707-microsoft-stock-overvalued-undervalued", user: ben , company: microsoft_company )
@@ -348,8 +348,8 @@ Review.create!(content: "My favourite stock, Google is expected to grow 18% next
 Review.create!(content: "I am selling the stock as I prefer mastercard, check the article below https://www.investing.com/analysis/1-stock-to-buy-1-to-dump-when-markets-open-exxon-mobil-visa-200619379", user: bill , company: visa_company )
 Review.create!(content: "Best semiconductor stock to buy right now, check the article below https://www.barrons.com/articles/nvidia-stock-51644345326", user: wendy, company: nvidia_company )
 Review.create!(content: "If you use their products you have to invest, check the article below https://www.barrons.com/articles/meta-stock-facebook-buy-sell-51644868760", user: kate , company: meta_company )
-Review.create!(content: "Good company to hold for the long term, check the article below https://www.investors.com/research/berkshire-hathaway-stock-buy-now-warren-buffett-stock/", user: mike , company: berkshirehathaway_company )
 Review.create!(content: "I am buying this healthcare stock and insiders are also buying, check the article below https://www.barrons.com/articles/unitedhealth-stock-buy-51646174580", user: susan , company: unitedhealthgroup_company )
-
+Review.create!(content: "Great investment against inflation, it even pays dividends, check the article below https://finance.yahoo.com/news/heres-why-johnson-johnson-jnj-140002428.html#:~:text=Meanwhile%2C%20J%26J%20has%20one%20of,value%20investors%20should%20take%20notice.", user: bill , company: johnsonjohnson_company)
+Review.create!(content: "Biggest US bank with the best CEO in the finance industry, if you want a safe dividend play this stock is the one for you, check the article below https://www.fool.com/investing/2021/04/08/is-jpmorgan-chase-the-value-stock-for-you/#:~:text=Many%20consider%20JPMorgan%20Chase%20a,P%2FE%20for%20financial%20institutions.", user: wendy, company: jpmorganchase_company )
 
 puts 'Finished !'

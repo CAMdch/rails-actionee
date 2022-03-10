@@ -40,6 +40,7 @@ body {
   opacity: 0.8;
   font-family: $headers-font;
   text-decoration: none;
+  transition: 300ms;
   &:hover{
     opacity: 1;
     color: white;
@@ -57,6 +58,17 @@ body {
 
   &:hover::after {
     width: 100%;
+  }
+}
+
+.member-drop {
+  opacity: 0.8;
+  font-family: $headers-font;
+  text-decoration: none;
+  &:hover{
+    opacity: 1;
+    font-weight: bold;
+    transition: 300ms;
   }
 }
 

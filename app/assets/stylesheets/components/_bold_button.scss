@@ -1,10 +1,9 @@
 
-.btn-bold {
+.btn-bold, .btn-soft {
 
   input, a {
     text-decoration: none;
     letter-spacing: 4px;
-    color: white;
     text-align: center;
     font-weight: 600;
     font-size: 11px;
@@ -13,27 +12,59 @@
     border-radius: 0px;
 
     &:hover {
-      color: $dark-blue;
       text-decoration: none;
-      border: 100px, solid, white;
     }
   }
 
   text-decoration: none;
   letter-spacing: 4px;
-  color: white;
   text-align: center;
   font-weight: 600;
   font-size: 11px;
   font-family: $body-font;
   padding: 11px 19px;
   border-radius: 0px;
+  &:hover {
+    text-decoration: none;
+  }
+
+}
+
+.btn-bold {
+
+  input, a {
+    color: white;
+    &:hover {
+      color: $dark-blue;
+      border: 100px, solid, white;
+    }
+  }
+  color: white;
   background: $dark-blue;
   &:hover {
     color: $dark-blue;
     border: 1px solid $dark-blue;
     background-color: transparent;
-    text-decoration: none;
+  }
+
+}
+
+.btn-soft {
+
+  input, a {
+    color: $dark-blue;
+    border: 100px, solid, white;
+    &:hover {
+      color: white;
+      background: $dark-blue;
+    }
+  }
+  color: $dark-blue;
+  border: 1px solid $dark-blue;
+  background-color: transparent;
+  &:hover {
+    color: white;
+    background: $dark-blue;
   }
 
 }

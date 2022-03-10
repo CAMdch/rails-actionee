@@ -38,6 +38,7 @@ body {
 
 .member  {
   opacity: 0.8;
+  font-family: $headers-font;
 }
 
 .member:hover  {
@@ -63,6 +64,7 @@ body {
  .custom-button {
   background-color: $dark-blue;
   color: white;
+  font-family: $headers-font;
  }
  .custom-button:hover {
   background-color: #66BBE8;

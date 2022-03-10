@@ -32,11 +32,11 @@
                             <a data-action="click->buy-btn#appearLoss" ><i class="fas fa-pen-nib"></i></a>
                             <% if @track_item.alert_dismissed %>
                               <%= link_to reset_path(@track_item), remote: true, method: :patch do %>
-                                <i class="far fa-bell"></i>
+                                <i class="far fa-bell-slash"></i>
                               <% end %>
                             <% else %>
                               <%= link_to dismiss_path(@track_item), remote: true, method: :patch do %>
-                                <i class="far fa-bell-slash"></i>
+                                <i class="far fa-bell"></i>
                               <% end %>
                             <% end %>
                           </div>

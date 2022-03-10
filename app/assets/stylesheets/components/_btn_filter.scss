@@ -13,6 +13,18 @@
     }
   }
 }
+.fa-chevron-circle-up {
+  position: fixed;
+  bottom: 30px;
+  font-size: 35px;
+  right: 20px;
+  color: $light-blue;
+  transition: 0.5s;
+  &:hover {
+    color: #D8D2CB;
+    transition: 0.5s;
+  }
+}
 
 .button-filter {
   width: 14%;

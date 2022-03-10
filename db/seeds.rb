@@ -348,39 +348,51 @@ sam.save!
 
 Review.create!(content: "Great stock to buy for the long term, check the article below https://www.cnbc.com/2022/03/06/top-wall-street-analysts-say-buy-stocks-like-apple-airbnb.html", user: warren , company: apple_company )
 Review.create!(content: "Buy Apple stock if you want a great company that will benefit from the 5G upgrade cycle, check the article below https://www.fool.com/investing/2022/01/11/3-reasons-to-buy-apple-stock/#:~:text=Growing%20free%20cash%20flow%2C%20buybacks,returning%20it%20all%20to%20shareholders.", user: beth , company: apple_company )
+Review.create!(content: "Apple just announced some new products, it could be a good time to buy the stock, check the article below https://www.fool.co.uk/2022/03/09/as-uncertainty-grows-id-buy-apple-shares-to-hold-for-a-decade/", user: ellen , company: apple_company )
 
 Review.create!(content: "Best e-commerce company to invest in, check the article below https://money.usnews.com/investing/stock-market-news/slideshows/great-reasons-to-buy-amazon-stock", user: beth , company: amazon_company )
 Review.create!(content: "Great company with still insane growth ahead, check the article below https://www.investors.com/news/technology/amazon-stock-buy-now/", user: warren , company: amazon_company )
+Review.create!(content: "Amazon just anounced a 20:1 stock split, it could be a good time to buy, check the article below https://www.fool.com/investing/2022/02/26/why-now-may-be-the-perfect-time-to-buy-amazon/", user: lisa , company: amazon_company )
 
 Review.create!(content: "This company has the best CEO, definetely a BUY, check the article below https://www.tipranks.com/news/blurbs/new-buy-rating-for-tesla-tsla-the-technology-giant-2", user: adam , company: tesla_company )
 Review.create!(content: "With Tesla opening its giga factory in Berlin,the growth next year will be insane, in my opinion it is time to buy the stock, check the article below https://www.fool.com/investing/2022/02/09/is-tesla-stock-a-buy/", user: lisa , company: tesla_company )
+Review.create!(content: "Tesla will grow more than 50% next year, that's why I am buying Tesla stock, check the article below https://finance.yahoo.com/m/375a8d89-934c-37a7-af03-cbbb73c1ca3a/3-meme-stocks-that-are.html", user: kate , company: tesla_company )
 
 Review.create!(content: "Safe bet during riskier times, check the article below https://seekingalpha.com/article/4493240-walmart-stock-omnichannel-solid-long-term-growth-pillar", user: lisa , company: walmart_company )
 Review.create!(content: "One of the best blue chip stock, check the article below https://www.nasdaq.com/articles/why-walmart-wmt-is-a-top-stock-for-the-long-term", user: adam , company: walmart_company )
+Review.create!(content: "Good News, Walmart is increasing its dividend, check the article below https://finance.yahoo.com/news/walmart-nyse-wmt-paying-larger-111716579.html", user: wendy , company: walmart_company )
 
 Review.create!(content: "Good Tech company, with a strong management team, check the article below https://seekingalpha.com/article/4490707-microsoft-stock-overvalued-undervalued", user: ben , company: microsoft_company )
 Review.create!(content: "Company with some great products, it just made a significant acquisition wich can have positive impact on their stock, check the article below https://www.barrons.com/articles/microsoft-msft-stock-strong-buy-earnings-growth-51644332954", user: ellen , company: microsoft_company )
+Review.create!(content: "If you want to buy Microsoft stock you should check the article below https://seekingalpha.com/article/4493384-apple-vs-microsoft-stock-better-buy", user: bill , company: microsoft_company )
 
 Review.create!(content: "My favourite stock, Google is expected to grow 18% next year, check the article below https://www.investors.com/news/technology/google-stock-buy-now/", user: ellen , company: google_company )
 Review.create!(content: "Google just made a major acquisition, it might be time to buy the stock, check the article below https://www.cnet.com/news/google-to-buy-cybersecurity-company-mandiant-for-about-5-4-billion/", user: ben , company: google_company )
+Review.create!(content: "In my opinion you should buy this great growth stock now, check the article below https://www.fool.com/investing/2022/02/12/buy-alphabet-stock-now-or-after-stock-split/", user: susan , company: google_company )
 
 Review.create!(content: "I am selling the stock as I prefer mastercard, check the article below https://www.investing.com/analysis/1-stock-to-buy-1-to-dump-when-markets-open-exxon-mobil-visa-200619379", user: bill , company: visa_company )
 Review.create!(content: "I am buying the stock, It still has so more potential in my opinion, check the article below https://seekingalpha.com/article/4486242-visa-stock-buy-sell-recent-earnings", user: wendy , company: visa_company )
+Review.create!(content: "This stock is so undervalued, you should definetly buy it, check the article below https://www.fool.com/investing/2022/03/01/hey-growth-investors-heres-a-value-stock-you-might/", user: kate , company: visa_company )
 
 Review.create!(content: "Best semiconductor stock to buy right now, check the article below https://www.barrons.com/articles/nvidia-stock-51644345326", user: wendy, company: nvidia_company )
 Review.create!(content: "One of the best stock to buy right now and It has a great profit margin, check the article below https://www.fool.com/investing/2022/03/03/why-today-could-be-the-best-time-to-buy-nvidias-st/", user: bill, company: nvidia_company )
+Review.create!(content: "If you are interested in Nvidia stock you should check the article below https://www.fool.com/investing/2022/03/06/nvidia-is-crushing-records-so-why-is-its-stock-dow/", user: ben, company: nvidia_company )
 
 Review.create!(content: "If you use their products you have to invest, check the article below https://www.barrons.com/articles/meta-stock-facebook-buy-sell-51644868760", user: kate , company: meta_company )
 Review.create!(content: "Invest in Meta if you believe in the meataverse, check the article below https://www.fool.com/investing/2022/03/07/will-meta-platforms-be-a-trillion-dollar-stock-by/", user: susan , company: meta_company )
+Review.create!(content: "Facebook has a great business, however, I did not buy the stock, check why in the article below https://markets.businessinsider.com/news/stocks/warren-buffett-berkshire-hathaway-facebook-meta-stock-charlie-munger-privacy-2022-2", user: warren , company: meta_company )
 
 Review.create!(content: "I am buying this healthcare stock and insiders are also buying, check the article below https://www.barrons.com/articles/unitedhealth-stock-buy-51646174580", user: susan , company: unitedhealthgroup_company )
 Review.create!(content: "Great American company that will overcome inflation easily , check the article below https://www.fool.com/investing/2022/02/10/if-you-invested-5000-in-unitedhealth-10-years-ago/", user: kate , company: unitedhealthgroup_company )
+Review.create!(content: "I am personally buying this stock, read the article below to know why https://finance.yahoo.com/news/unitedhealth-group-inc-unh-good-214618464.html", user: ben , company: unitedhealthgroup_company )
 
 Review.create!(content: "Great investment against inflation, it even pays dividends, check the article below https://finance.yahoo.com/news/heres-why-johnson-johnson-jnj-140002428.html#:~:text=Meanwhile%2C%20J%26J%20has%20one%20of,value%20investors%20should%20take%20notice.", user: bill , company: johnsonjohnson_company)
-Review.create!(content: "If you want a safe investment for the long term, you should invest in J&J, check the article below https://finance.yahoo.com/news/heres-why-johnson-johnson-jnj-140002428.html#:~:text=Meanwhile%2C%20J%26J%20has%20one%20of,value%20investors%20should%20take%20notice.", user: wendy , company: johnsonjohnson_company)
+Review.create!(content: "If you want a safe investment for the long term, you should invest in J&J, check the article below https://www.barrons.com/articles/buy-johnson-and-johnson-stock-pick-barrons-51640723370", user: wendy , company: johnsonjohnson_company)
+Review.create!(content: "If you want to invest in Johnson & Johnson you should read the article below https://www.fool.com/investing/2022/01/20/will-johnson-johnson-be-a-better-buy-after-spinnin/", user: adam, company: johnsonjohnson_company)
 
 Review.create!(content: "Biggest US bank with the best CEO in the finance industry, if you want a safe dividend play this stock is the one for you, check the article below https://www.fool.com/investing/2021/04/08/is-jpmorgan-chase-the-value-stock-for-you/#:~:text=Many%20consider%20JPMorgan%20Chase%20a,P%2FE%20for%20financial%20institutions.", user: wendy, company: jpmorganchase_company )
 Review.create!(content: "If you want shares of a bank just buy JPMorgan stock, check the article below https://www.fool.com/investing/2022/02/10/if-you-invested-5000-in-unitedhealth-10-years-ago/ ", user: bill, company: jpmorganchase_company )
+Review.create!(content: "JPMorgan is the perfect stock if you want to protect yourself against inflation, check the article below for more information https://seekingalpha.com/article/4479116-jp-morgan-good-bank-stock-buy-2022 ", user: susan, company: jpmorganchase_company )
 
 
 puts "creating likes"

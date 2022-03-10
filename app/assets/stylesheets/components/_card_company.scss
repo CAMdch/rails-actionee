@@ -71,8 +71,8 @@
 
 .add {
   position: absolute;
-  top: 10px;
-  right: 15px;
+  top: 35px;
+  right: 12px;
   a {
     color: black;
     transition: 0.5s;
@@ -143,17 +143,24 @@
   }
 }
 
+.arrow-company img {
+  height: 70px;
+  width: 70px;
+}
+
 .add {
   img {
+    object-fit: contain;
     position: relative;
+  }
+  .image-company {
     height: 90px;
     width: 90px;
-    object-fit: contain;
   }
   .arrow-company {
     position: absolute;
-    top: -3px;
-    right: -24px;
+    top: 37px;
+    right: 106px;
   }
 
 }

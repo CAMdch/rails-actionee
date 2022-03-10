@@ -72,11 +72,9 @@
                   <img src='<%= company.photo_url %>'>
                     <div class="arrow-company">
                       <% if company.currency_stock.pourcentage > 0 %>
-                        <img src="https://img.icons8.com/office/80/000000/up-right-arrow.png"/>
-                        <img src="https://img.icons8.com/office/80/000000/down-left-arrow.png"/>
-                        <i class="fas fa-arrow-up"></i>
+                        <%= image_tag('arrow-trend-up.svg')%>
                       <% else %>
-                        <i class="fas fa-arrow-down"></i>
+                        <%= image_tag('arrow-trend-down.svg')%>
                       <% end %>
                     </div>
                 </div>

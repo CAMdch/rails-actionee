@@ -72,12 +72,14 @@ class Company < ApplicationRecord
     month = []
     value = []
 
-    while stocks[i].created_at.time > time_stop
+    # while stocks[i].created_at.time > time_stop
+    while i < stocks.length
       month.push((stocks[i].created_at + 3600).strftime('%H:%M'))
       i += 1
     end
 
-    while stocks[j].created_at.time > time_stop
+    # while stocks[j].created_at.time > time_stop
+    while j < stocks.length
       value.push(stocks[j].value)
       j += 1
     end

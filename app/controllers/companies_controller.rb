@@ -117,7 +117,7 @@ class CompaniesController < ApplicationController
 
   def time_chart
     stocks = @company.stocks.order('created_at DESC')
-    time_stop = stocks.length < 42 ? @company.stocks.order('created_at DESC').last.created_at.time : @company.stocks.order('created_at DESC').first.created_at.time - 7
+    time_stop = stocks.length < 42 ? @company.stocks.order('created_at DESC').last.created_at.time : @company.stocks.order('created_at DESC').first.created_at.time - 25200
     i = 0
     month = []
     while stocks[i].created_at.time > time_stop
@@ -129,7 +129,7 @@ class CompaniesController < ApplicationController
 
   def value_chart
     stocks = @company.stocks.order('created_at DESC')
-    time_stop = stocks.length < 42 ? @company.stocks.order('created_at DESC').last.created_at.time : @company.stocks.order('created_at DESC').first.created_at.time - 7
+    time_stop = stocks.length < 42 ? @company.stocks.order('created_at DESC').last.created_at.time : @company.stocks.order('created_at DESC').first.created_at.time - 25200
     j = 0
     value = []
     while stocks[j].created_at.time > time_stop

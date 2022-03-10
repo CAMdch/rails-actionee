@@ -219,7 +219,6 @@ CompanyTag.create!(company: amazon_company, tag: fair_compensation)
 CompanyTag.create!(company: amazon_company, tag: gender_equality)
 
 CompanyTag.create!(company: apple_company, tag: eco_friendly)
-CompanyTag.create!(company: apple_company, tag: handicap_support)
 CompanyTag.create!(company: apple_company, tag: gender_equality)
 CompanyTag.create!(company: apple_company, tag: diversity_and_inclusion)
 
@@ -235,7 +234,6 @@ CompanyTag.create!(company: microsoft_company, tag: handicap_support)
 
 CompanyTag.create!(company: google_company, tag: fair_compensation)
 CompanyTag.create!(company: google_company, tag: no_animal_cruelty)
-CompanyTag.create!(company: google_company, tag: diversity_and_inclusion)
 CompanyTag.create!(company: google_company, tag: gender_equality)
 
 CompanyTag.create!(company: nvidia_company, tag: diversity_and_inclusion)

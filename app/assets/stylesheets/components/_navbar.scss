@@ -72,3 +72,70 @@
 // .navbar-lewagon .navbar-brand img {
 //   // width: 40px;
 // }
+
+.btn-login {
+  color: white;
+  font-family: $headers-font;
+  font-size: 15px;
+  a {
+    color: white;
+    text-decoration: none;
+    &:hover{
+      color: white;
+      transition: 300ms;
+    }
+
+    &::after {
+      content: '';
+      width: 0px;
+      height: 1px;
+      display: block;
+      background: white;
+      transition: 300ms;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+}
+
+.favorites-company {
+  display: flex;
+  align-items: center;
+}
+
+
+.user-gains {
+  display: flex;
+  color: white;
+  p {
+    font-family: $headers-font;
+    font-size: 15px;
+    margin-bottom: 0;
+  }
+  .company-name {
+    margin-right: 15px;
+  }
+}
+
+
+.favorite-company {
+  margin-left: 15px;
+  margin-right: 76px;
+}
+
+.company-pourcentage {
+  font-family: $headers-font;
+  font-size: 15px;
+  margin-bottom: 0;
+  color: $light-green
+}
+
+.company-pourcentage-green {
+  color: $light-green
+}
+
+.company-pourcentage-red {
+  color: $light-red
+}

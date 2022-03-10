@@ -9,6 +9,22 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
+    <% if user_signed_in? %>
+      <div class="favorites-company">
+        <%current_user.user_top.each do |company|%>
+          <% favorite_company_id = company[:favorite].company_id%>
+          <% favorite_company = Company.find(favorite_company_id)%>
+          <div class="favorite-company" data-controller="gain-navbar" data-gain-navbar-number-value="<%= favorite_company.currency_stock.pourcentage%>">
+            <div class="user-gains">
+              <p class="company-name"><%= favorite_company.name%></p>
+              <p class="gain-company"><%= favorite_company.gains(current_user).round%></p>
+            </div>
+            <p class="company-pourcentage company-pourcentage-green" data-gain-navbar-target="pourcentage"><%= favorite_company.currency_stock.pourcentage%></p>
+          </div>
+        <%end%>
+      </div>
+    <%end%>
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
@@ -37,8 +53,8 @@
           </li>
         <% else %>
           <li class="nav-item">
-              <div class="btn btn-bold">
-                <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+              <div class="btn-login">
+                <%= link_to "Login", new_user_session_path %>
               </div>
           </li>
         <% end %>

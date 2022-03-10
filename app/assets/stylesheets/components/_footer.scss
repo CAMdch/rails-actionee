@@ -39,12 +39,27 @@ body {
 .member  {
   opacity: 0.8;
   font-family: $headers-font;
+  text-decoration: none;
+  &:hover{
+    opacity: 1;
+    color: white;
+    transition: 300ms;
+  }
+
+  &::after {
+    content: '';
+    width: 0px;
+    height: 1px;
+    display: block;
+    background: white;
+    transition: 300ms;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
 }
 
-.member:hover  {
-  opacity: 1;
-  text-decoration-line: underline;
-}
 
 
 .fix-footer {
@@ -65,9 +80,12 @@ body {
   background-color: $dark-blue;
   color: white;
   font-family: $headers-font;
- }
- .custom-button:hover {
-  background-color: #66BBE8;
+  transition: 1s;
+  &:hover {
+    background-color: white;
+    color: $dark-blue;
+    transition: 1s;
+  }
  }
 
  .custom-dropdown li a {

@@ -11,7 +11,7 @@ class StockJob < ApplicationJob
     company = Company.find_by('symbol = ?', ticker)
     stock_last = Stock.where('company_id = ?', company.id).last
     if !stock_last.nil?
-      Stock.create!(date: Time.now, value: currency_value.round, pourcentage: pourcentage, company_id: company.id) if stock_last.created_at + 600 < Time.now
+      Stock.create!(date: Time.now, value: currency_value.round, pourcentage: pourcentage, company_id: company.id) if stock_last.created_at + 540 < Time.now
     else
       Stock.create!(date: Time.now, value: currency_value.round, pourcentage: pourcentage, company_id: company.id)
     end
